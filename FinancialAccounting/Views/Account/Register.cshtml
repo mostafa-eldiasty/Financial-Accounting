@@ -1,0 +1,74 @@
+﻿@model FinancialAccounting.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/css/animate.css">
+
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Content/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Content/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/Content/css/flaticon.css">
+    <link rel="stylesheet" href="~/Content/css/style.css">
+</head>
+
+<body>
+    <div class="hero-wrap js-fullheight" style="background-image: url('/Content/accounting.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 order-md-first">
+                    <div class="login-wrap p-4 p-md-5">
+                        <h3 class="mb-4">Register Now</h3>
+
+                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-group", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email)
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Email)
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Password)
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password)
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ConfirmPassword)
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                            </div>
+
+                            <div class="form-group d-flex justify-content-end mt-4">
+                                <input type="submit" value="Log in" class="btn btn-primary" />
+                            </div>
+                        }
+                        @Html.ActionLink("Already have an account", "Login")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
