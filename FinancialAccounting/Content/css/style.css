@@ -8707,7 +8707,7 @@ h1, h2, h3, h4, h5,
   -webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
   box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
-  z-index: 0;
+  /*z-index: 0;*/
   margin-top:50px;
 }
 

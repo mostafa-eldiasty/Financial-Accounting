@@ -1,4 +1,5 @@
-﻿@using FinancialAccounting.Models
+﻿@using FinancialAccounting.Resources
+@using FinancialAccounting.Models
 @model LoginViewModel
 
 @{
@@ -37,7 +38,7 @@
             <div class="row">
                 <div class="col-md-5 order-md-first">
                     <div class="login-wrap p-4 p-md-5">
-                        <h3 class="mb-4">ٍSign IN</h3>
+                        <h3 class="mb-4">@Language.SignInToAccount</h3>
 
                         @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-group", role = "form" }))
                         {
@@ -45,23 +46,36 @@
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                             <div class="form-group">
-                                @Html.LabelFor(m => m.Email)
+                                <label for="Email" class="label">@Language.UserName</label>
                                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.Email)
+                                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
                             </div>
 
                             <div class="form-group">
-                                @Html.LabelFor(m => m.Password)
+                                <label for="Password" class="label">@Language.Password</label>
                                 @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.Password)
+                                @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
                             </div>
 
                             <div class="form-group d-flex justify-content-end mt-4">
-                                <input type="submit" value="Log in" class="btn btn-primary" />
+                                <input type="submit" value="@Language.LogIn" class="btn btn-primary" />
                             </div>
                         }
-                        @Html.ActionLink("Register as a new user", "Register")
+                        @*@Html.ActionLink("Register as a new user", "Register")*@
                     </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            @*<input type="radio" onclick=""/>English*@
+                            @Html.ActionLink("English", "ChangeLanguage",new { lang = "en-US" })
+                        </div>
+
+                        <div class="col-sm-6">
+                            @*<input type="radio" />عربى*@
+                            @Html.ActionLink("عربى", "ChangeLanguage", new { lang = "ar-EG" })
+                        </div>
+                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -72,4 +86,14 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
+    
+    <script>
+        $(document).ready(function () {
+            if ("@ViewBag.CurrentLanguage" == "ar-EG") {
+                $(".login-wrap").css('text-align', 'right');
+                $(".login-wrap").attr('dir', 'rtl');
+                $(".label").css('left', 'auto').css('right', '0').css('margin-right', '30px');
+            }
+        });
+    </script>
 </body>

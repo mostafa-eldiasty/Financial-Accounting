@@ -13,7 +13,7 @@ using FinancialAccounting.Models;
 namespace FinancialAccounting.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -58,6 +58,7 @@ namespace FinancialAccounting.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            ViewBag.CurrentLanguage = CultureInfo.CurrentCulture;
             return View();
         }
 

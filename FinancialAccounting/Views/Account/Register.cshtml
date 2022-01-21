@@ -1,4 +1,5 @@
-﻿@model FinancialAccounting.Models.RegisterViewModel
+﻿@using FinancialAccounting.Resources
+@model FinancialAccounting.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
     Layout = null;
@@ -40,21 +41,21 @@
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                             <div class="form-group">
-                                @Html.LabelFor(m => m.Email)
+                                <label for="Email">@Language.UserName</label>
                                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.Email)
+                                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
                             </div>
 
                             <div class="form-group">
-                                @Html.LabelFor(m => m.Password)
+                                <label for="Password">@Language.Password</label>
                                 @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.Password)
+                                @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
                             </div>
 
                             <div class="form-group">
-                                @Html.LabelFor(m => m.ConfirmPassword)
+                                <label for="ConfirmPassword">@Language.ConfirmPassword</label>
                                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "text-danger" })
                             </div>
 
                             <div class="form-group d-flex justify-content-end mt-4">
