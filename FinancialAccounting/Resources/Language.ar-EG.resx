@@ -117,17 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BasicInformation" xml:space="preserve">
+    <value>البيانات الاساسية</value>
+  </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value> تأكيد كلمة المرور</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>الشاشه الرئيسية</value>
+  </data>
+  <data name="GeneralAccounts" xml:space="preserve">
+    <value>الحسابات العامة</value>
   </data>
   <data name="LogIn" xml:space="preserve">
     <value>تسجيل الدخول</value>
   </data>
+  <data name="Logo" xml:space="preserve">
+    <value>للتوضيح هذا الاسم  مكتوب كالوجو ليس اكثر</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>كلمة المرور</value>
   </data>
+  <data name="Reports" xml:space="preserve">
+    <value>التقارير</value>
+  </data>
   <data name="SignInToAccount" xml:space="preserve">
     <value>تسجيل الدخول الى حسابك</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>الحركات</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>اسم المستخدم</value>

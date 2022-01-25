@@ -117,17 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BasicInformation" xml:space="preserve">
+    <value>Basic Information</value>
+  </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="GeneralAccounts" xml:space="preserve">
+    <value>General Accounts</value>
   </data>
   <data name="LogIn" xml:space="preserve">
     <value>Log In</value>
   </data>
+  <data name="Logo" xml:space="preserve">
+    <value>For decleration this is not a company or the template name it is created by me mostafa</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
   <data name="SignInToAccount" xml:space="preserve">
     <value>Sign In To Account</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transactions</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>User Name</value>

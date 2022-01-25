@@ -11,7 +11,7 @@ namespace FinancialAccounting.Controllers
     public class BaseController : Controller
     {
         [AllowAnonymous]
-        public ActionResult ChangeLanguage(string lang)
+        public ActionResult ChangeLanguage(string lang,string view,string controller)
         {
             if (!string.IsNullOrEmpty(lang))
             {
@@ -24,7 +24,7 @@ namespace FinancialAccounting.Controllers
             Response.Cookies.Add(httpCookie);
 
             ViewBag.CurrentLanguage = lang;
-            return View("Login");
+            return RedirectToAction(view, controller);
         }
     }
 }
