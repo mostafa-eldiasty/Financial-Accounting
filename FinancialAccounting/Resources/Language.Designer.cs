@@ -61,6 +61,24 @@ namespace FinancialAccounting.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accounts.
+        /// </summary>
+        public static string Accounts {
+            get {
+                return ResourceManager.GetString("Accounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Analatical Accounts.
+        /// </summary>
+        public static string AnalaticalAccounts {
+            get {
+                return ResourceManager.GetString("AnalaticalAccounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Basic Information.
         /// </summary>
         public static string BasicInformation {
@@ -79,11 +97,74 @@ namespace FinancialAccounting.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cost Centers.
+        /// </summary>
+        public static string CostCenters {
+            get {
+                return ResourceManager.GetString("CostCenters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currencies.
+        /// </summary>
+        public static string Currencies {
+            get {
+                return ResourceManager.GetString("Currencies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboard.
         /// </summary>
         public static string Dashboard {
             get {
                 return ResourceManager.GetString("Dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distribution of Profits and Losses.
+        /// </summary>
+        public static string DistributionOfProfitsAndLosses {
+            get {
+                return ResourceManager.GetString("DistributionOfProfitsAndLosses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estimated Budgets.
+        /// </summary>
+        public static string EstimatedBudgets {
+            get {
+                return ResourceManager.GetString("EstimatedBudgets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ExchangePrices.
+        /// </summary>
+        public static string ExchangePrices {
+            get {
+                return ResourceManager.GetString("ExchangePrices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Financial Periods.
+        /// </summary>
+        public static string FinancialPeriods {
+            get {
+                return ResourceManager.GetString("FinancialPeriods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Financial Years.
+        /// </summary>
+        public static string FinancialYears {
+            get {
+                return ResourceManager.GetString("FinancialYears", resourceCulture);
             }
         }
         
@@ -120,6 +201,15 @@ namespace FinancialAccounting.Resources {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Analatical Account Repetition.
+        /// </summary>
+        public static string RemoveAnalaticalAccountRepetition {
+            get {
+                return ResourceManager.GetString("RemoveAnalaticalAccountRepetition", resourceCulture);
             }
         }
         

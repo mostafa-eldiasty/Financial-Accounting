@@ -117,14 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Accounts" xml:space="preserve">
+    <value>الحسابات</value>
+  </data>
+  <data name="AnalaticalAccounts" xml:space="preserve">
+    <value>الحسابات التحليلية</value>
+  </data>
   <data name="BasicInformation" xml:space="preserve">
     <value>البيانات الاساسية</value>
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value> تأكيد كلمة المرور</value>
   </data>
+  <data name="CostCenters" xml:space="preserve">
+    <value>مراكز التكلفة</value>
+  </data>
+  <data name="Currencies" xml:space="preserve">
+    <value>العملات</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>الشاشه الرئيسية</value>
+  </data>
+  <data name="DistributionOfProfitsAndLosses" xml:space="preserve">
+    <value>توزيع الأرباح و الخسائر</value>
+  </data>
+  <data name="EstimatedBudgets" xml:space="preserve">
+    <value>الموازنات التقديرية</value>
+  </data>
+  <data name="ExchangePrices" xml:space="preserve">
+    <value>أسعار الصرف</value>
+  </data>
+  <data name="FinancialPeriods" xml:space="preserve">
+    <value>الفترات المالية</value>
+  </data>
+  <data name="FinancialYears" xml:space="preserve">
+    <value>السنوات المالية</value>
   </data>
   <data name="GeneralAccounts" xml:space="preserve">
     <value>الحسابات العامة</value>
@@ -137,6 +164,9 @@
   </data>
   <data name="Password" xml:space="preserve">
     <value>كلمة المرور</value>
+  </data>
+  <data name="RemoveAnalaticalAccountRepetition" xml:space="preserve">
+    <value>مسح تكرار الحساب التحليلى</value>
   </data>
   <data name="Reports" xml:space="preserve">
     <value>التقارير</value>

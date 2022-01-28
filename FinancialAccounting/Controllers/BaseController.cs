@@ -23,7 +23,7 @@ namespace FinancialAccounting.Controllers
             httpCookie.Value = lang;
             Response.Cookies.Add(httpCookie);
 
-            ViewBag.CurrentLanguage = lang;
+            ViewBag.CurrentLanguage = lang == "en-US"?"english":"arabic";
             return RedirectToAction(view, controller);
         }
     }

@@ -89,11 +89,13 @@
     
     <script>
         $(document).ready(function () {
-            if ("@ViewBag.CurrentLanguage" == "ar-EG") {
+            if ($.cookie("Lang") == "ar-EG") {
                 $(".login-wrap").css('text-align', 'right');
                 $(".login-wrap").attr('dir', 'rtl');
                 $(".label").css('left', 'auto').css('right', '0').css('margin-right', '30px');
             }
+
+            @*$('*').addClass('@ViewBag.CurrentLanguage');*@
         });
     </script>
 </body>

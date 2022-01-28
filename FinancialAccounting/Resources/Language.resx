@@ -117,14 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Accounts" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="AnalaticalAccounts" xml:space="preserve">
+    <value>Analatical Accounts</value>
+  </data>
   <data name="BasicInformation" xml:space="preserve">
     <value>Basic Information</value>
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
+  <data name="CostCenters" xml:space="preserve">
+    <value>Cost Centers</value>
+  </data>
+  <data name="Currencies" xml:space="preserve">
+    <value>Currencies</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dashboard</value>
+  </data>
+  <data name="DistributionOfProfitsAndLosses" xml:space="preserve">
+    <value>Distribution of Profits and Losses</value>
+  </data>
+  <data name="EstimatedBudgets" xml:space="preserve">
+    <value>Estimated Budgets</value>
+  </data>
+  <data name="ExchangePrices" xml:space="preserve">
+    <value>ExchangePrices</value>
+  </data>
+  <data name="FinancialPeriods" xml:space="preserve">
+    <value>Financial Periods</value>
+  </data>
+  <data name="FinancialYears" xml:space="preserve">
+    <value>Financial Years</value>
   </data>
   <data name="GeneralAccounts" xml:space="preserve">
     <value>General Accounts</value>
@@ -137,6 +164,9 @@
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="RemoveAnalaticalAccountRepetition" xml:space="preserve">
+    <value>Remove Analatical Account Repetition</value>
   </data>
   <data name="Reports" xml:space="preserve">
     <value>Reports</value>

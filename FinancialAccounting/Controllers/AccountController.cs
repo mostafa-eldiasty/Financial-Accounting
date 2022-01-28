@@ -58,7 +58,7 @@ namespace FinancialAccounting.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            ViewBag.CurrentLanguage = CultureInfo.CurrentCulture;
+            ViewBag.CurrentLanguage = CultureInfo.CurrentCulture.ToString() == "en-US"?"english": "arabic";
             return View();
         }
 
