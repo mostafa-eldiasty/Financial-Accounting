@@ -207,4 +207,7 @@
   <data name="SIDEBARSKINS" xml:space="preserve">
     <value>SIDEBAR SKINS</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
 </root>

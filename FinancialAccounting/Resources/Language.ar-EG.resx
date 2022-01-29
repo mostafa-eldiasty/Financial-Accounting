@@ -207,4 +207,7 @@
   <data name="SIDEBARSKINS" xml:space="preserve">
     <value>لون الشريط الجانبى</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+  </data>
 </root>

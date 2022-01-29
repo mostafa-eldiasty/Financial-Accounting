@@ -23396,7 +23396,7 @@ body.avgrund-active {
 }
 
 .sidebar .nav-item:hover > .nav-link {
-    background: #333;
+    background: #3db0f7;
     color: #d0cfcf;
 }
 
@@ -23457,7 +23457,7 @@ body.avgrund-active {
     }
 
 .sidebar .nav.sub-menu .nav-item .nav-link {
-  color: #939393;
+  /*color: #939393;*/
   padding: 0.5rem 0.5rem;
   position: relative;
   font-size: 0.75rem;
@@ -23570,8 +23570,8 @@ body.avgrund-active {
 }
 
 .sidebar-light .sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link {
-  background: #333;
-  color: #d0cfcf;
+    background: #3db0f7;
+    color: #d0cfcf;
 }
 
 .sidebar-light .sidebar .nav.sub-menu .nav-item .nav-link:before {
