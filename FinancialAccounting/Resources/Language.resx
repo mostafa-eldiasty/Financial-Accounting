@@ -195,4 +195,16 @@
   <data name="UserName" xml:space="preserve">
     <value>User Name</value>
   </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="HEADERSKINS" xml:space="preserve">
+    <value>HEADER SKINS</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="SIDEBARSKINS" xml:space="preserve">
+    <value>SIDEBAR SKINS</value>
+  </data>
 </root>

@@ -195,4 +195,16 @@
   <data name="UserName" xml:space="preserve">
     <value>اسم المستخدم</value>
   </data>
+  <data name="Dark" xml:space="preserve">
+    <value>غامق</value>
+  </data>
+  <data name="HEADERSKINS" xml:space="preserve">
+    <value>لون شريط الرأس</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>فاتح</value>
+  </data>
+  <data name="SIDEBARSKINS" xml:space="preserve">
+    <value>لون الشريط الجانبى</value>
+  </data>
 </root>

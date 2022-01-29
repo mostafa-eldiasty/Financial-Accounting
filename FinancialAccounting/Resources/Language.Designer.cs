@@ -142,6 +142,15 @@ namespace FinancialAccounting.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dark.
+        /// </summary>
+        public static string Dark {
+            get {
+                return ResourceManager.GetString("Dark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboard.
         /// </summary>
         public static string Dashboard {
@@ -205,11 +214,29 @@ namespace FinancialAccounting.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HEADER SKINS.
+        /// </summary>
+        public static string HEADERSKINS {
+            get {
+                return ResourceManager.GetString("HEADERSKINS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Journal Types.
         /// </summary>
         public static string JournalTypes {
             get {
                 return ResourceManager.GetString("JournalTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light.
+        /// </summary>
+        public static string Light {
+            get {
+                return ResourceManager.GetString("Light", resourceCulture);
             }
         }
         
@@ -264,6 +291,15 @@ namespace FinancialAccounting.Resources {
         public static string Reports {
             get {
                 return ResourceManager.GetString("Reports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SIDEBAR SKINS.
+        /// </summary>
+        public static string SIDEBARSKINS {
+            get {
+                return ResourceManager.GetString("SIDEBARSKINS", resourceCulture);
             }
         }
         

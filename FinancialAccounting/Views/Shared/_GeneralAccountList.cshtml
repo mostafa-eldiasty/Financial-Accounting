@@ -1,0 +1,138 @@
+﻿@using FinancialAccounting.Resources
+
+<li class="nav-item root">
+    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <i class="typcn typcn-chart-pie menu-icon"></i>
+        <span class="menu-title">@Language.GeneralAccounts</span>
+        <i class="typcn typcn-chevron-right"></i>
+    </a>
+    <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+
+            <li class="nav-item">
+                <a class="nav-link Parent-link" href="" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basicInfo">
+                    <i class="typcn typcn-info-large menu-icon"></i>
+                    <span class="menu-title">@Language.BasicInformation</span>
+                    <i class="typcn typcn-chevron-right"></i>
+                </a>
+                <div class="collapse children">
+                    <ul class="nav flex-column sub-menu child-menu">
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/BasicInfo/Accounts">
+                                <span>@Language.Accounts</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/BasicInfo/AnalaticalAccounts">
+                                <span>@Language.AnalaticalAccounts</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/BasicInfo/CostCenter">
+                                <span>@Language.CostCenters</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/BasicInfo/JournalTypes">
+                                <span>@Language.JournalTypes</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/BasicInfo/Currencies">
+                                <span>@Language.Currencies</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/BasicInfo/ExchangePrices">
+                                <span>@Language.ExchangePrices</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/BasicInfo/FinancialYear">
+                                <span>@Language.FinancialYears</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/BasicInfo/FinancialPeriods">
+                                <span>@Language.FinancialPeriods</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/BasicInfo/RemoveAnalyticalAccountRepetition">
+                                <span>@Language.RemoveAnalaticalAccountRepetition</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/BasicInfo/DistributionOfProfitsAndLoses">
+                                <span>@Language.DistributionOfProfitsAndLosses</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/BasicInfo/EstimatedBudgets">
+                                <span>@Language.EstimatedBudgets</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link Parent-link" href="" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basicInfo">
+                    <i class="typcn typcn-arrow-loop menu-icon"></i>
+                    <span class="menu-title">@Language.Transactions</span>
+                    <i class="typcn typcn-chevron-right"></i>
+                </a>
+
+                <div class="collapse children">
+                    <ul class="nav flex-column sub-menu child-menu">
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/Transaction/DailyJournal">
+                                <span>@Language.DailyJournals</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/Transaction/PeriodicJournals">
+                                <span>@Language.PeriodicJournals</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link Parent-link" href="" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basicInfo">
+                    <i class="typcn typcn-document-text menu-icon"></i>
+                    <span class="menu-title">@Language.Reports</span>
+                    <i class="typcn typcn-chevron-right"></i>
+                </a>
+
+                <div class="collapse children">
+                    <ul class="nav flex-column sub-menu child-menu">
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/Reports">
+                                <span>@Language.DailyJournalsReport</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item child">
+                            <a class="nav-link" href="/Reports">
+                                <span>@Language.AccountStatmentHelperReport</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</li>

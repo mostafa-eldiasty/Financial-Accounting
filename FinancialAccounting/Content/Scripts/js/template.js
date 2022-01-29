@@ -23,7 +23,8 @@
       } else {
         //for other url
         if (element.attr('href').indexOf(current) !== -1) {
-          element.parents('.nav-item').last().addClass('active');
+            var parent = element.parents('.nav-item').addClass('active');
+            parent.find('.collapse:first').addClass('show');
           if (element.parents('.sub-menu').length) {
             element.closest('.collapse').addClass('show');
             element.addClass('active');
