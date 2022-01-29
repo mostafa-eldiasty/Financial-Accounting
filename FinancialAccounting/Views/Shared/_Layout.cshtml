@@ -28,7 +28,18 @@
 
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-
+                <a class="navbar-brand brand-logo" href="/Home/Index">
+                    <span style="color:blue;font-weight:bold;font-size:25px;">Big Bang</span>
+                    <span style="color:red;font-weight:normal;font-size:15px;">Solutions</span>
+                    
+                </a>
+                
+                @*<a class="navbar-brand brand-logo-mini" href="/Home/Index"><span style="color:red;font-weight:normal;font-size:15px;">Solutions</span></a>*@
+                @*<span class="navbar-brand brand-logo" style="color:blue;font-weight:bold;font-size:25px;">Big Bang</span>
+                <span class="navbar-brand brand-logo"style="color:red;font-weight:normal;font-size:15px;">Solutions</span>*@
+                <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-flex" type="button" data-toggle="minimize">
+                    <span class="typcn typcn-th-menu"></span>
+                </button>
             </div>
 
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -50,7 +61,7 @@
                         </li>*@
                 </ul>
                 <ul class="navbar-nav">
-                    @*<li class="nav-item d-none d-lg-flex  mr-2">
+                    @*<xli class="nav-item d-none d-lg-flex  mr-2">
                             <a class="nav-link" href="#">
                                 Help
                             </a>
@@ -218,7 +229,7 @@
             <!-- partial -->
             <!-- partial:partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                <div id="logo">
+                @*<div id="logo">
                     <p class="sidebar-menu-title">
                         <span style="color:blue;font-weight:bold;font-size:30px;">Big Bang</span>
                         <span style="color:red;font-weight:normal;font-size:15px;">Solutions</span>
@@ -226,7 +237,7 @@
                         <span>(@Language.Logo)</span>
                     </p>
                 </div>
-                <hr/>
+                <hr/>*@
                 <ul class="nav">
                     @*<li class="nav-item">
                         @*<div class="d-flex sidebar-profile">
@@ -260,14 +271,14 @@
                             <span>(@Language.Logo)</span>
                         </p>
                     </li>*@
-                    <li class="nav-item">
+                    <li class="nav-item root">
                         <a class="nav-link" href="index.html">
                             <i class="typcn typcn-device-desktop menu-icon"></i>
                             <span class="menu-title">@Language.Dashboard</span>
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item root">
                         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                             <i class="typcn typcn-chart-pie menu-icon"></i>
                             <span class="menu-title">@Language.GeneralAccounts</span>
@@ -277,12 +288,12 @@
                             <ul class="nav flex-column sub-menu">
 
                                 <li class="nav-item">
-                                    <a class="nav-link financial-basic-info-link" href="" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basicInfo">
+                                    <a class="nav-link Parent-link" href="" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basicInfo">
                                         <i class="typcn typcn-info-large menu-icon"></i>
-                                        <span class="menu-title">@Language.BasicInformation</span>
+                                        <span style="font-weight:bold;font-size:0.8rem;">@Language.BasicInformation</span>
                                         <i class="typcn typcn-chevron-right"></i>
                                     </a>
-                                    <div class="collapse financial-basic-info-child">
+                                    <div class="collapse children">
                                         <ul class="nav flex-column sub-menu child-menu">
                                             <li class="nav-item child">
                                                 <a class="nav-link" href="pages/ui-features/buttons.html">
@@ -304,7 +315,19 @@
 
                                             <li class="nav-item child">
                                                 <a class="nav-link" href="pages/ui-features/buttons.html">
+                                                    <span>@Language.JournalTypes</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item child">
+                                                <a class="nav-link" href="pages/ui-features/buttons.html">
                                                     <span>@Language.Currencies</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item child">
+                                                <a class="nav-link" href="pages/ui-features/buttons.html">
+                                                    <span>@Language.ExchangePrices</span>
                                                 </a>
                                             </li>
 
@@ -317,12 +340,6 @@
                                             <li class="nav-item child">
                                                 <a class="nav-link" href="pages/ui-features/buttons.html">
                                                     <span>@Language.FinancialPeriods</span>
-                                                </a>
-                                            </li>
-
-                                            <li class="nav-item child">
-                                                <a class="nav-link" href="pages/ui-features/buttons.html">
-                                                    <span>@Language.ExchangePrices</span>
                                                 </a>
                                             </li>
 
@@ -345,23 +362,54 @@
                                             </li>
                                         </ul>
                                     </div>
-
                                 </li>
 
                                 <li class="nav-item">
-                                    @*<a class="nav-link" href="pages/ui-features/buttons.html">@Language.BasicInformation</a>*@
-                                    <a class="nav-link" href="pages/ui-features/buttons.html">
+                                    <a class="nav-link Parent-link" href="" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basicInfo">
                                         <i class="typcn typcn-arrow-loop menu-icon"></i>
-                                        <span class="menu-title">@Language.Transactions</span>
+                                        <span style="font-weight:bold;font-size:0.8rem;">@Language.Transactions</span>
+                                        <i class="typcn typcn-chevron-right"></i>
                                     </a>
+
+                                    <div class="collapse children">
+                                        <ul class="nav flex-column sub-menu child-menu">
+                                            <li class="nav-item child">
+                                                <a class="nav-link" href="pages/ui-features/buttons.html">
+                                                    <span>@Language.DailyJournals</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item child">
+                                                <a class="nav-link" href="pages/ui-features/buttons.html">
+                                                    <span>@Language.PeriodicJournals</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
 
                                 <li class="nav-item">
-                                    @*<a class="nav-link" href="pages/ui-features/buttons.html">@Language.BasicInformation</a>*@
-                                    <a class="nav-link" href="pages/ui-features/buttons.html">
+                                    <a class="nav-link Parent-link" href="" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basicInfo">
                                         <i class="typcn typcn-document-text menu-icon"></i>
-                                        <span class="menu-title">@Language.Reports</span>
+                                        <span style="font-weight:bold;font-size:0.8rem;">@Language.Reports</span>
+                                        <i class="typcn typcn-chevron-right"></i>
                                     </a>
+
+                                    <div class="collapse children">
+                                        <ul class="nav flex-column sub-menu child-menu">
+                                            <li class="nav-item child">
+                                                <a class="nav-link" href="pages/ui-features/buttons.html">
+                                                    <span>@Language.DailyJournalsReport</span>
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item child">
+                                                <a class="nav-link" href="pages/ui-features/buttons.html">
+                                                    <span>@Language.AccountStatmentHelperReport</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -430,16 +478,18 @@
                 $('.typcn-chevron-right').removeClass('typcn-chevron-right')
             }
 
-            $('.financial-basic-info-link').on('click', function () {
+            $('.Parent-link').on('click', function () {
                 if ($(this).attr("aria-expanded") === "false") {
                     $(this).attr("aria-expanded", "true");
                     $(this).removeClass('collapsed');
-                    $('.financial-basic-info-child').addClass('show');
+                    //$('.financial-basic-info-child').addClass('show');
+                    $(this).closest("li").find('.collapse.children').addClass('show in');
                 }
                 else {
                      $(this).attr("aria-expanded", "false");
                     $(this).addClass('collapsed');
-                    $('.financial-basic-info-child').removeClass('show');
+                    //$('.financial-basic-info-child').removeClass('show');
+                    $(this).closest("li").find('.collapse.children').removeClass('show in');
                 }
 
             });

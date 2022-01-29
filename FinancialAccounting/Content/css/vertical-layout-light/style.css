@@ -13347,7 +13347,7 @@ input[type="button"].btn-block {
   color: #0056b3;
   text-decoration: none;
   background-color: #e9ecef;
-  border-color: #dee2e6;
+  border-color: #d9d9d9;
 }
 
 .page-link:focus {
@@ -23070,12 +23070,13 @@ body.avgrund-active {
 }
 
 .page-body-wrapper {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  padding-left: 0;
-  padding-right: 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 60px;
 }
 
 .page-body-wrapper.full-page-wrapper {
@@ -23134,7 +23135,7 @@ body.avgrund-active {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     padding: 0;
-    width: 255px;
+    width: 310px;
     z-index: 11;
     transition: width 0.25s ease, background 0.25s ease;
     -webkit-transition: width 0.25s ease, background 0.25s ease;
@@ -23343,7 +23344,7 @@ body.avgrund-active {
 .sidebar .nav .nav-item .nav-link .menu-title {
   color: inherit;
   display: inline-block;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   line-height: 1;
   vertical-align: middle;
   font-weight: bold;
@@ -23381,7 +23382,8 @@ body.avgrund-active {
 }
 
 .sidebar .nav:not(.sub-menu) {
-  margin-top: 0rem;
+    margin-top: 0rem;
+    padding: 1.75rem 1.125rem;
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item {
@@ -23393,7 +23395,7 @@ body.avgrund-active {
 }
 
 .sidebar .nav-item:hover > .nav-link {
-    background: #BCBBBB;
+    background: #d9d9d9;
     color: #fff;
 }
 
@@ -23624,7 +23626,7 @@ body.avgrund-active {
   /* Navbar color variations */
 }
 
-/*.navbar .navbar-brand-wrapper {
+.navbar .navbar-brand-wrapper {
   background: #ffffff;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
@@ -23632,7 +23634,7 @@ body.avgrund-active {
   -ms-transition: width 0.25s ease, background 0.25s ease;
   width: 255px;
   height: 64px;
-}*/
+}
 
 .sidebar-dark .navbar .navbar-brand-wrapper {
   background: #ffffff;
@@ -23642,7 +23644,7 @@ body.avgrund-active {
   color: #27367f;
   font-size: 1.5rem;
   margin-right: 0;
-  padding: .25rem 1rem;
+  /*padding: .25rem 1rem;*/
 }
 
 .navbar .navbar-brand-wrapper .navbar-brand.brand-logo-mini {
@@ -23672,9 +23674,9 @@ body.avgrund-active {
   margin: auto;
 }
 
-.navbar .navbar-brand-wrapper .navbar-toggler {
+/*.navbar .navbar-brand-wrapper .navbar-toggler {
   padding: 1rem 2rem;
-}
+}*/
 
 .navbar .navbar-menu-wrapper {
   background: #ffffff;
@@ -24381,9 +24383,10 @@ body.avgrund-active {
   .sidebar-icon-only .navbar .navbar-menu-wrapper {
     width: calc(100% - 70px);
   }
-  .sidebar-icon-only .sidebar {
-    width: 70px;
-  }
+    .sidebar-icon-only .sidebar {
+        width: 70px;
+        /*width: 110px;*/
+    }
   .sidebar-icon-only .sidebar .sidebar-profile .sidebar-profile-name .sidebar-name,
   .sidebar-icon-only .sidebar .sidebar-profile .sidebar-profile-name .sidebar-designation {
     display: none;
@@ -24444,12 +24447,12 @@ body.avgrund-active {
     align-items: center;
     background: #1b1b29;
     padding: 0.5rem 1.4rem;
-    left: 70px;
+    left: 40px;
     position: absolute;
     text-align: left;
     top: 0;
     bottom: 0;
-    width: 190px;
+    width: 250px;
     z-index: 1;
     line-height: 1.8;
     box-shadow: 4px 0px 7px 0px rgba(182, 185, 189, 0.25);
@@ -24482,8 +24485,8 @@ body.avgrund-active {
     background: #1b1b29;
     border-radius: 0 0 5px 0;
     position: absolute;
-    left: 70px;
-    width: 190px;
+    left: 40px;
+    width: 250px;
     box-shadow: 4px 4px 7px 0px rgba(182, 185, 189, 0.25);
   }
   .sidebar-light.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse, .sidebar-light.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
@@ -25340,4 +25343,15 @@ ul.nav.ar-EG {
     margin: 0;
     padding: 0;
 }
+
+.nav-link > span{
+    font-size:0.8rem;
+}
+
+li.nav-item.root {
+    border-bottom: solid;
+    border-width: 1px;
+    border-color:lightgray;
+}
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
+

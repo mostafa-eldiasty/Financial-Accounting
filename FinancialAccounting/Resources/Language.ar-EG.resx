@@ -120,6 +120,9 @@
   <data name="Accounts" xml:space="preserve">
     <value>الحسابات</value>
   </data>
+  <data name="AccountStatmentHelperReport" xml:space="preserve">
+    <value>تقرير كشف حساب مساعد</value>
+  </data>
   <data name="AnalaticalAccounts" xml:space="preserve">
     <value>الحسابات التحليلية</value>
   </data>
@@ -134,6 +137,12 @@
   </data>
   <data name="Currencies" xml:space="preserve">
     <value>العملات</value>
+  </data>
+  <data name="DailyJournals" xml:space="preserve">
+    <value>القيود اليومية</value>
+  </data>
+  <data name="DailyJournalsReport" xml:space="preserve">
+    <value>تقرير القيود اليومية</value>
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>الشاشه الرئيسية</value>
@@ -156,6 +165,9 @@
   <data name="GeneralAccounts" xml:space="preserve">
     <value>الحسابات العامة</value>
   </data>
+  <data name="JournalTypes" xml:space="preserve">
+    <value>انواع القيود</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>تسجيل الدخول</value>
   </data>
@@ -164,6 +176,9 @@
   </data>
   <data name="Password" xml:space="preserve">
     <value>كلمة المرور</value>
+  </data>
+  <data name="PeriodicJournals" xml:space="preserve">
+    <value>القيود الدورية</value>
   </data>
   <data name="RemoveAnalaticalAccountRepetition" xml:space="preserve">
     <value>مسح تكرار الحساب التحليلى</value>

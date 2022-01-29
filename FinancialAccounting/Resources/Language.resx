@@ -120,6 +120,9 @@
   <data name="Accounts" xml:space="preserve">
     <value>Accounts</value>
   </data>
+  <data name="AccountStatmentHelperReport" xml:space="preserve">
+    <value>Account Statment Helper Report</value>
+  </data>
   <data name="AnalaticalAccounts" xml:space="preserve">
     <value>Analatical Accounts</value>
   </data>
@@ -134,6 +137,12 @@
   </data>
   <data name="Currencies" xml:space="preserve">
     <value>Currencies</value>
+  </data>
+  <data name="DailyJournals" xml:space="preserve">
+    <value>Daily Journals</value>
+  </data>
+  <data name="DailyJournalsReport" xml:space="preserve">
+    <value>Daily Journals Report</value>
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dashboard</value>
@@ -156,6 +165,9 @@
   <data name="GeneralAccounts" xml:space="preserve">
     <value>General Accounts</value>
   </data>
+  <data name="JournalTypes" xml:space="preserve">
+    <value>Journal Types</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>Log In</value>
   </data>
@@ -164,6 +176,9 @@
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="PeriodicJournals" xml:space="preserve">
+    <value>Periodic Journals</value>
   </data>
   <data name="RemoveAnalaticalAccountRepetition" xml:space="preserve">
     <value>Remove Analatical Account Repetition</value>

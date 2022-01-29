@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <div class="hero-wrap js-fullheight" style="background-image: url('/Content/accounting.jpg');">
+    <div class="hero-wrap js-fullheight">
         <div class="container">
             <div class="row">
                 <div class="col-md-5 order-md-first">
@@ -75,7 +75,7 @@
                             @Html.ActionLink("عربى", "ChangeLanguage", new { lang = "ar-EG", view = "Login", controller = "Account" })
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
@@ -86,16 +86,18 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
-    
+    <script src="~/Content/Scripts/jquery.cookie.min.js"></script>
+
     <script>
         $(document).ready(function () {
-            if ($.cookie("Lang") == "ar-EG") {
-                $(".login-wrap").css('text-align', 'right');
-                $(".login-wrap").attr('dir', 'rtl');
-                $(".label").css('left', 'auto').css('right', '0').css('margin-right', '30px');
+            if ($.cookie("Lang") == "en-US") {
+                $('*').removeClass("ar-EG");
+                $('*').addClass("en-US");
             }
-
-            @*$('*').addClass('@ViewBag.CurrentLanguage');*@
+            else {
+                $('*').removeClass("en-US");
+                $('*').addClass("ar-EG");
+            }
         });
     </script>
 </body>

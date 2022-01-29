@@ -10107,3 +10107,21 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+.ar-EG {
+    direction: rtl;
+    text-align: right;
+}
+
+.en-US {
+    direction: ltr;
+    text-align: left;
+}
+
+.hero-wrap.ar-EG {
+    background-image: url('/Content/accounting-flipped.jpg');
+}
+
+.hero-wrap {
+    background-image: url('/Content/accounting.jpg');
+}

@@ -70,6 +70,15 @@ namespace FinancialAccounting.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account Statment Helper Report.
+        /// </summary>
+        public static string AccountStatmentHelperReport {
+            get {
+                return ResourceManager.GetString("AccountStatmentHelperReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Analatical Accounts.
         /// </summary>
         public static string AnalaticalAccounts {
@@ -111,6 +120,24 @@ namespace FinancialAccounting.Resources {
         public static string Currencies {
             get {
                 return ResourceManager.GetString("Currencies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily Journals.
+        /// </summary>
+        public static string DailyJournals {
+            get {
+                return ResourceManager.GetString("DailyJournals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily Journals Report.
+        /// </summary>
+        public static string DailyJournalsReport {
+            get {
+                return ResourceManager.GetString("DailyJournalsReport", resourceCulture);
             }
         }
         
@@ -178,6 +205,15 @@ namespace FinancialAccounting.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Journal Types.
+        /// </summary>
+        public static string JournalTypes {
+            get {
+                return ResourceManager.GetString("JournalTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log In.
         /// </summary>
         public static string LogIn {
@@ -201,6 +237,15 @@ namespace FinancialAccounting.Resources {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Periodic Journals.
+        /// </summary>
+        public static string PeriodicJournals {
+            get {
+                return ResourceManager.GetString("PeriodicJournals", resourceCulture);
             }
         }
         
