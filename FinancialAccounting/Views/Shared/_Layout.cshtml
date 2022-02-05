@@ -42,11 +42,13 @@
                             && HttpContext.Current.Request.Cookies["Lang"].Value != null
                             && HttpContext.Current.Request.Cookies["Lang"].Value == "ar-EG")
                         {
-                            @Html.ActionLink("English", "ChangeLanguage", new { lang = "en-US", view = "Index", controller = "Home" },new { @class="nav-link" })
+                            @*@Html.ActionLink("English", "ChangeLanguage", new { lang = "en-US"/*, view = "Index", controller = "Home"*/ }, new { @class = "nav-link" })*@
+                            <a href="#" class="nav-link en-lang">English</a>
                         }
                         else
                         {
-                            @Html.ActionLink("عربى", "ChangeLanguage", new { lang = "ar-EG", view = "Index", controller = "Home" },new { @class="nav-link" })
+                            @*@Html.ActionLink("عربى", "ChangeLanguage", new { lang = "ar-EG",url=Url.RouteUrl("").ToString()/*, view = "Index", controller = "Home"*/ },new { @class="nav-link" })*@
+                            <a href="#" class="nav-link ar-lang">عربى</a>
                         }
                     </li>
 
@@ -83,8 +85,10 @@
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_settings-panel.html -->
             <div class="theme-setting-wrapper">
-                <div id="settings-trigger"><i class="typcn typcn-cog-outline"></i></div>
-                <div id="theme-settings" class="settings-panel">
+                <a href="/Settings/Company">
+                    <div id="settings-trigger"><i class="typcn typcn-cog-outline"></i></div>
+                </a>
+                @*<div id="theme-settings" class="settings-panel">
                     <i class="settings-close typcn typcn-delete-outline"></i>
                     <p class="settings-heading">@Language.SIDEBARSKINS</p>
                     <div class="sidebar-bg-options selected" id="sidebar-light-theme">
@@ -105,7 +109,7 @@
                         <div class="tiles dark"></div>
                         <div class="tiles default border"></div>
                     </div>
-                </div>
+                </div>*@
             </div>
             <!-- partial -->
             <!-- partial:partials/_sidebar.html -->
@@ -171,6 +175,9 @@
     <script>
         $(document).ready(function () {
 
+            $('.ar-lang').attr('href', '@Url.Action("ChangeLanguage")?lang=ar-EG&url=' + window.location.toString());
+            $('.en-lang').attr('href', '@Url.Action("ChangeLanguage")?lang=en-US&url=' + window.location.toString());
+
             @*$('body','div', 'nav', 'navbar', 'p', 'a', 'input').addClass('@ViewBag.CurrentLanguage');*@
             if ($.cookie("Lang") == "en-US") {
                 $('*').removeClass("ar-EG");
@@ -200,7 +207,6 @@
                     //$('.financial-basic-info-child').removeClass('show');
                     $(this).closest("li").find('.collapse.children').removeClass('show in');
                 }
-
             });
         });
     </script>

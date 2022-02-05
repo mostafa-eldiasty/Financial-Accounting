@@ -210,4 +210,10 @@
   <data name="Logout" xml:space="preserve">
     <value>تسجيل الخروج</value>
   </data>
+  <data name="BranchesData" xml:space="preserve">
+    <value>بيانات الفروع</value>
+  </data>
+  <data name="CompanyData" xml:space="preserve">
+    <value> بيانات الشركة</value>
+  </data>
 </root>

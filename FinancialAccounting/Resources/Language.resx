@@ -210,4 +210,10 @@
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="BranchesData" xml:space="preserve">
+    <value>Branch Data</value>
+  </data>
+  <data name="CompanyData" xml:space="preserve">
+    <value>Company Data</value>
+  </data>
 </root>

@@ -97,6 +97,24 @@ namespace FinancialAccounting.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Branch Data.
+        /// </summary>
+        public static string BranchesData {
+            get {
+                return ResourceManager.GetString("BranchesData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company Data.
+        /// </summary>
+        public static string CompanyData {
+            get {
+                return ResourceManager.GetString("CompanyData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm Password.
         /// </summary>
         public static string ConfirmPassword {

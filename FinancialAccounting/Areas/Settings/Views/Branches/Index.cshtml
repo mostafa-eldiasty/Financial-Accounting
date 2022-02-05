@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Settings/Views/Shared/_Settings.cshtml";
+}
+
+<h2>Index</h2>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery.cookie.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#company-link').removeClass('pws_tab_active');
+            $('#branch-link').addClass('pws_tab_active');
+        });
+    </script>
+}

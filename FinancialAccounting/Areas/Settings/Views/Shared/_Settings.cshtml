@@ -1,0 +1,50 @@
+﻿@using FinancialAccounting.Resources
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="pws_tabs_container pws_tabs_horizontal pws_tabs_horizontal_top pws_tabs_noeffect pws_none">
+    <ul class="pws_tabs_controll">
+        <li><a class="pws_tab_active tablinks" id="company-link" href="/Settings/Company">@Language.CompanyData</a></li>
+        <li><a class="tablinks" id="branch-link" href="/Settings/Branches">@Language.BranchesData</a></li>
+    </ul>
+
+    <div class="demo-tabs pws_tabs_list">
+
+        <div class="pws_hide pws_tab_single pws_show" id="content" style="">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@RenderSection("Scripts",false);
+
+@*@section Scripts{
+        <script>
+        $(document).ready(function () {
+                $('#branch-link').on('click', function () {
+                    $('#company-link').removeClass('pws_tab_active');
+                    $('#Company').removeClass('pws_show');
+                    $('#Company').removeClass('pws_hide');
+                    $('#Company').css('display','none');
+
+                    $('#branch-link').addClass('pws_tab_active');
+                    $('#Branch').addClass('pws_show');
+                    $('#Branch').css('display','');
+                });
+
+                $('#company-link').on('click', function () {
+                        $('#branch-link').removeClass('pws_tab_active');
+                        $('#Branch').removeClass('pws_show');
+                        $('#Branch').removeClass('pws_hide');
+                        $('#Branch').css('display','none');
+
+                        $('#company-link').addClass('pws_tab_active');
+                        $('#Company').addClass('pws_show');
+                        $('#Company').css('display','');
+                    });
+            });
+        </script>
+    }*@
+

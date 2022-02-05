@@ -11,7 +11,7 @@ namespace FinancialAccounting.Controllers
     public class BaseController : Controller
     {
         [AllowAnonymous]
-        public ActionResult ChangeLanguage(string lang,string view,string controller)
+        public ActionResult ChangeLanguage(string lang/*,string view*/,string url)
         {
             if (!string.IsNullOrEmpty(lang))
             {
@@ -24,7 +24,8 @@ namespace FinancialAccounting.Controllers
             Response.Cookies.Add(httpCookie);
 
             ViewBag.CurrentLanguage = lang == "en-US"?"english":"arabic";
-            return RedirectToAction(view, controller);
+            
+            return Redirect(url);
         }
     }
 }

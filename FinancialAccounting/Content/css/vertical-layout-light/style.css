@@ -22480,36 +22480,55 @@ body.avgrund-active {
 }
 
 .pws_tabs_container ul.pws_tabs_controll li:last-child a {
-  border-right: 1px solid #f2125e;
-  border-radius: 0px 5px 0px 0px;
+    border-right: 1px solid #2b80ff;
+    border-radius: 0px 5px 0px 0px;
 }
 
 .pws_tabs_container ul.pws_tabs_controll li a {
-  border: 1px solid #f2125e;
-  border-bottom: none;
-  border-right: none;
-  background: #fff;
-  color: #f2125e;
-  padding: 0.6em 1.3em;
-  margin-right: 0;
+    border: 1px solid #2b80ff;
+    border-bottom: none;
+    border-right: none;
+    background: #fff;
+    color: #2b80ff;
+    padding: 0.6em 1.3em;
+    margin-right: 0;
+    text-decoration:none;   
 }
 
 .pws_tabs_container ul.pws_tabs_controll li a:hover {
   background: #fff;
-  color: #f2125e;
+  color: #2b80ff;
 }
 
 .pws_tabs_container ul.pws_tabs_controll li a.pws_tab_active {
-  background: #f2125e;
+  background: #2b80ff;
   color: #fff;
 }
 
+.pws_tabs_container ul.pws_tabs_controll {
+    list-style: none;
+    margin-bottom: 0.3rem;
+    padding: 0;
+}
+
+.pws_tabs_container ul.pws_tabs_controll li {
+    display: inline-block;
+    line-height:1.8;
+}
+
+.pws_tabs_container, .pws_tabs_controll a {
+    font-size:16px;
+}
+
+/*.pws_tabs_container ul.pws_tabs_controll li::before, .pws_tabs_container ul.pws_tabs_controll li::after {
+    box-sizing: border-box;
+}*/
 .pws_tabs_container .demo-tabs {
-  border: 1px solid #f2125e;
-  border-radius: 0px 5px 5px 5px;
-  overflow: hidden;
-  margin-bottom: 45px;
-  padding-top: 3.5rem;
+    border: 1px solid #2b80ff;
+    border-radius: 0px 5px 5px 5px;
+    overflow: hidden;
+    margin-bottom: 45px;
+    padding: 1.5rem;
 }
 
 .pws_tabs_container .demo-tabs .CodeMirror {
@@ -22526,14 +22545,14 @@ body.avgrund-active {
 }
 
 .pws_tabs_container.pws_tabs_vertical .pws_tabs_controll li:last-child a {
-  border-bottom: 1px solid #f2125e;
+  border-bottom: 1px solid #2b80ff;
   border-radius: 0px 0px 0px 5px;
   border-right: 0px;
 }
 
 .pws_tabs_container.pws_tabs_vertical .pws_tabs_controll li a {
   border-radius: 0px;
-  border: 1px solid #f2125e;
+  border: 1px solid #2b80ff;
   border-right: none;
   border-bottom: none;
   margin-bottom: 0;
@@ -22544,7 +22563,7 @@ body.avgrund-active {
 }
 
 .pws_tabs_container.pws_tabs_horizontal_bottom .pws_tabs_controll {
-  border-top: 1px solid #f2125e;
+  border-top: 1px solid #2b80ff;
   border-right: none;
   border-bottom: none;
 }
@@ -22555,12 +22574,12 @@ body.avgrund-active {
 
 .pws_tabs_container.pws_tabs_horizontal_bottom .pws_tabs_controll li:last-child a {
   border-radius: 0px 0px 5px 0px;
-  border-right: 1px solid #f2125e;
+  border-right: 1px solid #2b80ff;
 }
 
 .pws_tabs_container.pws_tabs_horizontal_bottom .pws_tabs_controll li a {
   border-radius: 0px;
-  border: 1px solid #f2125e;
+  border: 1px solid #2b80ff;
   border-top: none;
   border-right: none;
   margin-right: 0;
@@ -22569,7 +22588,7 @@ body.avgrund-active {
 
 .pws_tabs_container.pws_tabs_rtl .pws_tabs_controll li:first-child a {
   border-radius: 0px 5px 0px 0px;
-  border-right: 1px solid #f2125e;
+  border-right: 1px solid #2b80ff;
 }
 
 .pws_tabs_container.pws_tabs_rtl .pws_tabs_controll li:last-child a {
@@ -22578,7 +22597,7 @@ body.avgrund-active {
 }
 
 .pws_tabs_container.pws_tabs_rtl .pws_tabs_controll li a {
-  border: 1px solid #f2125e;
+  border: 1px solid #2b80ff;
   border-bottom: none;
   border-right: none;
   margin-right: 0;
@@ -23088,7 +23107,7 @@ body.avgrund-active {
 
 .main-panel {
   transition: width 0.25s ease, margin 0.25s ease;
-  width: calc(100% - 255px);
+  width: calc(100% - 325px);
   min-height: calc(100vh - 64px);
   display: -webkit-flex;
   display: flex;
@@ -23111,6 +23130,7 @@ body.avgrund-active {
     background-repeat: no-repeat;
     -webkit-flex-grow: 1;
     flex-grow: 1;
+    padding: 2rem 2rem;
 }
 
 .content-wrapper.en-US {
@@ -23121,6 +23141,7 @@ body.avgrund-active {
     background-repeat: no-repeat;
     -webkit-flex-grow: 1;
     flex-grow: 1;
+    padding: 2rem 2rem;
 }
 
 @media (max-width: 767px) {
@@ -23685,7 +23706,7 @@ body.avgrund-active {
   color: #000000;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
-  width: calc(100% - 310px);
+  width: calc(100% - 325px);
   height: 64px;
 }
 
@@ -25386,6 +25407,10 @@ li.nav-item.root {
     border-bottom: solid;
     border-width: 1px;
     border-color:lightgray;
+}
+
+a:hover {
+    cursor: pointer;
 }
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
 
