@@ -6,6 +6,23 @@
 
 <h2>Index</h2>
 
+@*@Html.ActionLink("New Branch", "New", null, new { @class = "btn btn-primary" })*@
+<table id="branches" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>branch1</td>
+        </tr>
+    </tbody>
+</table>
+
 @section Scripts{
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
