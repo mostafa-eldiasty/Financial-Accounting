@@ -10499,9 +10499,9 @@ textarea.tt-hint {
   height: auto;
 }
 
-.form-group {
+/*.form-group {
   margin-bottom: 1rem;
-}
+}*/
 
 .form-text {
   display: block;
@@ -20515,9 +20515,9 @@ code {
 }
 
 /* Forms */
-.form-group {
+/*.form-group {
   margin-bottom: 1.5rem;
-}
+}*/
 
 .input-group-append,
 .input-group-prepend {
@@ -20536,10 +20536,10 @@ code {
 .form-control, .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
 .tt-query,
 .tt-hint {
-  border: 1px solid #e8eff9;
-  font-weight: 400;
-  font-size: 0.875rem;
-  height: auto;
+    border: 1px solid deepskyblue;
+    font-weight: 400;
+    font-size: 0.875rem;
+    height: auto;
 }
 
 select.form-control, .select2-container--default select.select2-selection--single, .select2-container--default .select2-selection--single select.select2-search__field, select.typeahead,
@@ -20661,7 +20661,7 @@ select.border-dark.tt-hint:focus {
   font-size: 0.875rem;
   line-height: 1.4rem;
   vertical-align: top;
-  margin-bottom: .5rem;
+  /*margin-bottom: .5rem;*/
 }
 
 .form-group.has-danger .form-control, .form-group.has-danger .select2-container--default .select2-selection--single, .select2-container--default .form-group.has-danger .select2-selection--single, .form-group.has-danger .select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-selection--single .form-group.has-danger .select2-search__field, .form-group.has-danger .typeahead,
@@ -22982,7 +22982,7 @@ body.avgrund-active {
 }
 
 .auth form .form-group {
-  margin-bottom: 1.5rem;
+  /*margin-bottom: 1.5rem;*/
 }
 
 .auth form .form-group label {
@@ -25381,6 +25381,13 @@ body.avgrund-active {
   font-size: 1.5rem;
   margin-right: .5rem;
   color: #9a9ea2;
+}
+
+input.btn.ar-EG{
+    float:left
+}
+input.btn.en-US{
+    float:right
 }
 
 .ar-EG {

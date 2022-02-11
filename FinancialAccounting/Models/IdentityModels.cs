@@ -20,6 +20,8 @@ namespace FinancialAccounting.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Company> Company { get; set; }
+        public DbSet<Branch> Branch { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

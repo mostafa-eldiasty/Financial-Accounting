@@ -88,6 +88,24 @@ namespace FinancialAccounting.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ArabicName.
+        /// </summary>
+        public static string ArabicName {
+            get {
+                return ResourceManager.GetString("ArabicName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arabic name is required.
+        /// </summary>
+        public static string ArabicNameIsRequired {
+            get {
+                return ResourceManager.GetString("ArabicNameIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Basic Information.
         /// </summary>
         public static string BasicInformation {
@@ -106,11 +124,38 @@ namespace FinancialAccounting.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Code.
+        /// </summary>
+        public static string Code {
+            get {
+                return ResourceManager.GetString("Code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code is required.
+        /// </summary>
+        public static string CodeIsRequired {
+            get {
+                return ResourceManager.GetString("CodeIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Company Data.
         /// </summary>
         public static string CompanyData {
             get {
                 return ResourceManager.GetString("CompanyData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logo.
+        /// </summary>
+        public static string CompanyLogo {
+            get {
+                return ResourceManager.GetString("CompanyLogo", resourceCulture);
             }
         }
         
@@ -183,6 +228,33 @@ namespace FinancialAccounting.Resources {
         public static string DistributionOfProfitsAndLosses {
             get {
                 return ResourceManager.GetString("DistributionOfProfitsAndLosses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EnglishName.
+        /// </summary>
+        public static string EnglishName {
+            get {
+                return ResourceManager.GetString("EnglishName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English name is required.
+        /// </summary>
+        public static string EnglishNameIsRequired {
+            get {
+                return ResourceManager.GetString("EnglishNameIsRequired", resourceCulture);
             }
         }
         
@@ -304,6 +376,24 @@ namespace FinancialAccounting.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PhoneNumber1.
+        /// </summary>
+        public static string PhoneNumber1 {
+            get {
+                return ResourceManager.GetString("PhoneNumber1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PhoneNumber2.
+        /// </summary>
+        public static string PhoneNumber2 {
+            get {
+                return ResourceManager.GetString("PhoneNumber2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove Analatical Account Repetition.
         /// </summary>
         public static string RemoveAnalaticalAccountRepetition {
@@ -318,6 +408,15 @@ namespace FinancialAccounting.Resources {
         public static string Reports {
             get {
                 return ResourceManager.GetString("Reports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
             }
         }
         
@@ -340,6 +439,15 @@ namespace FinancialAccounting.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tax Registration Number.
+        /// </summary>
+        public static string TaxRegistrationNumber {
+            get {
+                return ResourceManager.GetString("TaxRegistrationNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Transactions.
         /// </summary>
         public static string Transactions {
@@ -354,6 +462,15 @@ namespace FinancialAccounting.Resources {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website.
+        /// </summary>
+        public static string Website {
+            get {
+                return ResourceManager.GetString("Website", resourceCulture);
             }
         }
     }

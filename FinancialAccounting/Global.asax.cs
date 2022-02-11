@@ -1,3 +1,5 @@
+using AutoMapper;
+using FinancialAccounting.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -14,6 +16,7 @@ namespace FinancialAccounting
     {
         protected void Application_Start()
         {
+            Mapper.Initialize(c => c.AddProfile<MappingProfile>());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -216,4 +216,43 @@
   <data name="CompanyData" xml:space="preserve">
     <value>Company Data</value>
   </data>
+  <data name="ArabicName" xml:space="preserve">
+    <value>ArabicName</value>
+  </data>
+  <data name="ArabicNameIsRequired" xml:space="preserve">
+    <value>Arabic name is required</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="CodeIsRequired" xml:space="preserve">
+    <value>Code is required</value>
+  </data>
+  <data name="CompanyLogo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EnglishName" xml:space="preserve">
+    <value>EnglishName</value>
+  </data>
+  <data name="EnglishNameIsRequired" xml:space="preserve">
+    <value>English name is required</value>
+  </data>
+  <data name="PhoneNumber1" xml:space="preserve">
+    <value>PhoneNumber1</value>
+  </data>
+  <data name="PhoneNumber2" xml:space="preserve">
+    <value>PhoneNumber2</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TaxRegistrationNumber" xml:space="preserve">
+    <value>Tax Registration Number</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Website</value>
+  </data>
 </root>
