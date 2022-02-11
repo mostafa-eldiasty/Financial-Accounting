@@ -22,6 +22,7 @@ namespace FinancialAccounting.Controllers
             HttpCookie httpCookie = new HttpCookie("Lang");
             httpCookie.Value = lang;
             Response.Cookies.Add(httpCookie);
+            httpCookie.Expires = DateTime.UtcNow.AddDays(30);
 
             ViewBag.CurrentLanguage = lang == "en-US"?"english":"arabic";
             
