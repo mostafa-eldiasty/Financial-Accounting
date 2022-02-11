@@ -3,6 +3,7 @@ using FinancialAccounting.DTOs;
 using FinancialAccounting.Models;
 using FinancialAccounting.Repositories;
 using System;
+using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,11 +13,11 @@ namespace FinancialAccounting.Areas.Settings.Controllers
 {
     public class CompanyController : BaseController
     {
-        Repository repository;
+        Repository<Company,CompanyDto> repository;
 
         public CompanyController()
         {
-            repository = new Repository();
+            repository = new Repository<Company,CompanyDto>();
         }
 
         // GET: Settings/Comapny
@@ -38,6 +39,14 @@ namespace FinancialAccounting.Areas.Settings.Controllers
             {
                 return View(companyDto);
             }
+
+            if (companyDto.Id == 0)
+            {
+                companyDto.AddedDate = DateTime.Now;
+                companyDto.AddedUserId = User.Identity.GetUserId();
+            }
+            companyDto.UpdatedDate = DateTime.Now;
+            companyDto.UpdatedUserId = User.Identity.GetUserId();
 
             repository.AddOrUpdate(companyDto);
             return View(companyDto);

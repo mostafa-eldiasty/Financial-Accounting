@@ -5,11 +5,12 @@ using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 
 namespace FinancialAccounting.Repositories
 {
-    public class Repository : IRepository
+    public class Repository<T,TDto> : IRepository<T, TDto> where T : class
     {
         private ApplicationDbContext _Context;
 
@@ -23,47 +24,56 @@ namespace FinancialAccounting.Repositories
         //    _Context.Dispose();
         //}
 
-        public IEnumerable<CompanyDto> Get()
+        public IEnumerable<TDto> Get()
         {
-            return _Context.Company.ToList().Select(Mapper.Map<Company,CompanyDto>);
+            return _Context.Set<T>().ToList().Select(Mapper.Map<T, TDto>);
         }
 
-        public CompanyDto GetById(int Id)
+        public TDto GetSingleByExp(Expression<Func<T, bool>> exp)
         {
-            Company company = _Context.Company.SingleOrDefault(c => c.Id == Id);
-            return Mapper.Map<Company, CompanyDto>(company);
+            T company = _Context.Set<T>().SingleOrDefault(exp);
+            return Mapper.Map<T, TDto>(company);
         }
 
-        public void AddOrUpdate(CompanyDto companyDto)
+        public void AddOrUpdate(TDto companyDto)
         {
-            if(companyDto.Id == 0)
+            try
             {
-                companyDto.AddedUserId = HttpContext.Current.User.Identity.GetUserId();
-                companyDto.AddedDate = DateTime.Now;
-                Company company = Mapper.Map<CompanyDto, Company>(companyDto);
-                _Context.Company.Add(company);
-            }
-            else
-            {
-                companyDto.UpdatedUserId = HttpContext.Current.User.Identity.GetUserId();
-                companyDto.UpdatedDate = DateTime.Now;
+                //int value = (int)_Context.Entry(companyDto).Property("Id").CurrentValue;
+                T company = Mapper.Map<TDto, T>(companyDto);
+                object value = _Context.Entry(company).Property("Id").CurrentValue;
 
-                Company companyInDB = _Context.Company.SingleOrDefault(c => c.Id == companyDto.Id);
-                Mapper.Map(companyDto, companyInDB);
+                if ((int)value == 0)
+                {
+                    //companyDto.AddedUserId = HttpContext.Current.User.Identity.GetUserId();
+                    //companyDto.AddedDate = DateTime.Now;
+                    //T company = Mapper.Map<TDto, T>(companyDto);
+                    _Context.Set<T>().Add(company);
+                    _Context.SaveChanges();
+                }
+                else
+                {
+                    //companyDto.UpdatedUserId = HttpContext.Current.User.Identity.GetUserId();
+                    //companyDto.UpdatedDate = DateTime.Now;
+
+                    T companyInDB = _Context.Set<T>().Find(value);
+                    Mapper.Map(companyDto, companyInDB);
+                    _Context.SaveChanges();
+                }
             }
-            _Context.SaveChanges();
+            catch{ }
         }
 
-        public void Delete(CompanyDto companyDto)
+        public void Delete(TDto companyDto)
         {
-            Company company = Mapper.Map<CompanyDto, Company>(companyDto);
-            _Context.Company.Remove(company);
+            T company = Mapper.Map<TDto, T>(companyDto);
+            _Context.Set<T>().Remove(company);
         }
 
-        public void DeleteById(int Id)
+        public void DeleteSingleByExp(Expression<Func<T, bool>> exp)
         {
-            Company company = _Context.Company.Single(c => c.Id == Id);
-            _Context.Company.Remove(company);
+            T company = _Context.Set<T>().Single(exp);
+            _Context.Set<T>().Remove(company);
         }
     }
 }

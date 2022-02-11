@@ -17,7 +17,7 @@
                 @Html.LabelFor(m => m.Code, new { @class = "col-form-label col-sm-2" })
                 <div class="col-sm-2">
                     @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Code,"",new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(m => m.Code, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -25,7 +25,7 @@
                 @Html.LabelFor(m => m.ArabicName, new { @class = "col-form-label col-sm-2" })
                 <div class="col-sm-10">
                     @Html.TextBoxFor(m => m.ArabicName, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.ArabicName,"",new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(m => m.ArabicName, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -33,7 +33,7 @@
                 @Html.LabelFor(m => m.EnglishName, new { @class = "col-form-label col-md-2" })
                 <div class="col-sm-10">
                     @Html.TextBoxFor(m => m.EnglishName, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.EnglishName,"",new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(m => m.EnglishName, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -41,7 +41,7 @@
                 @Html.LabelFor(m => m.Email, new { @class = "col-form-label col-sm-2" })
                 <div class="col-sm-10">
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Email,"",new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
                 @Html.LabelFor(m => m.PhoneNumber1, new { @class = "col-form-label col-sm-2" })
                 <div class="col-sm-10">
                     @Html.TextBoxFor(m => m.PhoneNumber1, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.PhoneNumber1,"",new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(m => m.PhoneNumber1, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -57,7 +57,7 @@
                 @Html.LabelFor(m => m.PhoneNumber2, new { @class = "col-form-label col-sm-2" })
                 <div class="col-sm-10">
                     @Html.TextBoxFor(m => m.PhoneNumber2, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.PhoneNumber2,"",new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(m => m.PhoneNumber2, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -72,7 +72,7 @@
                 @Html.LabelFor(m => m.TaxRegistrationNumber, new { @class = "col-form-label col-sm-2" })
                 <div class="col-sm-10">
                     @Html.TextBoxFor(m => m.TaxRegistrationNumber, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.TaxRegistrationNumber,"",new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(m => m.TaxRegistrationNumber, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
@@ -89,6 +89,10 @@
         </div>
     </div>
 
+    @Html.HiddenFor(m => m.AddedDate);
+    @Html.HiddenFor(m => m.AddedUserId);
+    @Html.HiddenFor(m => m.UpdatedDate);
+    @Html.HiddenFor(m => m.UpdatedUserId);
     @Html.HiddenFor(m => m.Id);
     @Html.AntiForgeryToken();
     <input type="submit" value="@Language.Save" class="btn btn-info" />
@@ -96,15 +100,15 @@
 
 @section Scripts{
     <script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $('#Logo').attr('src', e.target.result);
-            };
-            reader.readAsDataURL(input.files[0]);
+                reader.onload = function (e) {
+                    $('#Logo').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
         }
-    }
     </script>
 }
