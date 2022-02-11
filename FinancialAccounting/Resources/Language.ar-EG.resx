@@ -255,4 +255,10 @@
   <data name="Website" xml:space="preserve">
     <value>الموقع الالكترونى</value>
   </data>
+  <data name="InvalidEmailAddress" xml:space="preserve">
+    <value>الايميل غير صالح</value>
+  </data>
+  <data name="InvalidPhoneNum" xml:space="preserve">
+    <value>رقم الهاتف غير صالح</value>
+  </data>
 </root>

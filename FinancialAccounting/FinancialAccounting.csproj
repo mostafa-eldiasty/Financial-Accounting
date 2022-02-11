@@ -182,6 +182,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DTOs\BranchDto.cs" />
     <Compile Include="DTOs\CompanyDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -197,6 +198,10 @@
     <Compile Include="Migrations\202202110309445_ConvertUserIdsToString.cs" />
     <Compile Include="Migrations\202202110309445_ConvertUserIdsToString.Designer.cs">
       <DependentUpon>202202110309445_ConvertUserIdsToString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202112202492_AddingBranchTable.cs" />
+    <Compile Include="Migrations\202202112202492_AddingBranchTable.Designer.cs">
+      <DependentUpon>202202112202492_AddingBranchTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Branch.cs" />
@@ -1892,7 +1897,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Settings\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
@@ -1969,6 +1973,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202110309445_ConvertUserIdsToString.resx">
       <DependentUpon>202202110309445_ConvertUserIdsToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202112202492_AddingBranchTable.resx">
+      <DependentUpon>202202112202492_AddingBranchTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Language.ar-EG.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

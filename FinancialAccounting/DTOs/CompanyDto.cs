@@ -20,13 +20,13 @@ namespace FinancialAccounting.DTOs
         [Display(Name = "EnglishName", ResourceType = typeof(Language))]
         public string EnglishName { get; set; }
         [Display(Name = "PhoneNumber1", ResourceType = typeof(Language))]
-        [Phone]
+        [Phone(ErrorMessageResourceName = "InvalidPhoneNum", ErrorMessageResourceType = typeof(Language))]
         public string PhoneNumber1 { get; set; }
         [Display(Name = "PhoneNumber2", ResourceType = typeof(Language))]
-        [Phone]
+        [Phone(ErrorMessageResourceName = "InvalidPhoneNum", ErrorMessageResourceType = typeof(Language))]
         public string PhoneNumber2 { get; set; }
         [Display(Name = "Email", ResourceType = typeof(Language))]
-        [EmailAddress]
+        [EmailAddress(ErrorMessageResourceName ="InvalidEmailAddress",ErrorMessageResourceType =typeof(Language))]
         public string Email { get; set; }
         [Display(Name = "Website", ResourceType = typeof(Language))]
         public string Website { get; set; }
@@ -35,7 +35,9 @@ namespace FinancialAccounting.DTOs
         public byte[] Logo { get; set; }
         public DateTime AddedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
+        [StringLength(maximumLength: 128)]
         public string AddedUserId { get; set; }
+        [StringLength(maximumLength: 128)]
         public string UpdatedUserId { get; set; }
     }
 }

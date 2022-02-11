@@ -313,6 +313,24 @@ namespace FinancialAccounting.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid Email Address.
+        /// </summary>
+        public static string InvalidEmailAddress {
+            get {
+                return ResourceManager.GetString("InvalidEmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invaild phone number.
+        /// </summary>
+        public static string InvalidPhoneNum {
+            get {
+                return ResourceManager.GetString("InvalidPhoneNum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Journal Types.
         /// </summary>
         public static string JournalTypes {

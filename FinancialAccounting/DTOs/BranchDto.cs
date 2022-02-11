@@ -5,20 +5,22 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace FinancialAccounting.Models
+namespace FinancialAccounting.DTOs
 {
-    public class Company
+    public class BranchDto
     {
         public int Id { get; set; }
-        [Required(ErrorMessageResourceName = "CodeIsRequired",ErrorMessageResourceType =typeof(Language))]
-        [Display(Name ="Code",ResourceType =typeof(Language))]
+        [Display(Name = "Code", ResourceType = typeof(Language))]
+        [Required(ErrorMessageResourceName = "CodeIsRequired", ErrorMessageResourceType = typeof(Language))]
         public int Code { get; set; }
-        [Required(ErrorMessageResourceName = "ArabicNameIsRequired", ErrorMessageResourceType = typeof(Language))]
         [Display(Name = "ArabicName", ResourceType = typeof(Language))]
+        [Required(ErrorMessageResourceName = "ArabicNameIsRequired", ErrorMessageResourceType = typeof(Language))]
         public string ArabicName { get; set; }
-        [Required(ErrorMessageResourceName = "EnglishNameIsRequired", ErrorMessageResourceType = typeof(Language))]
         [Display(Name = "EnglishName", ResourceType = typeof(Language))]
+        [Required(ErrorMessageResourceName = "EnglishNameIsRequired", ErrorMessageResourceType = typeof(Language))]
         public string EnglishName { get; set; }
+
+        public bool IsDefault { get; set; }
         [Display(Name = "PhoneNumber1", ResourceType = typeof(Language))]
         [Phone(ErrorMessageResourceName = "InvalidPhoneNum", ErrorMessageResourceType = typeof(Language))]
         public string PhoneNumber1 { get; set; }
@@ -28,14 +30,9 @@ namespace FinancialAccounting.Models
         [Display(Name = "Email", ResourceType = typeof(Language))]
         [EmailAddress(ErrorMessageResourceName = "InvalidEmailAddress", ErrorMessageResourceType = typeof(Language))]
         public string Email { get; set; }
-        [Display(Name = "Website", ResourceType = typeof(Language))]
-        public string Website { get; set; }
-        [Display(Name = "TaxRegistrationNumber", ResourceType = typeof(Language))]
-        public string TaxRegistrationNumber { get; set; }
-        public byte[] Logo { get; set; }
         public DateTime AddedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
-        [StringLength(maximumLength:128)]
+        [StringLength(maximumLength: 128)]
         public string AddedUserId { get; set; }
         [StringLength(maximumLength: 128)]
         public string UpdatedUserId { get; set; }
