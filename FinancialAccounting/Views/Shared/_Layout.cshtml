@@ -1,7 +1,8 @@
 ﻿@using FinancialAccounting.Resources
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  dir="@(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft? "rtl" : "ltr")">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -16,7 +17,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="~/Content/css/vertical-layout-light/style.css">
 </head>
-<body class="sidebar-light">
+<body class="sidebar-light" dir="@(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft? "rtl" : "ltr")">
     <div class="row" id="proBanner">
 
     </div>
@@ -127,7 +128,7 @@
             </nav>
             <!-- partial -->
             <div class="main-panel">
-                <div class="content-wrapper">
+                <div class="content-wrapper" dir="@(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft? "rtl" : "ltr")">
                     @RenderBody()
                 </div>
 
@@ -173,26 +174,24 @@
     <script src="~/Scripts/jquery.cookie.min.js"></script>
     @RenderSection("scripts", required: false)
     <script>
+
+        $(function () {
+            if ($.cookie("Lang") == "en-US") {
+                $('*').removeClass("ar-EG").addClass("en-US");
+                $('.typcn-chevron-left').addClass('typcn-chevron-right').removeClass('typcn-chevron-left');
+            }
+            else {
+                $('*').removeClass("en-US").addClass("ar-EG");
+                $('.typcn-chevron-right').addClass('typcn-chevron-left').removeClass('typcn-chevron-right');
+            }
+        });
+
         $(document).ready(function () {
 
             $('.ar-lang').attr('href', '@Url.Action("ChangeLanguage")?lang=ar-EG&url=' + window.location.toString());
             $('.en-lang').attr('href', '@Url.Action("ChangeLanguage")?lang=en-US&url=' + window.location.toString());
 
             @*$('body','div', 'nav', 'navbar', 'p', 'a', 'input').addClass('@ViewBag.CurrentLanguage');*@
-            if ($.cookie("Lang") == "en-US") {
-                $('*').removeClass("ar-EG");
-                $('*').addClass("en-US");
-
-                $('.typcn-chevron-left').addClass('typcn-chevron-right')
-                $('.typcn-chevron-left').removeClass('typcn-chevron-left')
-            }
-            else {
-                $('*').removeClass("en-US");
-                $('*').addClass("ar-EG");
-
-                $('.typcn-chevron-right').addClass('typcn-chevron-left')
-                $('.typcn-chevron-right').removeClass('typcn-chevron-right')
-            }
 
             $('.Parent-link').on('click', function () {
                 if ($(this).attr("aria-expanded") === "false") {

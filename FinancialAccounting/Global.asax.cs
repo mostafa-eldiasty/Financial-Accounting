@@ -35,6 +35,8 @@ namespace FinancialAccounting
             {
                 Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+                cookie = new HttpCookie("Lang");
+                cookie.Value = "en-US";
                 cookie.Expires = DateTime.UtcNow.AddDays(30);
                 Response.Cookies.Add(cookie);
             }

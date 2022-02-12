@@ -261,4 +261,7 @@
   <data name="InvalidPhoneNum" xml:space="preserve">
     <value>Invaild phone number</value>
   </data>
+  <data name="IsDefaultBranch" xml:space="preserve">
+    <value>Default Branch</value>
+  </data>
 </root>

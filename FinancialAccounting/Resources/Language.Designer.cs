@@ -331,6 +331,15 @@ namespace FinancialAccounting.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default Branch.
+        /// </summary>
+        public static string IsDefaultBranch {
+            get {
+                return ResourceManager.GetString("IsDefaultBranch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Journal Types.
         /// </summary>
         public static string JournalTypes {

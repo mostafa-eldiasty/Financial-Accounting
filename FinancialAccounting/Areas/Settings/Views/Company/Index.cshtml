@@ -9,7 +9,7 @@
 
 @*<h2>@Language.CompanyData</h2>*@
 
-@using (Html.BeginForm("index", "Company", FormMethod.Post))
+@using (Html.BeginForm("index", "Company", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-row">
         <div class="col-sm-8">
@@ -83,7 +83,7 @@
                     var base64 = (Model.Logo != null ? Convert.ToBase64String(Model.Logo) : null);
                     var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
                 }
-                <img id="Logo" name="Logo" src="@imgsrc" style="width:100%;height:110%;" />
+                <img id="Logo" src="@imgsrc" style="width:100%;height:110%;" />
                 <input type='file' name="LogoFile" onchange="readURL(this);" value="@Model.Logo" id="FileLogo" />
             </div>
         </div>
@@ -100,15 +100,15 @@
 
 @section Scripts{
     <script>
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    $('#Logo').attr('src', e.target.result);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
+            reader.onload = function (e) {
+                $('#Logo').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
         }
+    }
     </script>
 }

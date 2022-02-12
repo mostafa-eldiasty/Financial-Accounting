@@ -261,4 +261,7 @@
   <data name="InvalidPhoneNum" xml:space="preserve">
     <value>رقم الهاتف غير صالح</value>
   </data>
+  <data name="IsDefaultBranch" xml:space="preserve">
+    <value>الفرع الرئيسى</value>
+  </data>
 </root>

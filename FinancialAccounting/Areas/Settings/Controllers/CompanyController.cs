@@ -33,11 +33,17 @@ namespace FinancialAccounting.Areas.Settings.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(CompanyDto companyDto)
+        public ActionResult Index(CompanyDto companyDto, HttpPostedFileBase LogoFile)
         {
             if (!ModelState.IsValid)
             {
                 return View(companyDto);
+            }
+
+            if (LogoFile != null)
+            {
+                companyDto.Logo = new byte[LogoFile.ContentLength];
+                LogoFile.InputStream.Read(companyDto.Logo, 0, LogoFile.ContentLength);
             }
 
             if (companyDto.Id == 0)

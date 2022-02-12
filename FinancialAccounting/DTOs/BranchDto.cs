@@ -19,7 +19,7 @@ namespace FinancialAccounting.DTOs
         [Display(Name = "EnglishName", ResourceType = typeof(Language))]
         [Required(ErrorMessageResourceName = "EnglishNameIsRequired", ErrorMessageResourceType = typeof(Language))]
         public string EnglishName { get; set; }
-
+        [Display(Name = "IsDefaultBranch", ResourceType = typeof(Language))]
         public bool IsDefault { get; set; }
         [Display(Name = "PhoneNumber1", ResourceType = typeof(Language))]
         [Phone(ErrorMessageResourceName = "InvalidPhoneNum", ErrorMessageResourceType = typeof(Language))]
