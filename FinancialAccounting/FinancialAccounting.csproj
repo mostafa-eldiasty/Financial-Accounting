@@ -182,44 +182,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DTOs\BranchDto.cs" />
-    <Compile Include="DTOs\CompanyDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202201171927455_InitialCreate.cs" />
-    <Compile Include="Migrations\202201171927455_InitialCreate.Designer.cs">
-      <DependentUpon>202201171927455_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202202091236441_addingCompanyAndBranches.cs" />
-    <Compile Include="Migrations\202202091236441_addingCompanyAndBranches.Designer.cs">
-      <DependentUpon>202202091236441_addingCompanyAndBranches.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202202110309445_ConvertUserIdsToString.cs" />
-    <Compile Include="Migrations\202202110309445_ConvertUserIdsToString.Designer.cs">
-      <DependentUpon>202202110309445_ConvertUserIdsToString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202202112202492_AddingBranchTable.cs" />
-    <Compile Include="Migrations\202202112202492_AddingBranchTable.Designer.cs">
-      <DependentUpon>202202112202492_AddingBranchTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Branch.cs" />
-    <Compile Include="Models\Company.cs" />
-    <Compile Include="Repositories\IRepository.cs" />
-    <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Resources\Language.ar-EG1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Language.ar-EG.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Language.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Language.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -1895,9 +1860,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_GeneralAccountList.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
@@ -1965,26 +1928,14 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202201171927455_InitialCreate.resx">
-      <DependentUpon>202201171927455_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202202091236441_addingCompanyAndBranches.resx">
-      <DependentUpon>202202091236441_addingCompanyAndBranches.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202202110309445_ConvertUserIdsToString.resx">
-      <DependentUpon>202202110309445_ConvertUserIdsToString.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202202112202492_AddingBranchTable.resx">
-      <DependentUpon>202202112202492_AddingBranchTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Language.ar-EG.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Language.ar-EG1.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Language.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Language.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{22186887-c326-4e17-873a-0492e66a76b9}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{daeca649-2d76-4036-854c-84ed7379ff9c}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

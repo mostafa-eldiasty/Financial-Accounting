@@ -1,4 +1,5 @@
 using AutoMapper;
+using FinancialAccounting;
 using FinancialAccounting.App_Start;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace FinancialAccounting
+namespace DataAccess
 {
     public class MvcApplication : System.Web.HttpApplication
     {

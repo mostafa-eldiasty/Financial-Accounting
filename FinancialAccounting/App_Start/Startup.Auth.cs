@@ -5,7 +5,8 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using FinancialAccounting.Models;
+using DataAccess.Data;
+using DataAccess;
 
 namespace FinancialAccounting
 {

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using FinancialAccounting.Controllers;
 using System.Web.Mvc;
 
-namespace FinancialAccounting.Controllers
+namespace DataAccess.Controllers
 {
     public class HomeController : BaseController
     {

@@ -8,7 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using FinancialAccounting.Models;
+using DataAccess;
+using DataAccess.Models;
+using DataAccess.Data;
 
 namespace FinancialAccounting.Controllers
 {
