@@ -849,9 +849,9 @@
     <Content Include="Content\vendors\colcade\colcade.js" />
     <Content Include="Content\vendors\css\vendor.bundle.base.css" />
     <Content Include="Content\vendors\d3\d3.min.js" />
-    <Content Include="Content\vendors\datatables.net-bs4\dataTables.bootstrap4.css" />
-    <Content Include="Content\vendors\datatables.net-bs4\dataTables.bootstrap4.js" />
-    <Content Include="Content\vendors\datatables.net\jquery.dataTables.js" />
+    <Content Include="Content\datatables.net-bs4\dataTables.bootstrap4.css" />
+    <Content Include="Scripts\datatables.net\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\datatables.net\jquery.dataTables.js" />
     <Content Include="Content\vendors\dragula\dragula.min.css" />
     <Content Include="Content\vendors\dragula\dragula.min.js" />
     <Content Include="Content\vendors\dropify\dropify.min.css" />

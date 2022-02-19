@@ -79,6 +79,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Analatical Accounts.
         /// </summary>
         public static string AnalaticalAccounts {
@@ -178,6 +187,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create New.
+        /// </summary>
+        public static string CreateNew {
+            get {
+                return ResourceManager.GetString("CreateNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Currencies.
         /// </summary>
         public static string Currencies {
@@ -223,11 +241,47 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show _MENU_ entries.
+        /// </summary>
+        public static string DatatableLengthMenu {
+            get {
+                return ResourceManager.GetString("DatatableLengthMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string Details {
+            get {
+                return ResourceManager.GetString("Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Distribution of Profits and Losses.
         /// </summary>
         public static string DistributionOfProfitsAndLosses {
             get {
                 return ResourceManager.GetString("DistributionOfProfitsAndLosses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
             }
         }
         
@@ -358,6 +412,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loading....
+        /// </summary>
+        public static string Loading {
+            get {
+                return ResourceManager.GetString("Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log In.
         /// </summary>
         public static string LogIn {
@@ -381,6 +444,24 @@ namespace Resources.Resources {
         public static string Logout {
             get {
                 return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        public static string Next {
+            get {
+                return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No matching records found.
+        /// </summary>
+        public static string No_matching_records_found {
+            get {
+                return ResourceManager.GetString("No_matching_records_found", resourceCulture);
             }
         }
         
@@ -421,6 +502,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Previous.
+        /// </summary>
+        public static string Previous {
+            get {
+                return ResourceManager.GetString("Previous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove Analatical Account Repetition.
         /// </summary>
         public static string RemoveAnalaticalAccountRepetition {
@@ -444,6 +534,15 @@ namespace Resources.Resources {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
             }
         }
         

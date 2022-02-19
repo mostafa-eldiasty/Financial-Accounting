@@ -10,6 +10,9 @@ namespace FinancialAccounting.App_Start
         {
             Mapper.CreateMap<Company, CompanyDto>();
             Mapper.CreateMap<CompanyDto , Company>();
+
+            Mapper.CreateMap<Branch, BranchDto>();
+            Mapper.CreateMap<BranchDto, Branch>();
         }
     }
 }

@@ -11,7 +11,9 @@ namespace FinancialAccounting
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery.validate.js",
-                        "~/Scripts/jquery.validate.unobtrusive.js"));
+                        "~/Scripts/jquery.validate.unobtrusive.js",
+                        "~/Scripts/datatables.net/jquery.datatables.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -22,11 +24,15 @@ namespace FinancialAccounting
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.js",
+                        "~/Scripts/datatables.net/datatables.bootstrap4.js"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                        "~/Content/datatables.net-bs4/datatables.bootstrap4.css"
+                      ));
         }
     }
 }

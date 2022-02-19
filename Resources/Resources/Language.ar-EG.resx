@@ -264,4 +264,37 @@
   <data name="IsDefaultBranch" xml:space="preserve">
     <value>الفرع الرئيسى</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>انشاء جديد</value>
+  </data>
+  <data name="DatatableLengthMenu" xml:space="preserve">
+    <value>عرض _MENU_ مدخلات</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>بعد</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>قبل</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>...يتم التحميل</value>
+  </data>
+  <data name="No_matching_records_found" xml:space="preserve">
+    <value>لم يتم العثور على سجلات مطابقة</value>
+  </data>
 </root>

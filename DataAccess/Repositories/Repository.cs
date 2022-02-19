@@ -31,49 +31,49 @@ namespace DataAccess.Repositories
 
         public TDto GetSingleByExp(Expression<Func<T, bool>> exp)
         {
-            T company = _Context.Set<T>().SingleOrDefault(exp);
-            return Mapper.Map<T, TDto>(company);
+            T entity = _Context.Set<T>().SingleOrDefault(exp);
+            return Mapper.Map<T, TDto>(entity);
         }
 
-        public void AddOrUpdate(TDto companyDto)
+        public void AddOrUpdate(TDto entityDto)
         {
             try
             {
-                //int value = (int)_Context.Entry(companyDto).Property("Id").CurrentValue;
-                T company = Mapper.Map<TDto, T>(companyDto);
-                object value = _Context.Entry(company).Property("Id").CurrentValue;
+                //int value = (int)_Context.Entry(entityDto).Property("Id").CurrentValue;
+                T entity = Mapper.Map<TDto, T>(entityDto);
+                object value = _Context.Entry(entity).Property("Id").CurrentValue;
 
                 if ((int)value == 0)
                 {
-                    //companyDto.AddedUserId = HttpContext.Current.User.Identity.GetUserId();
-                    //companyDto.AddedDate = DateTime.Now;
-                    //T company = Mapper.Map<TDto, T>(companyDto);
-                    _Context.Set<T>().Add(company);
+                    //entityDto.AddedUserId = HttpContext.Current.User.Identity.GetUserId();
+                    //entityDto.AddedDate = DateTime.Now;
+                    //T entity = Mapper.Map<TDto, T>(entityDto);
+                    _Context.Set<T>().Add(entity);
                     _Context.SaveChanges();
                 }
                 else
                 {
-                    //companyDto.UpdatedUserId = HttpContext.Current.User.Identity.GetUserId();
-                    //companyDto.UpdatedDate = DateTime.Now;
+                    //entityDto.UpdatedUserId = HttpContext.Current.User.Identity.GetUserId();
+                    //entityDto.UpdatedDate = DateTime.Now;
 
-                    T companyInDB = _Context.Set<T>().Find(value);
-                    Mapper.Map(companyDto, companyInDB);
+                    T entityInDB = _Context.Set<T>().Find(value);
+                    Mapper.Map(entityDto, entityInDB);
                     _Context.SaveChanges();
                 }
             }
             catch{ }
         }
 
-        public void Delete(TDto companyDto)
+        public void Delete(TDto entityDto)
         {
-            T company = Mapper.Map<TDto, T>(companyDto);
-            _Context.Set<T>().Remove(company);
+            T entity = Mapper.Map<TDto, T>(entityDto);
+            _Context.Set<T>().Remove(entity);
         }
 
         public void DeleteSingleByExp(Expression<Func<T, bool>> exp)
         {
-            T company = _Context.Set<T>().Single(exp);
-            _Context.Set<T>().Remove(company);
+            T entity = _Context.Set<T>().Single(exp);
+            _Context.Set<T>().Remove(entity);
         }
     }
 }
