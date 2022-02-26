@@ -131,6 +131,10 @@
     <Compile Include="Migrations\202202140228241_SeedingUserTableWithAdminUser.Designer.cs">
       <DependentUpon>202202140228241_SeedingUserTableWithAdminUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202202251358215_RemoveBranchDto.cs" />
+    <Compile Include="Migrations\202202251358215_RemoveBranchDto.Designer.cs">
+      <DependentUpon>202202251358215_RemoveBranchDto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Branch.cs" />
@@ -155,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202140228241_SeedingUserTableWithAdminUser.resx">
       <DependentUpon>202202140228241_SeedingUserTableWithAdminUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202251358215_RemoveBranchDto.resx">
+      <DependentUpon>202202251358215_RemoveBranchDto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -35,6 +35,11 @@ namespace DataAccess.Repositories
             return Mapper.Map<T, TDto>(entity);
         }
 
+        public IEnumerable<TDto> GetListByExp(Expression<Func<T, bool>> exp)
+        {
+            return _Context.Set<T>().Where(exp).ToList().Select(Mapper.Map<T, TDto>);
+        }
+
         public void AddOrUpdate(TDto entityDto)
         {
             try

@@ -90,12 +90,12 @@
         </div>
     </div>
 
-    @Html.HiddenFor(m => m.AddedDate);
-    @Html.HiddenFor(m => m.AddedUserId);
-    @Html.HiddenFor(m => m.UpdatedDate);
-    @Html.HiddenFor(m => m.UpdatedUserId);
-    @Html.HiddenFor(m => m.Id);
-    @Html.AntiForgeryToken();
+    @Html.HiddenFor(m => m.AddedDate)
+    @Html.HiddenFor(m => m.AddedUserId)
+    @Html.HiddenFor(m => m.UpdatedDate)
+    @Html.HiddenFor(m => m.UpdatedUserId)
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
     <input type="submit" value="@Language.Save" class="btn btn-info" />
 }
 
