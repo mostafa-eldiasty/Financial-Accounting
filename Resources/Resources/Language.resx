@@ -297,4 +297,7 @@
   <data name="No_matching_records_found" xml:space="preserve">
     <value>No matching records found</value>
   </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Back To List</value>
+  </data>
 </root>
