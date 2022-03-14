@@ -109,6 +109,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomValidation\Unique.cs" />
     <Compile Include="DTOs\BranchDto.cs" />
     <Compile Include="DTOs\CompanyDto.cs" />
     <Compile Include="Migrations\202201171927455_InitialCreate.cs" />
@@ -134,6 +135,10 @@
     <Compile Include="Migrations\202202251358215_RemoveBranchDto.cs" />
     <Compile Include="Migrations\202202251358215_RemoveBranchDto.Designer.cs">
       <DependentUpon>202202251358215_RemoveBranchDto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203111131031_MakeBranchCodeUnique.cs" />
+    <Compile Include="Migrations\202203111131031_MakeBranchCodeUnique.Designer.cs">
+      <DependentUpon>202203111131031_MakeBranchCodeUnique.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -162,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202251358215_RemoveBranchDto.resx">
       <DependentUpon>202202251358215_RemoveBranchDto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203111131031_MakeBranchCodeUnique.resx">
+      <DependentUpon>202203111131031_MakeBranchCodeUnique.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -300,4 +300,25 @@
   <data name="BackToList" xml:space="preserve">
     <value>Back To List</value>
   </data>
+  <data name="SavedSuccessfully" xml:space="preserve">
+    <value>Saved Successfully</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Are You Sure</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="DeletedSuccessfully" xml:space="preserve">
+    <value>Deleted Successfully</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>Something Went Wrong</value>
+  </data>
+  <data name="ThisCodeUsedBefore" xml:space="preserve">
+    <value>This code used before</value>
+  </data>
 </root>

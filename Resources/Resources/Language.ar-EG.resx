@@ -300,4 +300,25 @@
   <data name="BackToList" xml:space="preserve">
     <value>الرجوع الى القائمة</value>
   </data>
+  <data name="SavedSuccessfully" xml:space="preserve">
+    <value>تم الحفظ بنجاح</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>هل انت متأكد</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>الغاء</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>تأكيد</value>
+  </data>
+  <data name="DeletedSuccessfully" xml:space="preserve">
+    <value>تم الحذف</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>حدث خطأ ما</value>
+  </data>
+  <data name="ThisCodeUsedBefore" xml:space="preserve">
+    <value>هذا الكود مستخدم من قبل</value>
+  </data>
 </root>

@@ -1,7 +1,9 @@
-﻿using Resources.Resources;
+﻿using DataAccess.CustomValidation;
+using Resources.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Web;
@@ -13,6 +15,8 @@ namespace DataAccess.DTOs
         public int Id { get; set; }
         [Display(Name = "Code", ResourceType = typeof(Language))]
         [Required(ErrorMessageResourceName = "CodeIsRequired", ErrorMessageResourceType = typeof(Language))]
+        [Index(nameof(Code), IsUnique = true)]
+        [Unique(IdName: "Id", TableName: "Branches", ErrorMessageResourceName = "ThisCodeUsedBefore", ErrorMessageResourceType = typeof(Language))]
         public int Code { get; set; }
         [Display(Name = "ArabicName", ResourceType = typeof(Language))]
         [Required(ErrorMessageResourceName = "ArabicNameIsRequired", ErrorMessageResourceType = typeof(Language))]
