@@ -54,7 +54,7 @@ namespace FinancialAccounting.Areas.Settings.Controllers
             companyDto.UpdatedUserId = User.Identity.GetUserId();
 
             repository.AddOrUpdate(companyDto);
-            return View(companyDto);
+            return RedirectToAction("Index");
         }
     }
 }

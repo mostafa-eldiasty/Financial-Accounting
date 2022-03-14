@@ -1,0 +1,141 @@
+﻿@using Resources.Resources
+@using FinancialAccounting.Enums
+@model DataAccess.DTOs.BranchDto
+
+@{ 
+    var FormName = ((FinancialAccounting.Enums.FormType)ViewBag.FormType).ToString();
+}
+
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="flex-direction:row">
+                <h4 class="modal-title" style="flex:auto">@FormName</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>x</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                @using (Html.BeginForm("Form", "Branches", FormMethod.Post))
+                {
+                    <div class="form-horizontal">
+                        <div class="checkbox" style="  flex-direction:row-reverse;display:flex">
+                            <label>
+                                @Html.CheckBoxFor(model => model.IsDefault) @Language.IsDefaultBranch
+                            </label>
+                        </div>
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "col-form-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.ArabicName, htmlAttributes: new { @class = "col-form-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ArabicName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ArabicName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.EnglishName, htmlAttributes: new { @class = "col-form-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.EnglishName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EnglishName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @*<div class="form-group row">
+                    @Html.LabelFor(model => model.IsDefault, htmlAttributes: new { @class = "col-form-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.IsDefault)
+                            @Html.ValidationMessageFor(model => model.IsDefault, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>*@
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.PhoneNumber1, htmlAttributes: new { @class = "col-form-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.PhoneNumber1, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PhoneNumber1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.PhoneNumber2, htmlAttributes: new { @class = "col-form-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.PhoneNumber2, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PhoneNumber2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-form-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @Html.HiddenFor(m => m.AddedDate)
+                        @Html.HiddenFor(m => m.AddedUserId)
+                        @Html.HiddenFor(m => m.UpdatedDate)
+                        @Html.HiddenFor(m => m.UpdatedUserId)
+                        @Html.HiddenFor(m => m.Id)
+                        @Html.AntiForgeryToken()
+
+
+                        <br />
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                @Html.ActionLink(@Language.BackToList, "Index", null, new { @class = "btn btn-rounded btn-inverse-secondary" })
+                            </div>
+
+                            @if (ViewBag.FormType != (int)FormType.Details)
+                            {
+                                <div class="col-md-offset-2 col-sm-6" style="display:flex;flex-direction:row-reverse">
+                                    <button type="button" data-save="modal" id="btnSave" class="btn btn-info">@Language.Save</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+
+            @*<div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>*@
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $('#btnSave').submit(function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: "/Settings/Branches/Form",
+                    method: "post",
+                    data:
+                    {
+                        Id: $('#Id').val(), Code: $('#Code').val(), ArabicName: $('#ArabicName').val(), EnglishName: $('#EnglishName').val(), IsDefault: $('#IsDefault').val(),
+                        PhoneNumber1: $('#PhoneNumber1').val(), PhoneNumber2: $('#PhoneNumber2').val(), Email: $('#Email').val(), AddedDate: $('#AddedDate').val(),
+                        UpdatedDate: $('#UpdatedDate').val(), AddedUserId: $('#AddedUserId').val(), UpdatedUserId: $('#UpdatedUserId').val()
+                    }
+                }).done(function () {
+                    console.log("done");
+                }).fail(function () {
+
+                });
+            });
+</script>

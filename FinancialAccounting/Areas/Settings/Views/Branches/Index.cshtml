@@ -8,6 +8,7 @@
 }
 
 @Html.ActionLink(Language.CreateNew, "Form",new { FormType = (int)FormType.New },new { @class="btn btn-info"})
+
 <table id="Branches" class="table table-striped table-bordered text-center">
     <thead>
         <tr>
@@ -64,7 +65,7 @@
                 <td>
                     @Html.ActionLink(Language.Details, "Form", new { id = item.Id, FormType = (int)FormType.Details }, new { @class = "btn btn-light"})
                     @Html.ActionLink(Language.Edit, "Form", new { id = item.Id, FormType = (int)FormType.Edit }, new { @class = "btn btn-success"})
-                    @Html.ActionLink(Language.Delete, "Delete", new { id = item.Id,FormType = (int)FormType.Delete }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink(Language.Delete, "Form", new { id = item.Id,FormType = (int)FormType.Delete }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }

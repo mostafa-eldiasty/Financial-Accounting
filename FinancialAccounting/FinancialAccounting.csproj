@@ -329,7 +329,13 @@
     <Content Include="Content\images\sprites\jsgrid-icons.png" />
     <Content Include="Content\images\sprites\red.png" />
     <Content Include="Content\images\sprites\yellow.png" />
+    <Content Include="Content\sweetalert\bootstrap-sweetalert.png" />
+    <Content Include="Content\sweetalert\docs.css" />
+    <Content Include="Content\sweetalert\sweet-alert.css" />
+    <Content Include="Content\sweetalert\thumbs-up.jpg" />
     <Content Include="Scripts\jquery.cookie.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\js\ace.js" />
     <Content Include="Scripts\js\alerts.js" />
     <Content Include="Scripts\js\avgrund.js" />
@@ -1821,6 +1827,12 @@
     <Content Include="Areas\Settings\Views\Company\Index.cshtml" />
     <Content Include="Areas\Settings\Views\Shared\_Settings.cshtml" />
     <Content Include="Areas\Settings\Views\Branches\Form.cshtml" />
+    <Content Include="Content\sweetalert\sweet-alert.less" />
+    <Content Include="Content\sweetalert\sweet-alert-combine.less" />
+    <Content Include="Content\sweetalert\sweet-alert-animations.less" />
+    <Content Include="Content\bootstrap\variables.less" />
+    <Content Include="Content\bootstrap\mixins.less" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1861,6 +1873,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_GeneralAccountList.cshtml" />
+    <Content Include="Views\Sweet\Alert.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

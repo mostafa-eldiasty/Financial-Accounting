@@ -48,26 +48,42 @@ namespace FinancialAccounting.Areas.Settings.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Form(BranchDto branchDto)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(branchDto);
-            }
-
+            int formType = (int)FormType.Edit;
             if (branchDto.Id == 0)
             {
-                ViewBag.FormType = FormType.New;
                 branchDto.AddedDate = DateTime.Now;
                 branchDto.AddedUserId = User.Identity.GetUserId();
+                formType = (int)FormType.New;
             }
             else
             {
-                ViewBag.FormType = FormType.Edit;
                 branchDto.UpdatedDate = DateTime.Now;
                 branchDto.UpdatedUserId = User.Identity.GetUserId();
             }
 
+            if (!ModelState.IsValid)
+            {
+                ViewBag.FormType = formType;
+                return View(branchDto);
+            }
+            //else if (!repository.IsUnique(branchDto, "Code"))
+            //{
+            //    ModelState.AddModelError("Code", "Code Already Exists");
+            //    ViewBag.FormType = formType;
+            //    return View(branchDto);
+            //}
+
             repository.AddOrUpdate(branchDto);
-            return View(branchDto);
+
+            TempData["Success"] = "True";
+                //return RedirectToAction("Form", new { FormType = (int)FormType.New});
+            return RedirectToAction("Form", new { id = branchDto.Id, FormType = formType });
+        }
+
+        public JsonResult Delete(int id)
+        {
+            repository.DeleteSingleByExp(b => b.Id == id);
+            return Json(new { success = true }, JsonRequestBehavior.AllowGet);
         }
     }
 }

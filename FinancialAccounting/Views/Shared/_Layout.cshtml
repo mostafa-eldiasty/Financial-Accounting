@@ -15,7 +15,9 @@
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
+    <link href="~/Content/sweetalert/sweet-alert.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/css/vertical-layout-light/style.css">
+
 </head>
 <body class="sidebar-light" dir="@(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft? "rtl" : "ltr")">
     <div class="row" id="proBanner">
@@ -167,6 +169,7 @@
     <!-- End plugin js for this page -->
     <!-- Custom js for this page-->
     <script src="~/Scripts/js/dashboard.js"></script>
+    <script src="~/Content/vendors/sweetalert/sweetalert.min.js"></script>
     <!-- End custom js for this page-->
 
     @Scripts.Render("~/bundles/jquery")
@@ -177,11 +180,11 @@
 
         $(function () {
             if ($.cookie("Lang") == "en-US") {
-                $('*').removeClass("ar-EG").addClass("en-US");
+                $('*').not('.swal-button-container,.swal-overlay,.swal-modal,.swal-title,.swal-text,.swal-footer').removeClass("ar-EG").addClass("en-US");
                 $('.typcn-chevron-left').addClass('typcn-chevron-right').removeClass('typcn-chevron-left');
             }
             else {
-                $('*').removeClass("en-US").addClass("ar-EG");
+                $('*').not('.swal-button-container,.swal-overlay,.swal-modal,.swal-title,.swal-text,.swal-footer').removeClass("en-US").addClass("ar-EG");
                 $('.typcn-chevron-right').addClass('typcn-chevron-left').removeClass('typcn-chevron-right');
             }
         });
