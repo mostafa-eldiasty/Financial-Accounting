@@ -24,6 +24,7 @@ namespace DataAccess.Data
         public DbSet<Company> Company { get; set; }
         public DbSet<Branch> Branch { get; set; }
         public DbSet<JournalTypes> JournalTypes { get; set; }
+        public DbSet<AnalaticalAccounts> AnalaticalAccounts { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomValidation\Unique.cs" />
+    <Compile Include="DTOs\AnalaticalAccountsDto.cs" />
     <Compile Include="DTOs\BranchDto.cs" />
     <Compile Include="DTOs\CompanyDto.cs" />
     <Compile Include="DTOs\JournalTypesDto.cs" />
@@ -145,8 +146,13 @@
     <Compile Include="Migrations\202203141952036_AddingJournalTypes.Designer.cs">
       <DependentUpon>202203141952036_AddingJournalTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203151549277_AddingAnalaticalAccounts.cs" />
+    <Compile Include="Migrations\202203151549277_AddingAnalaticalAccounts.Designer.cs">
+      <DependentUpon>202203151549277_AddingAnalaticalAccounts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AnalaticalAccounts.cs" />
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Data\IdentityModels.cs" />
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203141952036_AddingJournalTypes.resx">
       <DependentUpon>202203141952036_AddingJournalTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203151549277_AddingAnalaticalAccounts.resx">
+      <DependentUpon>202203151549277_AddingAnalaticalAccounts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

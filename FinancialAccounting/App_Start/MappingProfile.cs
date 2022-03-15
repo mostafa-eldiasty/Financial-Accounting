@@ -16,6 +16,9 @@ namespace FinancialAccounting.App_Start
 
             Mapper.CreateMap<JournalTypes, JournalTypesDto>();
             Mapper.CreateMap<JournalTypesDto, JournalTypes>();
+
+            Mapper.CreateMap<AnalaticalAccounts, AnalaticalAccountsDto>();
+            Mapper.CreateMap<AnalaticalAccountsDto, AnalaticalAccounts>();
         }
     }
 }

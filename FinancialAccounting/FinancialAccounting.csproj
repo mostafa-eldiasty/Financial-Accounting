@@ -177,6 +177,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\BasicInfo\BasicInfoAreaRegistration.cs" />
+    <Compile Include="Areas\BasicInfo\Controllers\AnalaticalAccountsController.cs" />
     <Compile Include="Areas\BasicInfo\Controllers\JournalTypesController.cs" />
     <Compile Include="Areas\Settings\Controllers\BranchesController.cs" />
     <Compile Include="Areas\Settings\Controllers\CompanyController.cs" />
@@ -1838,6 +1839,8 @@
     <Content Include="Areas\BasicInfo\Views\_ViewStart.cshtml" />
     <Content Include="Areas\BasicInfo\Views\JournalTypes\Index.cshtml" />
     <Content Include="Areas\BasicInfo\Views\JournalTypes\Form.cshtml" />
+    <Content Include="Areas\BasicInfo\Views\AnalaticalAccounts\Form.cshtml" />
+    <Content Include="Areas\BasicInfo\Views\AnalaticalAccounts\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
