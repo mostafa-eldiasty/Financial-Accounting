@@ -66,19 +66,23 @@ namespace DataAccess.Repositories
                     _Context.SaveChanges();
                 }
             }
-            catch{ }
+            catch(AutoMapperMappingException ex){
+                new Exception("Something Happend in auto mapper");
+            }
         }
 
         public void Delete(TDto entityDto)
         {
             T entity = Mapper.Map<TDto, T>(entityDto);
             _Context.Set<T>().Remove(entity);
+            _Context.SaveChanges();
         }
 
         public void DeleteSingleByExp(Expression<Func<T, bool>> exp)
         {
             T entity = _Context.Set<T>().Single(exp);
             _Context.Set<T>().Remove(entity);
+            _Context.SaveChanges();
         }
     }
 }

@@ -327,4 +327,13 @@
   <data name="IsDefault" xml:space="preserve">
     <value>افتراضى</value>
   </data>
+  <data name="Factor" xml:space="preserve">
+    <value>المعامل</value>
+  </data>
+  <data name="FactorIsRequired" xml:space="preserve">
+    <value>المعامل مطلوب</value>
+  </data>
+  <data name="LocalCurrency" xml:space="preserve">
+    <value>العملة المحلية</value>
+  </data>
 </root>

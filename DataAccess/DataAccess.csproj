@@ -113,6 +113,7 @@
     <Compile Include="DTOs\AnalaticalAccountsDto.cs" />
     <Compile Include="DTOs\BranchDto.cs" />
     <Compile Include="DTOs\CompanyDto.cs" />
+    <Compile Include="DTOs\CurrenciesDto.cs" />
     <Compile Include="DTOs\JournalTypesDto.cs" />
     <Compile Include="Migrations\202201171927455_InitialCreate.cs" />
     <Compile Include="Migrations\202201171927455_InitialCreate.Designer.cs">
@@ -150,12 +151,17 @@
     <Compile Include="Migrations\202203151549277_AddingAnalaticalAccounts.Designer.cs">
       <DependentUpon>202203151549277_AddingAnalaticalAccounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203151700582_AddingCurrencies.cs" />
+    <Compile Include="Migrations\202203151700582_AddingCurrencies.Designer.cs">
+      <DependentUpon>202203151700582_AddingCurrencies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnalaticalAccounts.cs" />
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Data\IdentityModels.cs" />
+    <Compile Include="Models\Currencies.cs" />
     <Compile Include="Models\JournalTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203151549277_AddingAnalaticalAccounts.resx">
       <DependentUpon>202203151549277_AddingAnalaticalAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203151700582_AddingCurrencies.resx">
+      <DependentUpon>202203151700582_AddingCurrencies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

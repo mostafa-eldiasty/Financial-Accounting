@@ -327,4 +327,13 @@
   <data name="IsDefault" xml:space="preserve">
     <value>Is Default</value>
   </data>
+  <data name="Factor" xml:space="preserve">
+    <value>Factor</value>
+  </data>
+  <data name="FactorIsRequired" xml:space="preserve">
+    <value>Factor Is Required</value>
+  </data>
+  <data name="LocalCurrency" xml:space="preserve">
+    <value>Local Currency</value>
+  </data>
 </root>

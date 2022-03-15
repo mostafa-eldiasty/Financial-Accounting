@@ -19,6 +19,9 @@ namespace FinancialAccounting.App_Start
 
             Mapper.CreateMap<AnalaticalAccounts, AnalaticalAccountsDto>();
             Mapper.CreateMap<AnalaticalAccountsDto, AnalaticalAccounts>();
+
+            Mapper.CreateMap<Currencies, CurrenciesDto>();
+            Mapper.CreateMap<CurrenciesDto, Currencies>();
         }
     }
 }

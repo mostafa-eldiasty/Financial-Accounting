@@ -376,6 +376,24 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Factor.
+        /// </summary>
+        public static string Factor {
+            get {
+                return ResourceManager.GetString("Factor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Factor Is Required.
+        /// </summary>
+        public static string FactorIsRequired {
+            get {
+                return ResourceManager.GetString("FactorIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Financial Periods.
         /// </summary>
         public static string FinancialPeriods {
@@ -471,6 +489,15 @@ namespace Resources.Resources {
         public static string Loading {
             get {
                 return ResourceManager.GetString("Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Local Currency.
+        /// </summary>
+        public static string LocalCurrency {
+            get {
+                return ResourceManager.GetString("LocalCurrency", resourceCulture);
             }
         }
         
