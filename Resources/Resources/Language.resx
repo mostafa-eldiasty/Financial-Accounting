@@ -321,4 +321,10 @@
   <data name="ThisCodeUsedBefore" xml:space="preserve">
     <value>This code used before</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="IsDefault" xml:space="preserve">
+    <value>Is Default</value>
+  </data>
 </root>

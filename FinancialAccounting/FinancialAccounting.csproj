@@ -176,6 +176,8 @@
     <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\BasicInfo\BasicInfoAreaRegistration.cs" />
+    <Compile Include="Areas\BasicInfo\Controllers\JournalTypesController.cs" />
     <Compile Include="Areas\Settings\Controllers\BranchesController.cs" />
     <Compile Include="Areas\Settings\Controllers\CompanyController.cs" />
     <Compile Include="Areas\Settings\SettingsAreaRegistration.cs" />
@@ -1832,6 +1834,10 @@
     <Content Include="Content\sweetalert\sweet-alert-animations.less" />
     <Content Include="Content\bootstrap\variables.less" />
     <Content Include="Content\bootstrap\mixins.less" />
+    <Content Include="Areas\BasicInfo\Views\web.config" />
+    <Content Include="Areas\BasicInfo\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\BasicInfo\Views\JournalTypes\Index.cshtml" />
+    <Content Include="Areas\BasicInfo\Views\JournalTypes\Form.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -1875,7 +1881,9 @@
     <Content Include="Views\Shared\_GeneralAccountList.cshtml" />
     <Content Include="Views\Sweet\Alert.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\JournalTypes\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

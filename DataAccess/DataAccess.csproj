@@ -112,6 +112,7 @@
     <Compile Include="CustomValidation\Unique.cs" />
     <Compile Include="DTOs\BranchDto.cs" />
     <Compile Include="DTOs\CompanyDto.cs" />
+    <Compile Include="DTOs\JournalTypesDto.cs" />
     <Compile Include="Migrations\202201171927455_InitialCreate.cs" />
     <Compile Include="Migrations\202201171927455_InitialCreate.Designer.cs">
       <DependentUpon>202201171927455_InitialCreate.cs</DependentUpon>
@@ -140,11 +141,16 @@
     <Compile Include="Migrations\202203111131031_MakeBranchCodeUnique.Designer.cs">
       <DependentUpon>202203111131031_MakeBranchCodeUnique.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203141952036_AddingJournalTypes.cs" />
+    <Compile Include="Migrations\202203141952036_AddingJournalTypes.Designer.cs">
+      <DependentUpon>202203141952036_AddingJournalTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Data\IdentityModels.cs" />
+    <Compile Include="Models\JournalTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203111131031_MakeBranchCodeUnique.resx">
       <DependentUpon>202203111131031_MakeBranchCodeUnique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203141952036_AddingJournalTypes.resx">
+      <DependentUpon>202203141952036_AddingJournalTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

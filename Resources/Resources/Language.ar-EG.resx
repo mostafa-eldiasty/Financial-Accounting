@@ -321,4 +321,10 @@
   <data name="ThisCodeUsedBefore" xml:space="preserve">
     <value>هذا الكود مستخدم من قبل</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>الاعدادات</value>
+  </data>
+  <data name="IsDefault" xml:space="preserve">
+    <value>افتراضى</value>
+  </data>
 </root>

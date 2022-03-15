@@ -13,6 +13,9 @@ namespace FinancialAccounting.App_Start
 
             Mapper.CreateMap<Branch, BranchDto>();
             Mapper.CreateMap<BranchDto, Branch>();
+
+            Mapper.CreateMap<JournalTypes, JournalTypesDto>();
+            Mapper.CreateMap<JournalTypesDto, JournalTypes>();
         }
     }
 }
