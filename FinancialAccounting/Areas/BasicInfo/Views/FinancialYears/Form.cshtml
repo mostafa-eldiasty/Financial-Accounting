@@ -1,0 +1,133 @@
+﻿@using Resources.Resources
+@using FinancialAccounting.Enums
+@model DataAccess.DTOs.FinancialYearsDto
+
+@{
+    ViewBag.Title = "Form";
+}
+
+@using (Html.BeginForm("Form", "FinancialYears", FormMethod.Post, new { style="background-color:white;;padding:20px;" }))
+{
+    <div class="form-horizontal">
+        <div class="checkbox" style="flex-direction:row-reverse;display:flex">
+            <label>
+                @Html.CheckBoxFor(model => model.IsActive) @Language.Active
+            </label>
+        </div>
+
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.ArabicName, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ArabicName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ArabicName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.EnglishName, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EnglishName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EnglishName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.FromDate, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.FromDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                @Html.ValidationMessageFor(model => model.FromDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.ToDate, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.ToDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                @Html.ValidationMessageFor(model => model.ToDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.HiddenFor(m => m.AddedDate)
+        @Html.HiddenFor(m => m.AddedUserId)
+        @Html.HiddenFor(m => m.UpdatedDate)
+        @Html.HiddenFor(m => m.UpdatedUserId)
+        @Html.HiddenFor(m => m.Id)
+        @Html.AntiForgeryToken()
+
+
+        <br />
+        <div class="form-group row">
+            <div class="col-sm-6">
+                @Html.ActionLink(@Language.BackToList, "Index", null, new { @class = "btn btn-rounded btn-inverse-secondary" })
+            </div>
+
+            @if (ViewBag.FormType == (int)FormType.New || ViewBag.FormType == (int)FormType.Edit)
+            {
+                <div class="col-md-offset-2 col-sm-6">
+                    <input type="submit" value="@Language.Save" class="btn btn-info" />
+                </div>
+            }
+            else if (ViewBag.FormType == (int)FormType.Delete)
+            {
+                <div class="col-md-offset-2 col-sm-6" style="flex-direction:row-reverse;display:flex">
+                    <a href="#" class="btn btn-danger" id="Delete">@Language.Delete</a>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery.cookie.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+          if ("@TempData["Success"]" == "True") {
+                swal("Big Bang solutions", "@Language.SavedSuccessfully", "success");
+            }
+
+            $('#Delete').click(function Delete() {
+                swal({
+                    title: '@Language.Delete',
+                    text: "@Language.AreYouSure",
+                    icon: 'warning',
+                    buttons: { true: "@Language.Confirm", false: "@Language.Cancel"}
+                }).then(function (result) {
+                    if (result == "true") {
+                         $.ajax({
+                                type: "POST",
+                                url: "/BasicInfo/FinancialYears/Delete/" + $('#Id').val(),
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                success: function (r) {
+                                    swal({
+                                        text: '@Language.DeletedSuccessfully',
+                                        icon: 'success'
+                                    }).then(function () {
+                                        window.location = "/BasicInfo/FinancialYears/Index";
+                                    });
+                             },
+                             error: function () {
+                                 swal({
+                                        title: '@Language.SomethingWentWrong',
+                                        icon: 'success'
+                                    });
+                             }
+                            });
+                    }
+                }); });
+        });
+
+    </script>
+}

@@ -20,14 +20,14 @@ namespace FinancialAccounting.Areas.BasicInfo.Controllers
             repository = new Repository<JournalTypes, JournalTypesDto>();
         }
 
-        // GET: Settings/JournalTypes
+        // GET: BasicInfo/JournalTypes
         public ActionResult Index()
         {
             List<JournalTypesDto> journalTypesDto = repository.Get().ToList();
             return View(journalTypesDto);
         }
 
-        // GET: Settings/JournalTypes/Form ( /1 ?FormType= 1 )
+        // GET: BasicInfo/JournalTypes/Form ( /1 ?FormType= 1 )
         public ActionResult Form(int id = 0, int FormType = 0)
         {
             ViewBag.FormType = FormType;

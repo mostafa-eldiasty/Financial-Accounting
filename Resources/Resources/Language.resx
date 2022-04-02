@@ -336,4 +336,13 @@
   <data name="LocalCurrency" xml:space="preserve">
     <value>Local Currency</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>From Date</value>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>To Date</value>
+  </data>
 </root>

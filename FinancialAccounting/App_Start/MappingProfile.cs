@@ -22,6 +22,9 @@ namespace FinancialAccounting.App_Start
 
             Mapper.CreateMap<Currencies, CurrenciesDto>();
             Mapper.CreateMap<CurrenciesDto, Currencies>();
+
+            Mapper.CreateMap<FinancialYears, FinancialYearsDto>();
+            Mapper.CreateMap<FinancialYearsDto, FinancialYears>();
         }
     }
 }

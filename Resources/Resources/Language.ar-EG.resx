@@ -336,4 +336,13 @@
   <data name="LocalCurrency" xml:space="preserve">
     <value>العملة المحلية</value>
   </data>
+  <data name="Active" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>من تاريخ</value>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>الى تاريخ</value>
+  </data>
 </root>

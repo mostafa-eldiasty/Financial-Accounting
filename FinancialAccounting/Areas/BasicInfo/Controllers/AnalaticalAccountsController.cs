@@ -20,14 +20,14 @@ namespace FinancialAccounting.Areas.BasicInfo.Controllers
             repository = new Repository<AnalaticalAccounts, AnalaticalAccountsDto>();
         }
 
-        // GET: Settings/AnalaticalAccounts
+        // GET: BasicInfo/AnalaticalAccounts
         public ActionResult Index()
         {
             List<AnalaticalAccountsDto> analaticalAccountsDto = repository.Get().ToList();
             return View(analaticalAccountsDto);
         }
 
-        // GET: Settings/AnalaticalAccounts/Form ( /1 ?FormType= 1 )
+        // GET: BasicInfo/AnalaticalAccounts/Form ( /1 ?FormType= 1 )
         public ActionResult Form(int id = 0, int FormType = 0)
         {
             ViewBag.FormType = FormType;

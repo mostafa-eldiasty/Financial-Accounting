@@ -26,6 +26,7 @@ namespace DataAccess.Data
         public DbSet<JournalTypes> JournalTypes { get; set; }
         public DbSet<AnalaticalAccounts> AnalaticalAccounts { get; set; }
         public DbSet<Currencies> Currencies { get; set; }
+        public DbSet<FinancialYears> FinancialYears { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
