@@ -345,4 +345,7 @@
   <data name="ToDate" xml:space="preserve">
     <value>الى تاريخ</value>
   </data>
+  <data name="UsersData" xml:space="preserve">
+    <value>بيانات المستخدمين</value>
+  </data>
 </root>

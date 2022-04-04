@@ -736,6 +736,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Users Data.
+        /// </summary>
+        public static string UsersData {
+            get {
+                return ResourceManager.GetString("UsersData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Website.
         /// </summary>
         public static string Website {
