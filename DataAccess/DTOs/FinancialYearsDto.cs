@@ -13,7 +13,7 @@ namespace DataAccess.DTOs
         [Display(Name = "Code", ResourceType = typeof(Language))]
         [Required(ErrorMessageResourceName = "CodeIsRequired", ErrorMessageResourceType = typeof(Language))]
         [Index(nameof(Code), IsUnique = true)]
-        [Unique(IdName: "Id", TableName: "Currencies", ErrorMessageResourceName = "ThisCodeUsedBefore", ErrorMessageResourceType = typeof(Language))]
+        [Unique(IdName: "Id", TableName: "FinancialYears", ErrorMessageResourceName = "ThisCodeUsedBefore", ErrorMessageResourceType = typeof(Language))]
         public int Code { get; set; }
 
         [Display(Name = "ArabicName", ResourceType = typeof(Language))]
