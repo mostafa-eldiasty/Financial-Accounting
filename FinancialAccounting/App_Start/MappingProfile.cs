@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DataAccess.Data;
 using DataAccess.DTOs;
 using DataAccess.Models;
 
@@ -25,6 +26,9 @@ namespace FinancialAccounting.App_Start
 
             Mapper.CreateMap<FinancialYears, FinancialYearsDto>();
             Mapper.CreateMap<FinancialYearsDto, FinancialYears>();
+
+            Mapper.CreateMap<ApplicationUser, UsersDto>();
+            Mapper.CreateMap<UsersDto, ApplicationUser>();
         }
     }
 }

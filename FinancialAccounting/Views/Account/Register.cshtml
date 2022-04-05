@@ -1,5 +1,5 @@
-﻿@using FinancialAccounting.Resources
-@model FinancialAccounting.Models.RegisterViewModel
+﻿@using Resources.Resources
+@model DataAccess.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
     Layout = null;
@@ -41,9 +41,9 @@
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                             <div class="form-group">
-                                <label for="Email">@Language.UserName</label>
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
+                                <label for="UserName">@Language.UserName</label>
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.UserName, null, new { @class = "text-danger" })
                             </div>
 
                             <div class="form-group">

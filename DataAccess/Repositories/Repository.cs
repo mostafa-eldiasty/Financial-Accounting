@@ -48,7 +48,7 @@ namespace DataAccess.Repositories
                 T entity = Mapper.Map<TDto, T>(entityDto);
                 object value = _Context.Entry(entity).Property("Id").CurrentValue;
 
-                if ((int)value == 0)
+                if ( (value.GetType() == typeof(int) && (int)value == 0) || (value.GetType() == typeof(string) && string.IsNullOrEmpty(value.ToString())) )
                 {
                     //entityDto.AddedUserId = HttpContext.Current.User.Identity.GetUserId();
                     //entityDto.AddedDate = DateTime.Now;
