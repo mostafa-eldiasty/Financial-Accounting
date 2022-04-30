@@ -39,9 +39,9 @@
                     @Html.DisplayFor(modelItem => item.PhoneNumber)
                 </td>
                 <td>
-                    @Html.ActionLink(Language.Details, "Form", new { id = item.Id}, new { @class = "btn btn-light" })
-                    @Html.ActionLink(Language.Edit, "Form", new { id = item.Id}, new { @class = "btn btn-success" })
-                    @Html.ActionLink(Language.Delete, "Form", new { id = item.Id}, new { @class = "btn btn-danger" })
+                    @Html.ActionLink(Language.Details, "Form", new { id = item.Id, FormType = (int)FormType.Details }, new { @class = "btn btn-light" })
+                    @Html.ActionLink(Language.Edit, "Form", new { id = item.Id, FormType = (int)FormType.Edit }, new { @class = "btn btn-success" })
+                    @Html.ActionLink(Language.Delete, "Form", new { id = item.Id, FormType = (int)FormType.Delete }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }

@@ -1,10 +1,12 @@
 ﻿@using Resources.Resources
-@*@using FinancialAccounting.Enums*@
+@using FinancialAccounting.Enums
 @model DataAccess.DTOs.UsersDto
 
 @{
     Layout = "~/Areas/Settings/Views/Shared/_Settings.cshtml";
     ViewBag.Title = Language.UsersData;
+    bool IsSave = ViewBag.FormType == (int)FormType.New || ViewBag.FormType == (int)FormType.Edit;
+    bool IsDelete = ViewBag.FormType == (int)FormType.Delete;
 }
 
 <style>
@@ -29,7 +31,7 @@
         text-align: center;
     }*/
 
-    input {
+    input:not([type='checkbox']) {
         padding: 10px;
         width: 100%;
         font-size: 17px;
@@ -94,7 +96,7 @@
         <h1>@*@Language.UsersData:*@</h1>
         <!-- One "tab" for each step in the form: -->
         <div class="tab">
-            @*Login Info:*@
+            @Language.BasicInformation:
             <div class="form-group row">
                 @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "col-form-label col-md-2" })
                 <div class="col-md-10">
@@ -114,7 +116,7 @@
             <div class="form-group row">
                 @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "col-form-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "form-control", type = "password" })
+                    @Html.TextBoxFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "form-control", type = "password", autocomplete = string.IsNullOrEmpty(Model.Id) ? "new-password" : "" })
                     @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -122,7 +124,7 @@
             <div class="form-group row">
                 @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-form-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -130,26 +132,50 @@
             <div class="form-group row">
                 @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "col-form-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
         <div class="tab">
-            @*Contact Info:*@
-            
-            
+            @Language.BranchesData:
+            @foreach (var item in Model.UsersBranches.OrderBy(x => x.Branches.Code))
+            {
+                <div class="checkbox">
+                    <label>
+                        @{ bool UserBranchExist = Model.UsersBranches.FirstOrDefault(x => x.BranchId == item.BranchId && x.UserId == Model.Id) != null;}
+
+                        <input type="hidden" class="userbranch-Id" value="@item.Id" />
+                        <input type="hidden" class="userbranch-BranchId" value="@item.BranchId" />
+                        <input type="hidden" class="userbranch-UserId" value="@item.UserId" />
+
+                        <input type="checkbox" class="branch-checkbox" @(UserBranchExist ? "Checked" : "")> @item.Branches.ArabicName
+                    </label>
+                </div>
+            }
         </div>
 
         @Html.HiddenFor(m => m.Id)
-        <div style="overflow:auto;">
-            <div style="flex-direction:row-reverse;display:flex">
+        @Html.AntiForgeryToken()
+        <div class="row" style="overflow:auto;margin-top:10px">
+            <div class="col-sm-6">
+                @Html.ActionLink(@Language.BackToList, "Index", null, new { @class = "btn btn-rounded btn-inverse-secondary" })
+            </div>
+            <div class="col-sm-6" style="flex-direction:row-reverse;display:flex">
                 <button type="button" id="nextBtn" class="btn btn-info" onclick="nextPrev(1)">@Language.Next</button>
+                @if (IsSave)
+                {
+                    <button type="button" id="submitBtn" class="btn btn-info" onclick="Submit()">@Language.Save</button>
+                }
+                else if(IsDelete)
+                {
+                    <button type="button" id="submitBtn" class="btn btn-danger" onclick="Delete()">@Language.Delete</button>
+                }
                 <button type="button" id="prevBtn" class="btn btn-light" onclick="nextPrev(-1)">@Language.Previous</button>
             </div>
         </div>
         <!-- Circles which indicates the steps of the form: -->
-        <div style="text-align:center;margin-top:40px;">
+        <div style="text-align:center;margin-top:20px;">
             <span class="step"></span>
             <span class="step"></span>
             @*<span class="step"></span>*@
@@ -157,10 +183,17 @@
     </form>
 
     @Scripts.Render("~/bundles/jquery")
+
 <script>
         $('#company-link').removeClass('pws_tab_active');
         $('#branch-link').removeClass('pws_tab_active');
         $('#users-link').addClass('pws_tab_active');
+
+        $(document).ready(function () {
+            if ("@TempData["Success"]" == "True") {
+                swal("Big Bang solutions", "@Language.SavedSuccessfully", "success");
+            }
+        });
 
         var currentTab = 0; // Current tab is set to be the first tab (0)
         showTab(currentTab); // Display the current tab
@@ -176,15 +209,93 @@
                 document.getElementById("prevBtn").style.display = "inline";
             }
             if (n == (x.length - 1)) {
-                document.getElementById("nextBtn").innerHTML = "@Language.Save";
+                document.getElementById("nextBtn").style.display = "none";
+                document.getElementById("submitBtn").style.display = "unset";
             } else {
-                document.getElementById("nextBtn").innerHTML = "@Language.Next";
+                document.getElementById("nextBtn").style.display = "unset";
+                document.getElementById("submitBtn").style.display = "none";
             }
-            //... and run a function that will display the correct step indicator:
             fixStepIndicator(n)
         }
 
+        function Submit() {
+
+            if (!$('#usersForm').valid()) {
+                return false;
+            }
+
+            //var arr = [];
+            $('.branch-checkbox:checked').each(function (index) {
+
+                var Id = $(this).parent().find('.userbranch-Id').val();
+                var BranchId = $(this).parent().find('.userbranch-BranchId').val();
+                //var UserId = $(this).parent().find('.userbranch-UserId').val();
+
+                $('<input>').attr({ type: 'hidden', value: Id, name: 'UsersBranches[' + index + '].Id' }).appendTo('#usersForm');
+                $('<input>').attr({ type: 'hidden', value: BranchId, name: 'UsersBranches[' + index + '].BranchId' }).appendTo('#usersForm');
+                $('<input>').attr({ type: 'hidden', value: '@Model.Id', name: 'UsersBranches[' + index + '].UserId' }).appendTo('#usersForm');
+                $('#usersForm').submit();
+                //arr.push({
+                //    Id: $(this).parent().find('.userbranch-Id').val(),
+                //    BranchId: $(this).parent().find('.userbranch-BranchId').val(),
+                //    UserId: $(this).parent().find('.userbranch-UserId').val()
+                //});
+            });
+
+            @*var data = $('#usersForm').serialize();
+            data += '&' + $.param({ 'UsersBranches': arr })
+            $.post("/Settings/Users/Form", data
+                , function (response) {
+                    if (response.success == "true")
+                    swal("Big Bang solutions", "@Language.SavedSuccessfully", "success");
+                }
+            );*@
+        }
+
+
+         function Delete() {
+                swal({
+                    title: '@Language.Delete',
+                    text: "@Language.AreYouSure",
+                    icon: 'warning',
+                    buttons: { true: "@Language.Confirm", false: "@Language.Cancel"}
+                }).then(function (result) {
+                    if (result == "true") {
+                         $.ajax({
+                                type: "POST",
+                                url: "/Settings/Users/Delete/" + $('#Id').val(),
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                success: function (r) {
+                                    swal({
+                                        text: '@Language.DeletedSuccessfully',
+                                        icon: 'success'
+                                    }).then(function () {
+                                        window.location = "/Settings/Users/Index";
+                                    });
+                             },
+                             error: function () {
+                                 swal({
+                                        title: '@Language.SomethingWentWrong',
+                                        icon: 'success'
+                                    });
+                             }
+                            });
+                    }
+                });
+
+            }
+
         function nextPrev(n) {
+            @*if (currentTab == 1 && n == 1 ) {
+                if ("@IsSave" == "True")
+                    Submit();
+                else if ("@IsDelete" == "True")
+                    Delete();
+
+                //Submit();
+                return false;
+            }*@
             // This function will figure out which tab to display
             var x = document.getElementsByClassName("tab");
             // Exit the function if any field in the current tab is invalid:
@@ -194,11 +305,14 @@
             // Increase or decrease the current tab by 1:
             currentTab = currentTab + n;
             // if you have reached the end of the form...
-            if (currentTab >= x.length) {
-                // ... the form gets submitted:
-                document.getElementById("usersForm").submit();
+            @*if (currentTab >= x.length) {
+                if ("@IsSave" == "True") {
+                    Submit();
+                } else if ("@IsDelete" == "True") {
+                    Delete();
+                }
                 return false;
-            }
+            }*@
             // Otherwise, display the correct tab:
             showTab(currentTab);
         }
