@@ -1,13 +1,14 @@
 ﻿using DataAccess.DTOs;
 using FinancialAccounting.Enums;
 using DataAccess.Models;
-using DataAccess.Repositories;
+//using BusinessLogic.Repositories;
 using FinancialAccounting.Controllers;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using BusinessLogic.Repositories;
 
 namespace FinancialAccounting.Areas.BasicInfo.Controllers
 {

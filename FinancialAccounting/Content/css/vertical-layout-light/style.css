@@ -16050,11 +16050,12 @@ button.bg-dark:focus,
 }
 
 .fixed-top {
-  position: fixed;
+  /*position: fixed;*/
   top: 0;
   right: 0;
   left: 0;
   z-index: 1030;
+  height:5px;
 }
 
 .fixed-bottom {
@@ -23154,11 +23155,12 @@ body.avgrund-active {
 .content-wrapper.en-US {
     /*background: #e8eff9;*/
     background-image: url('/Content/accounting.jpg');
-    background-size: 100%;
-    width: 100%;
+    background-size: cover;
+    background-position:center;
+    /*width: 100%;*/
     background-repeat: no-repeat;
     -webkit-flex-grow: 1;
-    flex-grow: 1;
+    flex-grow: 10;
     padding: 2rem 2rem;
 }
 
@@ -23643,7 +23645,7 @@ body.avgrund-active {
     top: 64px;
     bottom: 0;
     overflow: auto;
-    right: -255px;
+    right: -350px;
     -webkit-transition: all 0.25s ease-out;
     -o-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
@@ -23669,7 +23671,7 @@ body.avgrund-active {
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
-  width: 310px;
+  /*width: 310px;*/
   height: 64px;
 }
 
@@ -23728,13 +23730,13 @@ body.avgrund-active {
   height: 64px;
 }
 
-@media (max-width: 991px) {
+/*@media (max-width: 991px) {
   .navbar .navbar-menu-wrapper {
     width: calc(100% - 55px);
     padding-left: 15px;
     padding-right: 15px;
   }
-}
+}*/
 
 .navbar .navbar-menu-wrapper .navbar-toggler {
   border: 0;
@@ -24312,9 +24314,9 @@ body.avgrund-active {
   .navbar .navbar-brand-wrapper {
     width: 55px;
   }
-  .navbar .navbar-brand-wrapper .navbar-brand.brand-logo {
+  /*.navbar .navbar-brand-wrapper .navbar-brand.brand-logo {
     display: none;
-  }
+  }*/
   .navbar .navbar-brand-wrapper .navbar-brand.brand-logo-mini {
     display: inline-block;
   }
@@ -24324,10 +24326,10 @@ body.avgrund-active {
   }
 }
 
-@media (max-width: 480px) {
+/*@media (max-width: 480px) {
   .navbar .navbar-brand-wrapper {
     width: 55px;
-  }
+  }*/
   .navbar .navbar-brand-wrapper .brand-logo-mini {
     padding-top: 0px;
     padding-left: 1rem;

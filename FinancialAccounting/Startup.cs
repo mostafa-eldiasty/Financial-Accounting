@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using BusinessLogic;
 
 [assembly: OwinStartupAttribute(typeof(FinancialAccounting.Startup))]
 namespace FinancialAccounting
@@ -8,7 +9,8 @@ namespace FinancialAccounting
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            BusinessLogic.Startup startup = new BusinessLogic.Startup();
+            startup.ConfigureAuth(app);
         }
     }
 }

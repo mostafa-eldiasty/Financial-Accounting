@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DataAccess.DTOs;
 using DataAccess.Models;
-using DataAccess.Repositories;
+using BusinessLogic.Repositories;
 using FinancialAccounting.Controllers;
 
 namespace FinancialAccounting.Areas.Settings.Controllers

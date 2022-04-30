@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{DAECA649-2D76-4036-854C-84ED7379FF9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{0A9A5E69-8E18-4E73-99A0-DB2C33F61A7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DAECA649-2D76-4036-854C-84ED7379FF9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAECA649-2D76-4036-854C-84ED7379FF9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAECA649-2D76-4036-854C-84ED7379FF9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A9A5E69-8E18-4E73-99A0-DB2C33F61A7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A9A5E69-8E18-4E73-99A0-DB2C33F61A7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A9A5E69-8E18-4E73-99A0-DB2C33F61A7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A9A5E69-8E18-4E73-99A0-DB2C33F61A7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

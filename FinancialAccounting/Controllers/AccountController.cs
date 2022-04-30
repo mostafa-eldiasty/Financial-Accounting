@@ -1,16 +1,14 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using DataAccess;
 using DataAccess.Models;
 using DataAccess.Data;
+using Microsoft.AspNet.Identity.Owin;
+using BusinessLogic;
 
 namespace FinancialAccounting.Controllers
 {

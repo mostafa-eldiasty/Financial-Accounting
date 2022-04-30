@@ -1,13 +1,8 @@
-﻿using FinancialAccounting.DTOs;
-using FinancialAccounting.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace FinancialAccounting.Repositories
+namespace BusinessLogic.Repositories
 {
     interface IRepository<T, TDto>
     {

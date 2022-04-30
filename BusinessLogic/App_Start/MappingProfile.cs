@@ -2,8 +2,9 @@
 using DataAccess.Data;
 using DataAccess.DTOs;
 using DataAccess.Models;
+using System.Collections.Generic;
 
-namespace FinancialAccounting.App_Start
+namespace BusinessLogic.App_Start
 {
     public class MappingProfile : Profile
     {
@@ -29,6 +30,9 @@ namespace FinancialAccounting.App_Start
 
             Mapper.CreateMap<ApplicationUser, UsersDto>();
             Mapper.CreateMap<UsersDto, ApplicationUser>();
+
+            Mapper.CreateMap<UsersBranches, UsersBranchesDto>();
+            Mapper.CreateMap<UsersBranchesDto, UsersBranches>();
         }
     }
 }

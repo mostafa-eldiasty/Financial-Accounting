@@ -1,18 +1,15 @@
 ﻿using AutoMapper;
-using DataAccess.DTOs;
 using DataAccess.Data;
-using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Web;
 
-namespace DataAccess.Repositories
+namespace BusinessLogic.Repositories
 {
     public class Repository<T,TDto> : IRepository<T, TDto> where T : class
     {
-        private ApplicationDbContext _Context;
+        private readonly ApplicationDbContext _Context;
 
         public Repository()
         {

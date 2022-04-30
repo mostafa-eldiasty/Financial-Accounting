@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 
-namespace DataAccess.CustomValidation
+namespace BusinessLogic.CustomValidation
 {
     class Unique : ValidationAttribute
     {
