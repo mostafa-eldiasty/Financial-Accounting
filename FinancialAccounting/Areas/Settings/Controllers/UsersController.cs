@@ -82,12 +82,10 @@ namespace FinancialAccounting.Areas.Settings.Controllers
 
                 ViewBag.FormType = formType;
                 return View(usersDto);
-                //return Json(usersDto);
             }
             repository.AddOrUpdateAsync(usersDto);
 
             TempData["Success"] = "True";
-            //return Json(new { success = "true" });
             return RedirectToAction("Form", new { id = usersDto.Id, FormType = formType });
         }
 

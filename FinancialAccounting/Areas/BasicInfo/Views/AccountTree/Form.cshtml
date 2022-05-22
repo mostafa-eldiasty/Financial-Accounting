@@ -1,0 +1,251 @@
+﻿@using Resources.Resources
+@using FinancialAccounting.Enums
+@model DataAccess.DTOs.AccountTreeDto
+
+@{
+    Layout = "~/Areas/BasicInfo/Views/Shared/_Accounts.cshtml";
+    ViewBag.Title = Language.AccountTree;
+    bool SetDisabled = ViewBag.FormType == (int)FormType.Details || ViewBag.FormType == (int)FormType.Delete;
+}
+
+@using (Html.BeginForm("Form", "AccountTree", FormMethod.Post, new { @id="AccountTreeForm", style = "background-color:white;padding-left:20px;padding-right:20px;" }))
+{
+    <div class="checkbox" style="flex-direction:row-reverse;display:flex;">
+        <label>
+            @Html.CheckBoxFor(model => model.IsGeneralAccount,new { disabled = SetDisabled ? "disabled" : "false" }) @Language.GeneralAccount
+        </label>
+    </div>
+    <div class="row">
+        <div class="form-horizontal col-6">
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align: center;" })
+                <div class="col-9">
+                    @Html.TextBoxFor(m => m.Code, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
+                    @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.ArabicName, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align: center;" })
+                <div class="col-9">
+                    @Html.EditorFor(model => model.ArabicName, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" } })
+                    @Html.ValidationMessageFor(model => model.ArabicName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.EnglishName, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align: center;" })
+                <div class="col-9">
+                    @Html.EditorFor(model => model.EnglishName, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" } })
+                    @Html.ValidationMessageFor(model => model.EnglishName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align: center;" })
+                <div class="col-9">
+                    @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" } })
+                    @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-horizontal col-6">
+            <div class="form-group row">
+                @Html.LabelFor(model => model.CurrencyId, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align:center;" })
+                <div class="col-9">
+                    @Html.DropDownListFor(m => m.CurrencyId, new SelectList(Model.currenciesLst, "Id", "ArabicName", Model.CurrencyId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
+                    @Html.ValidationMessageFor(model => model.CurrencyId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.AccountTypeId, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align:center;" })
+                <div class="col-9">
+                    @Html.DropDownListFor(m => m.AccountTypeId, new SelectList(Model.accountTypesLst, "Id", "ArabicName", Model.AccountTypeId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
+                    @Html.ValidationMessageFor(model => model.AccountTypeId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom:25px">
+                <div class="col-6"></div>
+                <div class="form-check" style=" margin: auto; width: 50%;">
+                    <input class="form-check-input" type="radio" name="IsDebit" id="Debit" value="true" @(Model.IsDebit?"Checked":"")  @(SetDisabled ? "disabled" : "")>
+                    <label for="Debit" style="margin:0 25px 0 25px">
+                        @Language.Debit
+                    </label>
+
+                    <input class="form-check-input" type="radio" name="IsDebit" value="false" id="Credit" @(!Model.IsDebit?"Checked":"") @(SetDisabled ? "disabled" : "")>
+                    <label for="Credit" style="margin:0 25px 0 25px">
+                        @Language.Credit
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group" style="flex-direction:row-reverse;display:flex;">
+                @if (ViewBag.FormType == (int)FormType.New || ViewBag.FormType == (int)FormType.Edit)
+                {
+                    <div>
+                        <input type="submit" value="@Language.Save" class="btn btn-info" />
+                    </div>
+                }
+                else if (ViewBag.FormType == (int)FormType.Delete)
+                {
+                    <div>
+                        <a href="#" class="btn btn-danger" id="Delete">@Language.Delete</a>
+                    </div>
+                }
+
+                <div style="margin-left:10px;margin-right:10px;">
+                    @Html.ActionLink(@Language.BackToList, "Index", null, new { @class = "btn btn-inverse-secondary" })
+                </div>
+            </div>
+
+        </div>
+
+        @Html.HiddenFor(m => m.AddedDate)
+        @Html.HiddenFor(m => m.AddedUserId)
+        @Html.HiddenFor(m => m.UpdatedDate)
+        @Html.HiddenFor(m => m.UpdatedUserId)
+        @Html.HiddenFor(m => m.Id);
+        @Html.HiddenFor(m => m.ParentId)
+        @Html.AntiForgeryToken()
+    </div>
+
+    <div class="pws_tabs_container pws_tabs_horizontal pws_tabs_horizontal_top pws_tabs_noeffect pws_none" style="margin:20px 0 0 0;">
+        <ul class="pws_tabs_controll">
+            <li><a class="pws_tab_active tablinks" id="branches-tab" href="#branches">@Language.Branches</a></li>
+            <li><a class="tablinks" id="analytical_account-tab" href="#analytical_accounts">@Language.AnalaticalAccounts</a></li>
+        </ul>
+
+        <div class="demo-tabs pws_tabs_list" style="background:#fff;">
+            <div class="pws_tab_single pws_show pws_hide" id="branches">
+                <table class="table table-borderless table-responsive" id="tableBranch">
+                    <tbody>
+                        @foreach (var branch in Model.BranchesLst)
+                        {
+                            <tr>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="hidden" class="AccountBranches-Id" value="@(Model.Id != 0?  Model.AccountBranches.Where(x=> x.BranchId == branch.Id).Select(x=>x.Id).FirstOrDefault():0)" />
+                                            <input type="hidden" class="AccountBranches-BranchId" value="@branch.Id" />
+                                            @*<input type="hidden" class="AccountBranches-AccountTreeId" value="@Model.Id" />*@
+
+                                            <input type="checkbox" class="branch-checkbox" @(SetDisabled ? "disabled" : "") 
+                                                   @(Model.AccountBranches != null && Model.AccountBranches.Where(x=>x.BranchId == branch.Id).Count() > 0? "checked":"")> @branch.ArabicName
+                                        </label>
+                                    </div>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pws_tab_single pws_show pws_hide" id="analytical_accounts" style="display:none;">
+                <div class="pws_tab_single pws_show pws_hide" id="AnalaticalAccounts">
+                    <table class="table table-borderless table-responsive" id="tableAnalaticalAccounts">
+                        <tbody>
+                            @foreach (var analyticalAccounts in Model.AnalyticalAccountsLst)
+                            {
+                                <tr>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="hidden" class="Account_AnalaticalAccounts-Id" value="@(Model.Id != 0?  Model.Account_AnalaticalAccounts.Where(x=> x.AnalaticalAccountId == analyticalAccounts.Id).Select(x=>x.Id).FirstOrDefault():0)" />
+                                            <input type="hidden" class="Account_AnalaticalAccounts-AnalaticalAccountId" value="@analyticalAccounts.Id" />
+                                            @*<input type="hidden" class="AccountBranches-AccountTreeId" value="@Model.Id" />*@
+
+                                            <input type="checkbox" class="analyticalAccount-checkbox" @(SetDisabled ? "disabled" : "")
+                                                   @(Model.Account_AnalaticalAccounts != null && Model.Account_AnalaticalAccounts.Where(x => x.AnalaticalAccountId == analyticalAccounts.Id).Count() > 0 ? "checked" : "")> @analyticalAccounts.ArabicName
+                                            </label>
+                                        </div>
+                                    </tr>
+                                }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('option').css('text-align', 'center');
+            $('#branches-tab').on('click', function () {
+                $('#analytical_account-tab').removeClass('pws_tab_active');
+                $('#analytical_accounts').removeClass('pws_show');
+                $('#analytical_accounts').css('display', 'none');
+
+                $('#branches-tab').addClass('pws_tab_active');
+                $('#branches').addClass('pws_show');
+                $('#branches').css('display', '');
+            });
+
+            $('#analytical_account-tab').on('click', function () {
+                $('#branches-tab').removeClass('pws_tab_active');
+                $('#branches').removeClass('pws_show');
+                $('#branches').css('display', 'none');
+
+                $('#analytical_account-tab').addClass('pws_tab_active');
+                $('#analytical_accounts').addClass('pws_show');
+                $('#analytical_accounts').css('display', '');
+            });
+
+            if ("@TempData["Success"]" == "True") {
+                swal("Big Bang solutions", "@Language.SavedSuccessfully", "success");
+            }
+
+            $('#Delete').click(function Delete() {
+                swal({
+                    title: '@Language.Delete',
+                    text: "@Language.AreYouSure!!! حذف الحسابات سيؤثر فى أرصدة أول المدة",
+                    icon: 'warning',
+                    buttons: { true: "@Language.Confirm", false: "@Language.Cancel" }
+                }).then(function (result) {
+                    if (result == "true") {
+                        $.ajax({
+                            type: "POST",
+                            url: "/BasicInfo/AccountTree/Delete/" + $('#Id').val(),
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (r) {
+                                swal({
+                                    text: '@Language.DeletedSuccessfully',
+                                    icon: 'success'
+                                }).then(function () {
+                                    window.location = "/BasicInfo/AccountTree/Index";
+                                });
+                            },
+                            error: function () {
+                                swal({
+                                    title: '@Language.SomethingWentWrong!!! ربما مرتبط بحركة او اكثر او انه اب لحسابات اخرى',
+                                    icon: 'success'
+                                });
+                            }
+                        });
+                    }
+                });
+            });
+
+            $('#AccountTreeForm').submit(function () {
+                $('.branch-checkbox:checked').each(function (index) {
+                    var Id = $(this).parent().find('.AccountBranches-Id').val();
+                    var BranchId = $(this).parent().find('.AccountBranches-BranchId').val();
+
+                    $('<input>').attr({ type: 'hidden', value: Id, name: 'AccountBranches[' + index + '].Id' }).appendTo('#AccountTreeForm');
+                    $('<input>').attr({ type: 'hidden', value: BranchId, name: 'AccountBranches[' + index + '].BranchId' }).appendTo('#AccountTreeForm');
+                    $('<input>').attr({ type: 'hidden', value: '@Model.Id', name: 'AccountBranches[' + index + '].AccountTreeId' }).appendTo('#AccountTreeForm');
+                });
+
+                $('.analyticalAccount-checkbox:checked').each(function (index) {
+                    var Id = $(this).parent().find('.Account_AnalaticalAccounts-Id').val();
+                    var AnalyticalAccountId = $(this).parent().find('.Account_AnalaticalAccounts-AnalaticalAccountId').val();
+
+                    $('<input>').attr({ type: 'hidden', value: Id, name: 'Account_AnalaticalAccounts[' + index + '].Id' }).appendTo('#AccountTreeForm');
+                    $('<input>').attr({ type: 'hidden', value: AnalyticalAccountId, name: 'Account_AnalaticalAccounts[' + index + '].AnalaticalAccountId' }).appendTo('#AccountTreeForm');
+                    $('<input>').attr({ type: 'hidden', value: '@Model.Id', name: 'Account_AnalaticalAccounts[' + index + '].AccountTreeId' }).appendTo('#AccountTreeForm');
+                });
+            });
+        });
+
+    </script>
+}

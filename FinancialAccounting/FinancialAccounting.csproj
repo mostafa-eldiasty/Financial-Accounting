@@ -66,6 +66,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -73,7 +74,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
@@ -171,6 +171,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\BasicInfo\BasicInfoAreaRegistration.cs" />
+    <Compile Include="Areas\BasicInfo\Controllers\AccountBegBalancesController.cs" />
+    <Compile Include="Areas\BasicInfo\Controllers\AccountTreeController.cs" />
     <Compile Include="Areas\BasicInfo\Controllers\AnalaticalAccountsController.cs" />
     <Compile Include="Areas\BasicInfo\Controllers\CurrenciesController.cs" />
     <Compile Include="Areas\BasicInfo\Controllers\FinancialYearsController.cs" />
@@ -231,6 +233,7 @@
     <Content Include="Content\images\carousel\banner_7.jpg" />
     <Content Include="Content\images\carousel\banner_8.jpg" />
     <Content Include="Content\images\carousel\banner_9.jpg" />
+    <Content Include="Content\images\circle.svg" />
     <Content Include="Content\images\favicon.png" />
     <Content Include="Content\images\file-icons\128\001-interface-1.png" />
     <Content Include="Content\images\file-icons\128\002-tool.png" />
@@ -281,9 +284,11 @@
     <Content Include="Content\images\file-icons\extension\zip-file.png" />
     <Content Include="Content\images\file-icons\extension\zip.png" />
     <Content Include="Content\images\file-icons\flag\flag.png" />
+    <Content Include="Content\images\file.png" />
     <Content Include="Content\images\Financial Accounting Logo.jpg" />
     <Content Include="Content\images\Financial Accounting Logo.png" />
     <Content Include="Content\images\Financial Accounting Logo.svg" />
+    <Content Include="Content\images\folder.png" />
     <Content Include="Content\images\lightbox\play-button.png" />
     <Content Include="Content\images\lightbox\thumb-v-v-1.jpg" />
     <Content Include="Content\images\lightbox\thumb-v-v-2.jpg" />
@@ -329,6 +334,58 @@
     <Content Include="Content\images\sprites\jsgrid-icons.png" />
     <Content Include="Content\images\sprites\red.png" />
     <Content Include="Content\images\sprites\yellow.png" />
+    <Content Include="Content\Misc\js\jquery.min.js" />
+    <Content Include="Content\Misc\js\jszip.min.js" />
+    <Content Include="Content\Misc\js\kendo.all.min.js" />
+    <Content Include="Content\Misc\js\kendo.gantt.list.min.js" />
+    <Content Include="Content\Misc\js\kendo.gantt.min.js" />
+    <Content Include="Content\Misc\js\kendo.gantt.timeline.min.js" />
+    <Content Include="Content\Misc\js\kendo.grid.min.js" />
+    <Content Include="Content\Misc\js\kendo.list.min.js" />
+    <Content Include="Content\Misc\js\kendo.listbox.min.js" />
+    <Content Include="Content\Misc\js\kendo.listview.min.js" />
+    <Content Include="Content\Misc\js\kendo.mediaplayer.min.js" />
+    <Content Include="Content\Misc\js\kendo.treelist.min.js" />
+    <Content Include="Content\Misc\js\kendo.treeview.draganddrop.min.js" />
+    <Content Include="Content\Misc\js\kendo.treeview.min.js" />
+    <Content Include="Content\Misc\js\kendo.userevents.min.js" />
+    <Content Include="Content\Misc\js\kendo.view.min.js" />
+    <Content Include="Content\Misc\js\kendo.web.min.js" />
+    <Content Include="Content\Misc\js\kendo.webcomponents.js" />
+    <Content Include="Content\Misc\js\kendo.window.min.js" />
+    <Content Include="Content\Misc\js\pako_deflate.min.js" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="Content\Misc\styles\fonts\glyphs\KendoUIGlyphs.svg" />
+    <Content Include="Content\Misc\styles\fonts\glyphs\WebComponentsIcons.svg" />
+    <Content Include="Content\Misc\styles\images\back.png" />
+    <Content Include="Content\Misc\styles\images\kendoui.svg" />
+    <Content Include="Content\Misc\styles\images\wp8_icons.png" />
+    <Content Include="Content\Misc\styles\images\wp8_inverseicons.png" />
+    <Content Include="Content\Misc\styles\kendo.black.min.css" />
+    <Content Include="Content\Misc\styles\kendo.black.mobile.min.css" />
+    <Content Include="Content\Misc\styles\kendo.blueopal.min.css" />
+    <Content Include="Content\Misc\styles\kendo.blueopal.mobile.min.css" />
+    <Content Include="Content\Misc\styles\kendo.bootstrap-v4.min.css" />
+    <Content Include="Content\Misc\styles\kendo.bootstrap.min.css" />
+    <Content Include="Content\Misc\styles\kendo.bootstrap.mobile.min.css" />
+    <Content Include="Content\Misc\styles\kendo.common-bootstrap.core.min.css" />
+    <Content Include="Content\Misc\styles\kendo.common-bootstrap.min.css" />
+    <Content Include="Content\Misc\styles\kendo.common-fiori.min.css" />
+    <Content Include="Content\Misc\styles\kendo.common-material.core.min.css" />
+    <Content Include="Content\Misc\styles\kendo.common-material.min.css" />
+    <Content Include="Content\Misc\styles\kendo.common-nova.core.min.css" />
+    <Content Include="Content\Misc\styles\kendo.common-nova.min.css" />
+    <Content Include="Content\Misc\styles\kendo.common-office365.min.css" />
+    <Content Include="Content\Misc\styles\kendo.common.core.min.css" />
+    <Content Include="Content\Misc\styles\kendo.common.min.css" />
+    <Content Include="Content\Misc\styles\kendo.default-v2.min.css" />
+    <Content Include="Content\Misc\styles\kendo.default.min.css" />
+    <Content Include="Content\Misc\styles\kendo.default.mobile.min.css" />
+    <Content Include="Content\Misc\styles\kendo.rtl.min.css" />
+    <Content Include="Content\Misc\styles\kendo.silver.min.css" />
+    <Content Include="Content\Misc\styles\kendo.silver.mobile.min.css" />
+    <Content Include="Content\Misc\styles\kendo.uniform.min.css" />
+    <Content Include="Content\Misc\styles\kendo.uniform.mobile.min.css" />
     <Content Include="Content\sweetalert\bootstrap-sweetalert.png" />
     <Content Include="Content\sweetalert\docs.css" />
     <Content Include="Content\sweetalert\sweet-alert.css" />
@@ -1844,6 +1901,31 @@
     <Content Include="Areas\BasicInfo\Views\FinancialYears\Index.cshtml" />
     <Content Include="Areas\Settings\Views\Users\Index.cshtml" />
     <Content Include="Areas\Settings\Views\Users\Form.cshtml" />
+    <Content Include="Areas\BasicInfo\Views\Shared\_Accounts.cshtml" />
+    <Content Include="Areas\BasicInfo\Views\AccountTree\Index.cshtml" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\DejaVuSans-Bold.ttf" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\DejaVuSans-Oblique.ttf" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\DejaVuSans.ttf" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\DejaVuSansMono-Bold.ttf" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\DejaVuSansMono-BoldOblique.ttf" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\DejaVuSansMono-Oblique.ttf" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\DejaVuSansMono.ttf" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\DejaVuSerif-Bold.ttf" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
+    <Content Include="Content\Misc\styles\fonts\DejaVu\DejaVuSerif.ttf" />
+    <Content Include="Content\Misc\styles\fonts\glyphs\KendoUIGlyphs.eot" />
+    <Content Include="Content\Misc\styles\fonts\glyphs\KendoUIGlyphs.ttf" />
+    <Content Include="Content\Misc\styles\fonts\glyphs\KendoUIGlyphs.woff" />
+    <Content Include="Content\Misc\styles\fonts\glyphs\WebComponentsIcons.eot" />
+    <Content Include="Content\Misc\styles\fonts\glyphs\WebComponentsIcons.ttf" />
+    <Content Include="Content\Misc\styles\fonts\glyphs\WebComponentsIcons.woff" />
+    <Content Include="Content\Misc\styles\images\kendoui.ttf" />
+    <Content Include="Content\Misc\styles\images\kendoui.woff" />
+    <Content Include="Areas\BasicInfo\Views\AccountTree\Form.cshtml" />
+    <Content Include="Areas\BasicInfo\Views\AccountBegBalances\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -1969,6 +2051,9 @@
       <Project>{daeca649-2d76-4036-854c-84ed7379ff9c}</Project>
       <Name>Resources</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

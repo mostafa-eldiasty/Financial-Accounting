@@ -61,6 +61,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account Natural.
+        /// </summary>
+        public static string AccountNatural {
+            get {
+                return ResourceManager.GetString("AccountNatural", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Accounts.
         /// </summary>
         public static string Accounts {
@@ -75,6 +84,24 @@ namespace Resources.Resources {
         public static string AccountStatmentHelperReport {
             get {
                 return ResourceManager.GetString("AccountStatmentHelperReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account Tree.
+        /// </summary>
+        public static string AccountTree {
+            get {
+                return ResourceManager.GetString("AccountTree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account Type.
+        /// </summary>
+        public static string AccountType {
+            get {
+                return ResourceManager.GetString("AccountType", resourceCulture);
             }
         }
         
@@ -147,6 +174,24 @@ namespace Resources.Resources {
         public static string BasicInformation {
             get {
                 return ResourceManager.GetString("BasicInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beginning Balances.
+        /// </summary>
+        public static string BegBalances {
+            get {
+                return ResourceManager.GetString("BegBalances", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Branches.
+        /// </summary>
+        public static string Branches {
+            get {
+                return ResourceManager.GetString("Branches", resourceCulture);
             }
         }
         
@@ -241,11 +286,29 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Credit.
+        /// </summary>
+        public static string Credit {
+            get {
+                return ResourceManager.GetString("Credit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Currencies.
         /// </summary>
         public static string Currencies {
             get {
                 return ResourceManager.GetString("Currencies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currency.
+        /// </summary>
+        public static string Currency {
+            get {
+                return ResourceManager.GetString("Currency", resourceCulture);
             }
         }
         
@@ -291,6 +354,15 @@ namespace Resources.Resources {
         public static string DatatableLengthMenu {
             get {
                 return ResourceManager.GetString("DatatableLengthMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debit.
+        /// </summary>
+        public static string Debit {
+            get {
+                return ResourceManager.GetString("Debit", resourceCulture);
             }
         }
         
@@ -430,6 +502,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to General Account.
+        /// </summary>
+        public static string GeneralAccount {
+            get {
+                return ResourceManager.GetString("GeneralAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to General Accounts.
         /// </summary>
         public static string GeneralAccounts {
@@ -565,11 +646,29 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Notes.
+        /// </summary>
+        public static string Notes {
+            get {
+                return ResourceManager.GetString("Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password and confirmation password do not match.
+        /// </summary>
+        public static string PasswordAndConfirmationNotMatch {
+            get {
+                return ResourceManager.GetString("PasswordAndConfirmationNotMatch", resourceCulture);
             }
         }
         
@@ -597,6 +696,15 @@ namespace Resources.Resources {
         public static string PhoneNumber2 {
             get {
                 return ResourceManager.GetString("PhoneNumber2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please Wait.
+        /// </summary>
+        public static string PleaseWait {
+            get {
+                return ResourceManager.GetString("PleaseWait", resourceCulture);
             }
         }
         
@@ -651,6 +759,15 @@ namespace Resources.Resources {
         public static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ---Select From List---.
+        /// </summary>
+        public static string SelectFromLst {
+            get {
+                return ResourceManager.GetString("SelectFromLst", resourceCulture);
             }
         }
         

@@ -33,6 +33,21 @@ namespace BusinessLogic.App_Start
 
             Mapper.CreateMap<UsersBranches, UsersBranchesDto>();
             Mapper.CreateMap<UsersBranchesDto, UsersBranches>();
+
+            Mapper.CreateMap<AccountTree, AccountTreeDto>();
+            Mapper.CreateMap<AccountTreeDto, AccountTree>();
+
+            Mapper.CreateMap<AccountTypes, AccountTypesDto>();
+            Mapper.CreateMap<AccountTypesDto, AccountTypes>();
+
+            Mapper.CreateMap<Currencies, CurrenciesDto>();
+            Mapper.CreateMap<CurrenciesDto, Currencies>();
+
+            Mapper.CreateMap<AccountBranches, AccountBranchesDto>();
+            Mapper.CreateMap<AccountBranchesDto, AccountBranches>();
+
+            Mapper.CreateMap<AnalaticalAccounts, AnalaticalAccountsDto>();
+            Mapper.CreateMap<AnalaticalAccountsDto, AnalaticalAccounts>();
         }
     }
 }

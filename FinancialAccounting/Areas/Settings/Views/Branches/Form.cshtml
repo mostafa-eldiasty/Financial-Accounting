@@ -21,7 +21,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "col-form-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Code, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "" })
+                @Html.TextBoxFor(m => m.Code, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
                 @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -29,7 +29,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.ArabicName, htmlAttributes: new { @class = "col-form-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ArabicName, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "" } })
+                @Html.EditorFor(model => model.ArabicName, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" } })
                 @Html.ValidationMessageFor(model => model.ArabicName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -37,7 +37,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.EnglishName, htmlAttributes: new { @class = "col-form-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EnglishName, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "" } })
+                @Html.EditorFor(model => model.EnglishName, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" } })
                 @Html.ValidationMessageFor(model => model.EnglishName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -45,7 +45,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.PhoneNumber1, htmlAttributes: new { @class = "col-form-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PhoneNumber1, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "" } })
+                @Html.EditorFor(model => model.PhoneNumber1, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" } })
                 @Html.ValidationMessageFor(model => model.PhoneNumber1, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -53,7 +53,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.PhoneNumber2, htmlAttributes: new { @class = "col-form-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PhoneNumber2, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "" } })
+                @Html.EditorFor(model => model.PhoneNumber2, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" } })
                 @Html.ValidationMessageFor(model => model.PhoneNumber2, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -61,7 +61,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-form-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "" } })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>

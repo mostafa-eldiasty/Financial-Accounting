@@ -6,6 +6,13 @@
     ViewBag.Title = @Language.AnalaticalAccounts;
 }
 
+<style>
+    .table th,
+    .table td {
+        text-align: center;
+    }
+</style>
+
 <div style="background-color:white;padding:20px;">
     @Html.ActionLink(Language.CreateNew, "Form", new { FormType = (int)FormType.New }, new { @class = "btn btn-info" })
 

@@ -66,23 +66,17 @@ namespace FinancialAccounting.Areas.Settings.Controllers
                 ViewBag.FormType = formType;
                 return View(branchDto);
             }
-            //else if (!repository.IsUnique(branchDto, "Code"))
-            //{
-            //    ModelState.AddModelError("Code", "Code Already Exists");
-            //    ViewBag.FormType = formType;
-            //    return View(branchDto);
-            //}
-
             repository.AddOrUpdate(branchDto);
+            repository.SaveChanges();
 
             TempData["Success"] = "True";
-                //return RedirectToAction("Form", new { FormType = (int)FormType.New});
             return RedirectToAction("Form", new { id = branchDto.Id, FormType = formType });
         }
 
         public JsonResult Delete(int id)
         {
             repository.DeleteSingleByExp(b => b.Id == id);
+            repository.SaveChanges();
             return Json(new { success = true }, JsonRequestBehavior.AllowGet);
         }
     }

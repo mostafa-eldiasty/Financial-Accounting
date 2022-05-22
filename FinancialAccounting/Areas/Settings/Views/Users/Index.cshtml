@@ -7,6 +7,13 @@
     Layout = "~/Areas/Settings/Views/Shared/_Settings.cshtml";
 }
 
+<style>
+    .table th,
+    .table td {
+        text-align:center;
+    }
+</style>
+
 @Html.ActionLink(Language.CreateNew, "Form", new { FormType = (int)FormType.New }, new { @class = "btn btn-info" })
 
 <table id="Users" class="table table-striped table-bordered text-center">

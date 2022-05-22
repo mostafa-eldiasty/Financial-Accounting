@@ -348,4 +348,43 @@
   <data name="UsersData" xml:space="preserve">
     <value>بيانات المستخدمين</value>
   </data>
+  <data name="GeneralAccount" xml:space="preserve">
+    <value>حساب عام</value>
+  </data>
+  <data name="PasswordAndConfirmationNotMatch" xml:space="preserve">
+    <value>كلمة المرور و تأكيد كلمة المرور غير متاطبقين</value>
+  </data>
+  <data name="AccountNatural" xml:space="preserve">
+    <value>طبيعة الحساب</value>
+  </data>
+  <data name="AccountType" xml:space="preserve">
+    <value>نوع الحساب</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>العملة</value>
+  </data>
+  <data name="AccountTree" xml:space="preserve">
+    <value>شجرة الحسابات</value>
+  </data>
+  <data name="BegBalances" xml:space="preserve">
+    <value>ارصدة اول المدة</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>رجاء الانتظار</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="SelectFromLst" xml:space="preserve">
+    <value>---اختر من القائمة---</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>دائن</value>
+  </data>
+  <data name="Debit" xml:space="preserve">
+    <value>مدين</value>
+  </data>
+  <data name="Branches" xml:space="preserve">
+    <value>الفروع</value>
+  </data>
 </root>

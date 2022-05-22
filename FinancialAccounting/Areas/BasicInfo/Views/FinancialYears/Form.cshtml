@@ -20,7 +20,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "col-form-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Code, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "" })
+                @Html.TextBoxFor(m => m.Code, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
                 @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.ArabicName, htmlAttributes: new { @class = "col-form-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ArabicName, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "" } })
+                @Html.EditorFor(model => model.ArabicName, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" } })
                 @Html.ValidationMessageFor(model => model.ArabicName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.EnglishName, htmlAttributes: new { @class = "col-form-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EnglishName, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "" } })
+                @Html.EditorFor(model => model.EnglishName, new { htmlAttributes = new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" } })
                 @Html.ValidationMessageFor(model => model.EnglishName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.FromDate, htmlAttributes: new { @class = "col-form-label col-md-2" })
             <div class="col-md-3">
-                @Html.TextBoxFor(m => m.FromDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", disabled = SetDisabled ? "disabled" : "" })
+                @Html.TextBoxFor(m => m.FromDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", disabled = SetDisabled ? "disabled" : "false" })
                 @Html.ValidationMessageFor(model => model.FromDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -52,7 +52,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.ToDate, htmlAttributes: new { @class = "col-form-label col-md-2" })
             <div class="col-md-3">
-                @Html.TextBoxFor(m => m.ToDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", disabled = SetDisabled ? "disabled" : "" })
+                @Html.TextBoxFor(m => m.ToDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", disabled = SetDisabled ? "disabled" : "false" })
                 @Html.ValidationMessageFor(model => model.ToDate, "", new { @class = "text-danger" })
             </div>
         </div>

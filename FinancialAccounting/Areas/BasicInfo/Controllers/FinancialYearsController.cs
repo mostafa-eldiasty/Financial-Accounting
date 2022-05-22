@@ -70,6 +70,7 @@ namespace FinancialAccounting.Areas.BasicInfo.Controllers
             }
 
             repository.AddOrUpdate(financialYearsDto);
+            repository.SaveChanges();
 
             TempData["Success"] = "True";
             return RedirectToAction("Form", new { id = financialYearsDto.Id, FormType = formType });
@@ -78,6 +79,7 @@ namespace FinancialAccounting.Areas.BasicInfo.Controllers
         public JsonResult Delete(int id)
         {
             repository.DeleteSingleByExp(j => j.Id == id);
+            repository.SaveChanges();
             return Json(new { success = true }, JsonRequestBehavior.AllowGet);
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using DataAccess.Models;
@@ -33,6 +34,9 @@ namespace DataAccess.Data
         public DbSet<Currencies> Currencies { get; set; }
         public DbSet<FinancialYears> FinancialYears { get; set; }
         public DbSet<UsersBranches> UsersBranches { get; set; }
+        public DbSet<AccountTree> AccountTree { get; set; }
+        public DbSet<AccountTypes> AccountTypes { get; set; }
+        public DbSet<AccountBranches> AccountBranches { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -42,6 +46,12 @@ namespace DataAccess.Data
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }
 }

@@ -24,20 +24,6 @@ namespace BusinessLogic.Repositories
         {
             _Context = new ApplicationDbContext();
             _userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
-            //_userManager.PasswordValidator = new PasswordValidator
-            //{
-            //    RequiredLength = 1,
-            //    RequireNonLetterOrDigit = false,
-            //    RequireDigit = false,
-            //    RequireLowercase = false,
-            //    RequireUppercase = false,
-            //};
-            //_userManager.UserValidator = new UserValidator<ApplicationUser>(_userManager)
-            //{
-            //    AllowOnlyAlphanumericUserNames = false,
-            //    RequireUniqueEmail = false
-            //};
         }
 
         public IEnumerable<UsersDto> Get()
@@ -73,7 +59,6 @@ namespace BusinessLogic.Repositories
                     foreach (var userBranch in user.UsersBranches)
                         userBranch.UserId = user.Id;
 
-                    //_userManager.Create(user, usersDto.Password);
                     _Context.Users.Add(user);
                     _Context.SaveChanges();
                 }
@@ -81,8 +66,7 @@ namespace BusinessLogic.Repositories
                 {
                     _Context.Configuration.ProxyCreationEnabled = false;
                     _Context.Configuration.LazyLoadingEnabled = false;
-                    //ApplicationUser userInDB = _Context.Users.Find(user.Id);
-                    //Mapper.Map(user, userInDB);
+                    
                     foreach(var item in user.UsersBranches)
                     {
                         if(item.Id == 0)
@@ -97,23 +81,6 @@ namespace BusinessLogic.Repositories
                     _Context.Entry(user).State = EntityState.Modified;
                     _Context.SaveChanges();
                 }
-
-                //_userManager.PasswordValidator = new PasswordValidator
-                //{
-                //    RequiredLength = 1,
-                //    RequireNonLetterOrDigit = false,
-                //    RequireDigit = false,
-                //    RequireLowercase = false,
-                //    RequireUppercase = false,
-                //};
-                //_userManager.UserValidator = new UserValidator<ApplicationUser>(_userManager)
-                //{
-                //    AllowOnlyAlphanumericUserNames = false,
-                //    RequireUniqueEmail = false
-                //};
-
-                //var token = 
-                //var result = _userManager.ChangePassword(user.Id, token, usersDto.Password);
             }
             catch (AutoMapperMappingException ex)
             {

@@ -1,7 +1,11 @@
 ﻿using AutoMapper;
 using DataAccess.Data;
+using DataAccess.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -21,8 +25,9 @@ namespace BusinessLogic.Repositories
         //    _Context.Dispose();
         //}
 
-        public IEnumerable<TDto> Get()
+        public IEnumerable<TDto> Get(bool ProxyCreationEnabled = true)
         {
+            _Context.Configuration.ProxyCreationEnabled = ProxyCreationEnabled;
             return _Context.Set<T>().ToList().Select(Mapper.Map<T, TDto>);
         }
 
@@ -43,37 +48,56 @@ namespace BusinessLogic.Repositories
             {
                 if (entityDto == null) return;
 
-                //int value = (int)_Context.Entry(entityDto).Property("Id").CurrentValue;
                 T entity = Mapper.Map<TDto, T>(entityDto);
                 object value = _Context.Entry(entity).Property("Id").CurrentValue;
 
-                //if(value == null)
-                //{
-                //    value = Guid.NewGuid().ToString();
-                //    _Context.Entry(entity).Property("Id").CurrentValue = value;
-                //    _Context.Set<T>().Add(entity);
-                //    _Context.SaveChanges();
-                //}
-                //else
                 if (value.GetType() == typeof(int) && (int)value == 0)
                 {
-                    //entityDto.AddedUserId = HttpContext.Current.User.Identity.GetUserId();
-                    //entityDto.AddedDate = DateTime.Now;
-                    //T entity = Mapper.Map<TDto, T>(entityDto);
                     _Context.Set<T>().Add(entity);
-                    _Context.SaveChanges();
                 }
                 else
                 {
-                    //entityDto.UpdatedUserId = HttpContext.Current.User.Identity.GetUserId();
-                    //entityDto.UpdatedDate = DateTime.Now;
-
                     T entityInDB = _Context.Set<T>().Find(value);
-                    Mapper.Map(entityDto, entityInDB);
-                    _Context.SaveChanges();
+                    var properties = entity.GetType().GetProperties().Where(x => typeof(IEnumerable).IsAssignableFrom(x.PropertyType) && x.PropertyType != typeof(string)).ToList();
+
+                    foreach (var property in properties)
+                    {
+                        var propertyEntity = ((IEnumerable)_Context.Entry(entity).Collection(property.Name).CurrentValue).Cast<object>().ToList();
+                        var propertylst = ((IEnumerable)_Context.Entry(entityInDB).Collection(property.Name).CurrentValue).Cast<object>().ToList();
+
+                        Dictionary<int, object> dict = new Dictionary<int, object>();
+                        foreach (var item in propertylst)
+                        {
+                            int id = (int)item.GetType().GetProperty("Id").GetValue(item);
+                            dict.Add(id, item);
+                        }
+
+                        foreach (var item in propertyEntity)
+                        {
+                            int itemId = (int)_Context.Entry(item).Property("Id").CurrentValue;
+
+                            if (dict.ContainsKey(itemId))
+                            {
+                                _Context.Entry(dict[itemId]).State = EntityState.Detached;
+                                dict.Remove(itemId);
+                            }
+
+                            if (itemId == 0)
+                                _Context.Entry(item).State = EntityState.Added;
+                            else if (itemId != 0)
+                                _Context.Entry(item).State = EntityState.Modified;
+                        }
+
+                        foreach(var item in dict.Values)
+                            _Context.Entry(item).State = EntityState.Deleted;
+                    }
+
+                    _Context.Entry(entityInDB).State = EntityState.Detached;
+                    _Context.Entry(entity).State = EntityState.Modified;
                 }
             }
-            catch(AutoMapperMappingException ex){
+            catch (AutoMapperMappingException ex)
+            {
                 new Exception("Something Happend in auto mapper");
             }
         }
@@ -82,13 +106,16 @@ namespace BusinessLogic.Repositories
         {
             T entity = Mapper.Map<TDto, T>(entityDto);
             _Context.Set<T>().Remove(entity);
-            _Context.SaveChanges();
         }
 
         public void DeleteSingleByExp(Expression<Func<T, bool>> exp)
         {
             T entity = _Context.Set<T>().Single(exp);
             _Context.Set<T>().Remove(entity);
+        }
+
+        public void SaveChanges()
+        {
             _Context.SaveChanges();
         }
     }

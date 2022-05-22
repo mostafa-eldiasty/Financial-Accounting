@@ -348,4 +348,43 @@
   <data name="UsersData" xml:space="preserve">
     <value>Users Data</value>
   </data>
+  <data name="GeneralAccount" xml:space="preserve">
+    <value>General Account</value>
+  </data>
+  <data name="PasswordAndConfirmationNotMatch" xml:space="preserve">
+    <value>The password and confirmation password do not match</value>
+  </data>
+  <data name="AccountNatural" xml:space="preserve">
+    <value>Account Natural</value>
+  </data>
+  <data name="AccountType" xml:space="preserve">
+    <value>Account Type</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="AccountTree" xml:space="preserve">
+    <value>Account Tree</value>
+  </data>
+  <data name="BegBalances" xml:space="preserve">
+    <value>Beginning Balances</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Please Wait</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="SelectFromLst" xml:space="preserve">
+    <value>---Select From List---</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>Credit</value>
+  </data>
+  <data name="Debit" xml:space="preserve">
+    <value>Debit</value>
+  </data>
+  <data name="Branches" xml:space="preserve">
+    <value>Branches</value>
+  </data>
 </root>

@@ -27,7 +27,8 @@ namespace DataAccess.DTOs
 
         [Required]
         [Display(Name = "ConfirmPassword", ResourceType = typeof(Language))]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessageResourceName = "PasswordAndConfirmationNotMatch", ErrorMessageResourceType = typeof(Language))]
+        //[Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
         [DataType(DataType.PhoneNumber)]

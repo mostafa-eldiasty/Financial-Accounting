@@ -120,6 +120,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomValidation\Unique.cs" />
+    <Compile Include="DTOs\AccountBranchesDto.cs" />
+    <Compile Include="DTOs\AccountTreeDto.cs" />
+    <Compile Include="DTOs\AccountTypesDto.cs" />
+    <Compile Include="DTOs\Account_AnalaticalAccountsDto.cs" />
     <Compile Include="DTOs\AnalaticalAccountsDto.cs" />
     <Compile Include="DTOs\BranchDto.cs" />
     <Compile Include="DTOs\CompanyDto.cs" />
@@ -188,8 +192,52 @@
     <Compile Include="Migrations\202204130206395_MakeUserIdRequiredInUsersBranches.Designer.cs">
       <DependentUpon>202204130206395_MakeUserIdRequiredInUsersBranches.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205021552557_AddAccountTree.cs" />
+    <Compile Include="Migrations\202205021552557_AddAccountTree.Designer.cs">
+      <DependentUpon>202205021552557_AddAccountTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205021753283_MakeParentIdAllowNullInAccountTreeTbl.cs" />
+    <Compile Include="Migrations\202205021753283_MakeParentIdAllowNullInAccountTreeTbl.Designer.cs">
+      <DependentUpon>202205021753283_MakeParentIdAllowNullInAccountTreeTbl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205051649564_addingLevelColToAccountTreeTbl.cs" />
+    <Compile Include="Migrations\202205051649564_addingLevelColToAccountTreeTbl.Designer.cs">
+      <DependentUpon>202205051649564_addingLevelColToAccountTreeTbl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205061533097_AddAccountTypesAndPopulateItsData.cs" />
+    <Compile Include="Migrations\202205061533097_AddAccountTypesAndPopulateItsData.Designer.cs">
+      <DependentUpon>202205061533097_AddAccountTypesAndPopulateItsData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205061543238_AddColumnsToAccountTree.cs" />
+    <Compile Include="Migrations\202205061543238_AddColumnsToAccountTree.Designer.cs">
+      <DependentUpon>202205061543238_AddColumnsToAccountTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205092101443_RemoveHasChildrenFromAccountTree.cs" />
+    <Compile Include="Migrations\202205092101443_RemoveHasChildrenFromAccountTree.Designer.cs">
+      <DependentUpon>202205092101443_RemoveHasChildrenFromAccountTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205120101408_AddingAccountBranches.cs" />
+    <Compile Include="Migrations\202205120101408_AddingAccountBranches.Designer.cs">
+      <DependentUpon>202205120101408_AddingAccountBranches.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205120111432_MakeAccountBranchesColsNotAcceptNULL.cs" />
+    <Compile Include="Migrations\202205120111432_MakeAccountBranchesColsNotAcceptNULL.Designer.cs">
+      <DependentUpon>202205120111432_MakeAccountBranchesColsNotAcceptNULL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205162235489_AddingAccount_AnalaticalAccounts.cs" />
+    <Compile Include="Migrations\202205162235489_AddingAccount_AnalaticalAccounts.Designer.cs">
+      <DependentUpon>202205162235489_AddingAccount_AnalaticalAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205170048061_AddBegBalancesToAccountBranches.cs" />
+    <Compile Include="Migrations\202205170048061_AddBegBalancesToAccountBranches.Designer.cs">
+      <DependentUpon>202205170048061_AddBegBalancesToAccountBranches.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountBranches.cs" />
+    <Compile Include="Models\AccountTree.cs" />
+    <Compile Include="Models\AccountTypes.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Account_AnalaticalAccounts.cs" />
     <Compile Include="Models\AnalaticalAccounts.cs" />
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Company.cs" />
@@ -245,6 +293,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204130206395_MakeUserIdRequiredInUsersBranches.resx">
       <DependentUpon>202204130206395_MakeUserIdRequiredInUsersBranches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205021552557_AddAccountTree.resx">
+      <DependentUpon>202205021552557_AddAccountTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205021753283_MakeParentIdAllowNullInAccountTreeTbl.resx">
+      <DependentUpon>202205021753283_MakeParentIdAllowNullInAccountTreeTbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205051649564_addingLevelColToAccountTreeTbl.resx">
+      <DependentUpon>202205051649564_addingLevelColToAccountTreeTbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205061533097_AddAccountTypesAndPopulateItsData.resx">
+      <DependentUpon>202205061533097_AddAccountTypesAndPopulateItsData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205061543238_AddColumnsToAccountTree.resx">
+      <DependentUpon>202205061543238_AddColumnsToAccountTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205092101443_RemoveHasChildrenFromAccountTree.resx">
+      <DependentUpon>202205092101443_RemoveHasChildrenFromAccountTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205120101408_AddingAccountBranches.resx">
+      <DependentUpon>202205120101408_AddingAccountBranches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205120111432_MakeAccountBranchesColsNotAcceptNULL.resx">
+      <DependentUpon>202205120111432_MakeAccountBranchesColsNotAcceptNULL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205162235489_AddingAccount_AnalaticalAccounts.resx">
+      <DependentUpon>202205162235489_AddingAccount_AnalaticalAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205170048061_AddBegBalancesToAccountBranches.resx">
+      <DependentUpon>202205170048061_AddBegBalancesToAccountBranches.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -10025,7 +10025,7 @@ pre code {
   padding: 1.25rem 0.9375rem;
   vertical-align: top;
   border-top: 1px solid #e8eff9;
-  text-align:center;
+  /*text-align:center;*/
 }
 
 .table thead th {
@@ -10521,7 +10521,7 @@ textarea.tt-hint {
   padding-right: 5px;
   padding-left: 5px;
 }
-
+/*----------------------------------------------------------------------------------------------------------------------------------*/
 .form-check {
   position: relative;
   display: block;
@@ -10555,6 +10555,81 @@ textarea.tt-hint {
   margin-right: 0.3125rem;
   margin-left: 0;
 }
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
+.form-check {
+    /*position: relative;
+    display: block;
+    padding-left: 1.25rem;*/
+
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 1.5em;
+    margin-bottom: 0.125rem;
+}
+
+.form-check-input {
+    position: absolute;
+    margin-top: 0.3rem;
+    margin-left: -1.25rem;
+}
+
+    .form-check-input[disabled] ~ .form-check-label,
+    .form-check-input:disabled ~ .form-check-label {
+        color: #0d6efd;
+    }
+
+.form-check-label {
+    margin-bottom: 0;
+}
+
+.form-check-inline {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+    .form-check-inline .form-check-input {
+        position: static;
+        margin-top: 0;
+        margin-right: 0.3125rem;
+        margin-left: 0;
+    }
+
+.form-check-input:checked[type=radio] {
+    background-image: url("/Content/images/circle.svg");
+}
+
+.form-check-input:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.form-check-input[type=radio] {
+    border-radius: 50%;
+}
+
+.form-check .form-check-input {
+    float: left;
+    margin-left: -1.5em;
+}
+
+.form-check-input {
+    width: 1em;
+    height: 1em;
+    margin-top: 0.25em;
+    vertical-align: top;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid rgba(0,0,0,.25);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+}
+
 
 .valid-feedback {
   display: none;
@@ -25454,5 +25529,15 @@ div.dataTables_paginate.paging_simple_numbers.ar-EG > ul.pagination {
 
 div.dataTables_paginate.paging_simple_numbers.en-US > ul.pagination {
     float: right
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
 }
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */

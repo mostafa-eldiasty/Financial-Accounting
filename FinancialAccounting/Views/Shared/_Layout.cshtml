@@ -17,7 +17,10 @@
     <!-- inject:css -->
     <link href="~/Content/sweetalert/sweet-alert.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/css/vertical-layout-light/style.css">
+    <link href="~/Content/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 
+    @*<link href="~/Content/select2.css" rel="stylesheet" />
+    <link href="~/Content/select2-bootstrap.min.css" rel="stylesheet" />*@
 </head>
 <body class="sidebar-light" dir="@(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft? "rtl" : "ltr")">
     <div class="row" id="proBanner">
@@ -62,11 +65,11 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                             @*<a class="dropdown-item">
-                                <i class="typcn typcn-cog text-primary"></i>
-                                Settings
-                            </a>*@
+                                    <i class="typcn typcn-cog text-primary"></i>
+                                    Settings
+                                </a>*@
 
-                            @using (Html.BeginForm("LogOff", "Account",new { area="" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                             {
                                 @Html.AntiForgeryToken()
 
@@ -92,27 +95,27 @@
                     <div id="settings-trigger"><i class="typcn typcn-cog-outline"></i></div>
                 </a>
                 @*<div id="theme-settings" class="settings-panel">
-                    <i class="settings-close typcn typcn-delete-outline"></i>
-                    <p class="settings-heading">@Language.SIDEBARSKINS</p>
-                    <div class="sidebar-bg-options selected" id="sidebar-light-theme">
-                        <div class="img-ss rounded-circle bg-light border mr-3"></div>
-                        @Language.Light
-                    </div>
-                    <div class="sidebar-bg-options" id="sidebar-dark-theme">
-                        <div class="img-ss rounded-circle bg-dark border mr-3"></div>
-                        @Language.Dark
-                    </div>
-                    <p class="settings-heading mt-2">@Language.HEADERSKINS</p>
-                    <div class="color-tiles mx-0 px-4">
-                        <div class="tiles success"></div>
-                        <div class="tiles warning"></div>
-                        <div class="tiles danger"></div>
-                        <div class="tiles primary"></div>
-                        <div class="tiles info"></div>
-                        <div class="tiles dark"></div>
-                        <div class="tiles default border"></div>
-                    </div>
-                </div>*@
+                        <i class="settings-close typcn typcn-delete-outline"></i>
+                        <p class="settings-heading">@Language.SIDEBARSKINS</p>
+                        <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+                            <div class="img-ss rounded-circle bg-light border mr-3"></div>
+                            @Language.Light
+                        </div>
+                        <div class="sidebar-bg-options" id="sidebar-dark-theme">
+                            <div class="img-ss rounded-circle bg-dark border mr-3"></div>
+                            @Language.Dark
+                        </div>
+                        <p class="settings-heading mt-2">@Language.HEADERSKINS</p>
+                        <div class="color-tiles mx-0 px-4">
+                            <div class="tiles success"></div>
+                            <div class="tiles warning"></div>
+                            <div class="tiles danger"></div>
+                            <div class="tiles primary"></div>
+                            <div class="tiles info"></div>
+                            <div class="tiles dark"></div>
+                            <div class="tiles default border"></div>
+                        </div>
+                    </div>*@
             </div>
             <!-- partial -->
             <!-- partial:partials/_sidebar.html -->
@@ -131,20 +134,24 @@
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper" dir="@(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft? "rtl" : "ltr")">
+                    @Scripts.Render("~/bundles/jquery")
+                    @Scripts.Render("~/bundles/bootstrap")
+                    <script src="~/Content/vendors/js/vendor.bundle.base.js"></script>
+                    <script src="~/Scripts/jquery.cookie.min.js"></script>
                     @RenderBody()
                 </div>
 
                 @*<footer class="footer">
-                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-center text-sm-left d-block d-sm-inline-block">
-                            <span style="color:blue;font-weight:bold">Big Bang </span>
-                            <span style="color:red;">Solutions</span>  By
+                        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                            <span class="text-center text-sm-left d-block d-sm-inline-block">
+                                <span style="color:blue;font-weight:bold">Big Bang </span>
+                                <span style="color:red;">Solutions</span>  By
 
-                            <span style="color:blue;font-weight:bold">Mostafa </span>
-                            <span style="color:red;">EL-Diasty</span> Copyright © @DateTime.Now.Year
-                        </span>
-                    </div>
-                </footer>*@
+                                <span style="color:blue;font-weight:bold">Mostafa </span>
+                                <span style="color:red;">EL-Diasty</span> Copyright © @DateTime.Now.Year
+                            </span>
+                        </div>
+                    </footer>*@
             </div>
             <!-- main-panel ends -->
         </div>
@@ -152,7 +159,7 @@
     </div>
     <!-- container-scroller -->
     <!-- base:js -->
-    <script src="~/Content/vendors/js/vendor.bundle.base.js"></script>
+    @*<script src="~/Content/vendors/js/vendor.bundle.base.js"></script>*@
     <!-- endinject -->
     <!-- Plugin js for this page-->
     <!-- End plugin js for this page-->
@@ -171,11 +178,11 @@
     <script src="~/Scripts/js/dashboard.js"></script>
     <script src="~/Content/vendors/sweetalert/sweetalert.min.js"></script>
     <!-- End custom js for this page-->
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Scripts/jquery.cookie.min.js"></script>
+    @*<script src="~/Scripts/jquery.cookie.min.js"></script>*@
     @RenderSection("scripts", required: false)
+
+    @*<script src="~/Scripts/js/select2.js"></script>*@
+    @*<script src="~/Content/vendors/select2/select2.min.js"></script>*@
     <script>
 
         $(function () {
@@ -190,6 +197,16 @@
         });
 
         $(document).ready(function () {
+            //$('select').select2();
+            //$('select').select2({
+            //    theme: "bootstrap",
+            //    placeholder: '--إختر--',
+            //    allowClear: true,
+            //    //tags: true,
+            //    //maximumSelectionLength: 3,
+            //    width: '100%',
+            //    dir: "rtl"
+            //});
 
             $('.ar-lang').attr('href', '@Url.Action("ChangeLanguage")?lang=ar-EG&url=' + window.location.toString());
             $('.en-lang').attr('href', '@Url.Action("ChangeLanguage")?lang=en-US&url=' + window.location.toString());
@@ -211,7 +228,34 @@
                 }
             });
 
-            $('[disabled=""]').removeAttr('disabled');
+            $('[disabled="false"]').removeAttr('disabled');
+
+            $('input').keydown(function (e) {
+                var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+                if (key == 13) {
+                    e.preventDefault();
+                    var inputs = $(this).closest('form').find(':input:visible');
+                    inputs.eq(inputs.index(this) + 1).focus();
+                }
+            });
+
+            $(document).on('keydown', 'input[type=number]', function (e) {
+                //two decimal places
+
+                if ((e.which >= 48 && e.which <= 57) || (e.which >= 96 && e.which <= 105) || e.which === 37 || e.which === 39 || e.which === 8) {
+                    if ($(this).val().length > 10) {
+                        //if the input is selected or forcused
+                        //if arrow right or left clicked
+                        if ((e.which >= 48 && e.which <= 57) || (e.which >= 96 && e.which <= 105))
+                            return false
+                    }
+
+                    return true;
+                }else
+                    return false
+            });
+
+            //move between rows and cols
         });
     </script>
 </body>

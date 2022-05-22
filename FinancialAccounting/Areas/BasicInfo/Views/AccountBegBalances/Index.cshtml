@@ -1,0 +1,147 @@
+﻿@model List<DataAccess.DTOs.AccountBranchesDto>
+@using Resources.Resources
+
+@{
+    ViewBag.Title = Language.BegBalances;
+    Layout = "~/Areas/BasicInfo/Views/shared/_Accounts.cshtml";
+}
+
+<style>
+    .table th,
+    .table td {
+        text-align: center;
+    }
+</style>
+
+@using (Html.BeginForm("Index", "AccountBegBalances", FormMethod.Post, new { @id = "AccountBegBalancesForm", style = "background-color:white;padding-left:20px;padding-right:20px;" }))
+{
+    <div class="row">
+        <div class="form-group col-6 row">
+            <label for="BranchesLst" class="col-form-label col-1" style="text-align: center;">الفرع</label>
+            <div class="col-9">
+                @Html.DropDownList("BranchesLst", new SelectList(ViewBag.Branches, "Id", "ArabicName"), Language.SelectFromLst, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div style="flex-direction:row-reverse;display:flex" class=" col-6">
+            <input type="submit" value="@Language.Save" class="btn btn-info" style="height:40px"/>
+        </div>
+    </div>
+
+    <div>
+        <table id="AccountBegBalancesTable" class="table table-striped table-bordered text-center">
+            <thead>
+                <tr>
+                    <th> كود الحساب </th>
+                    <th> اسم الحساب </th>
+                    <th> رصيد اول المدة مدين </th>
+                    <th> رصيد اول المدة دائن </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr style="display:none;">
+                        @Html.HiddenFor(m => m[i].Id)
+                        @Html.HiddenFor(m => m[i].AccountTreeId) 
+                        @Html.HiddenFor(m => m[i].BranchId, new { @class = "BranchId" })
+
+                        <td>
+                            @Html.DisplayFor(m => m[i].AccountTree.Code)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m[i].AccountTree.ArabicName)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m[i].DebitBegBalance, new { @style = "width:100%;text-align:center;background-color:inherit;border:none;",@Type = "number",@class="debit",
+                           onclick = "$(this).select();" })
+                            <div style="text-align:center;">@Html.ValidationMessageFor(m => m[i].DebitBegBalance, null, new { @class = "text-danger" })</div>
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m[i].CreditBegBalance, new { @style = "width:100%;text-align:center;background-color:inherit;border:none;", @Type = "number", @class = "credit",
+                           onclick = "$(this).select();" })
+                            <div style="text-align:center;">@Html.ValidationMessageFor(m => m[i].CreditBegBalance, null, new { @class = "text-danger" })</div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="row" style="display:flex;flex-direction:row-reverse;margin:15px 0 0 0">
+            <div class="col-2">
+                <label>الفرق</label>
+                <input id="Diff" type="text" readonly value="0.00" class="col-9" style="text-align:center"/>
+            </div>
+
+            <div class="col-2">
+                <label>الدائن</label>
+                <input id="TotalCredit" type="number" readonly placeholder="0.00" class="col-9" style="text-align:center"/>
+            </div>
+
+            <div class="col-2">
+                <label>المدين</label>
+                <input id="TotalDebit" type="number" readonly placeholder="0.00" class="col-9" style="text-align:center"/>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#AccountTree-link').removeClass('pws_tab_active');
+            $('#BegBalances-link').addClass('pws_tab_active');
+
+             if ("@TempData["Success"]" == "True") {
+                swal("Big Bang solutions", "@Language.SavedSuccessfully", "success");
+             }
+
+            $('#BranchesLst').change(function () {
+
+                $('#AccountBegBalancesTable tbody tr').each(function (index, value) {
+                    if ($(this).find('.BranchId').val() == $('#BranchesLst').val())
+                        $(this).css('display', 'table-row');
+                    else
+                        $(this).css('display', 'none');
+                });
+
+            });
+
+            $(document).on('change', '#BranchesLst,.debit,.credit', function () {
+                var totalDebit = 0.00,totalCredit = 0.00;
+                $('#AccountBegBalancesTable tbody tr:visible').each(function () {
+                    var debit = $(this).find('.debit').val() != '' ? $(this).find('.debit').val() : 0
+                    var credit = $(this).find('.credit').val() != '' ? $(this).find('.credit').val() : 0
+                    totalDebit += parseFloat(debit);
+                    totalCredit += parseFloat(credit);
+                });
+                var diff = totalDebit - totalCredit;
+                $('#TotalDebit').val(totalDebit.toFixed(2));
+                $('#TotalCredit').val(totalCredit.toFixed(2));
+                $('#Diff').val(diff.toFixed(2));
+            });
+
+            $('.debit').keydown(function (e) {
+                var credit = $(this).parents('tr').find('.credit');
+                var creditVal = credit.val() != '' ? credit.val() : 0
+                if (creditVal > 0)
+                    e.preventDefault();
+            });
+
+            $('.credit').keydown(function (e) {
+                var debit = $(this).parents('tr').find('.debit');
+                var debitVal = debit.val() != '' ? debit.val() : 0
+                if (debitVal > 0)
+                    e.preventDefault();
+            });
+
+            $('form').submit(function (e) {
+                if ($('#TotalDebit').val() != $('#TotalCredit').val()) {
+                    swal("Big Bang solutions", "يجب ان يتساوى طرفى المدين و الدائن", "error");
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+}
