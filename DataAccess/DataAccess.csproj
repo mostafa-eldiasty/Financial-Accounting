@@ -127,6 +127,8 @@
     <Compile Include="DTOs\AnalaticalAccountsDto.cs" />
     <Compile Include="DTOs\BranchDto.cs" />
     <Compile Include="DTOs\CompanyDto.cs" />
+    <Compile Include="DTOs\CostCenterBranchesDto.cs" />
+    <Compile Include="DTOs\CostCenterTreeDto.cs" />
     <Compile Include="DTOs\CurrenciesDto.cs" />
     <Compile Include="DTOs\FinancialYearsDto.cs" />
     <Compile Include="DTOs\JournalTypesDto.cs" />
@@ -232,6 +234,10 @@
     <Compile Include="Migrations\202205170048061_AddBegBalancesToAccountBranches.Designer.cs">
       <DependentUpon>202205170048061_AddBegBalancesToAccountBranches.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205222303060_AddCostCenterTreeAndCostCenterBranches.cs" />
+    <Compile Include="Migrations\202205222303060_AddCostCenterTreeAndCostCenterBranches.Designer.cs">
+      <DependentUpon>202205222303060_AddCostCenterTreeAndCostCenterBranches.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBranches.cs" />
     <Compile Include="Models\AccountTree.cs" />
@@ -242,6 +248,8 @@
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Data\IdentityModels.cs" />
+    <Compile Include="Models\CostCenterBranches.cs" />
+    <Compile Include="Models\CostCenterTree.cs" />
     <Compile Include="Models\Currencies.cs" />
     <Compile Include="Models\FinancialYears.cs" />
     <Compile Include="Models\JournalTypes.cs" />
@@ -323,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205170048061_AddBegBalancesToAccountBranches.resx">
       <DependentUpon>202205170048061_AddBegBalancesToAccountBranches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205222303060_AddCostCenterTreeAndCostCenterBranches.resx">
+      <DependentUpon>202205222303060_AddCostCenterTreeAndCostCenterBranches.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,192 @@
+﻿@model List<DataAccess.DTOs.CostCenterTreeDto>
+@using FinancialAccounting.Enums
+@using Resources.Resources
+
+@{
+    ViewBag.Title = Language.CostCenters;
+    Layout = "~/Areas/BasicInfo/Views/shared/_CostCenters.cshtml";
+}
+
+<style>
+    #divTree {
+        font-family: Myfont3;
+    }
+
+    .bgTree {
+        background: rgb(2,0,36);
+        background: linear-gradient(76deg, rgba(2,0,36,1) 0%, rgba(233,243,245,0.07046568627450978) 0%, rgba(175,176,191,0.6418942577030813) 100%);
+    }
+
+    .labelData {
+        height: 33px;
+        background-color: whitesmoke;
+        border: 2px solid #eeeaea;
+        border-bottom: 2px solid #bdb8b8;
+        border-radius: 5px;
+        text-align: right !important;
+    }
+
+    .ShowPics img {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        width: 150px;
+        display: inline-grid;
+    }
+
+    img:hover {
+        animation: rotation 2s linear infinite;
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+    }
+
+    span:hover {
+        -webkit-transform: scaleX(-1);
+        transform: scale(1.2);
+        font-weight: bold;
+    }
+
+    .table th,
+    .table td {
+        text-align: center;
+    }
+</style>
+
+<div class="col-sm-12 row horizontal">
+    <div class="col-sm-5 bgTree " style="border:ridge;">
+            <div class="row col-12" style="margin: 5px 0 0 0;padding: 0 0 0 0; ">
+                <input class="btn btn-info col-2" type="button" value="@Language.CreateNew" style="border-radius: 5px;" onclick="ActionsButtonclick(@((int)FormType.New))" />
+           
+                <div class="col-10" style="display: flex; flex-direction: row-reverse; padding: 0 0 0 0; ">
+                    <button id="expand" style="background-color: #666; border:hidden; color: #fff; border-radius: 5px; margin: 0 2px 0 2px; font-size: 12px "
+                            onclick="$('#treeview').data('kendoTreeView').expand('.k-item')">
+                        <i class="fa fa-expand"> </i> توسيع الشجرة
+                    </button>
+
+                    <button id="collapse" style="background-color: #666; border:hidden; color: #fff; border-radius: 5px; margin: 0 2px 0 2px; font-size: 12px "
+                            onclick="$('#treeview').data('kendoTreeView').collapse('.k-item')">
+                        <i class="fa fa-compress"> </i> تضييق الشجرة
+                    </button>
+                </div>
+            </div>
+
+        <div>
+            <p id="WaitLoad" style="display:none;color:crimson;font-weight:bold;"> @Language.PleaseWait ..........</p>
+
+            <div id="divTree" style="min-height:450px;max-height:700px;overflow:auto;display:none;">
+                <ul id="treeview">
+                    <li data-expanded='true' id="root">
+                        <i class='fa fa-tree' style='padding-left: 4px; padding-right: 4px;margin-left:0px'></i> <v id='UU' data-id="0">@Language.CostCenters </v>
+                        <ul id="root-children">
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-7">
+
+        <input type="number" id="Id" class="the_ID" hidden />
+        <input type="number" id="ParentId" hidden="hidden" />
+
+        <div class="form-group">
+            <label class="col-4"></label>
+            <input type="checkbox" id="IsGeneralCostCenter" />
+            <label>@Language.GeneralAccount</label>
+        </div>
+
+        <div class="col-9 row" style="flex-direction:row-reverse;display:flex">
+            <div>
+                <input class="btn btn-danger" type="button" value="@Language.Delete" onclick="ActionsButtonclick(@((int)FormType.Delete))" style="margin:0 2px 0 2px" />
+                <input class="btn btn-success" type="button" value="@Language.Edit" onclick="ActionsButtonclick(@((int)FormType.Edit))" style="margin:0 2px 0 2px" />
+                <input class="btn btn-light" type="button" value="@Language.Details" onclick="ActionsButtonclick(@((int)FormType.Details))" style="margin:0 2px 0 2px" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+
+
+    @*search by account code and name*@
+    @*expand collapse tree*@
+    @*delete uncessary folders*@
+    @*move kendo to scripts file and adjust links and scripts tags*@
+    @*on click on not general account show error message*@
+    @*code on new*@
+
+    <link href="~/Content/Misc/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="~/Content/Misc/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="~/Content/Misc/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="~/Content/Misc/styles/kendo.default.mobile.min.css" rel="stylesheet" />
+    <script src="~/Content/Misc/js/kendo.all.min.js"></script>
+
+    <script>
+        $('#CostCenter-link').addClass('pws_tab_active');
+        $('#BegBalances-link').removeClass('pws_tab_active');
+
+        $.post("/BasicInfo/CostCenter/GetCostCenterTree", function (data) {
+            $("#WaitLoad").css("display", "block");
+            $.each(data.costCenterTree, function (index, item) {
+                var icon = (item.IsGeneralCostCenter) ? "<img src='/Content/Images/folder.png' style='padding-left:4px;padding-right:4px;'  width='15' height='15'/>" : "<img src='/Content/Images/file.png' style='padding-left:4px;padding-right:4px;'  width='15' height='15'/>";
+
+                if (item.ParentId == null)
+                    $('#root-children').append('<li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU11" data-id="' + item.Id + '" data-isGeneralCostCenter="' + item.IsGeneralCostCenter + '">' + item.Code + ' - ' + item.ArabicName + '</v></li>');
+                else {
+
+                    var HasKgroup = $('v[data-id=' + item.ParentId + ']').next().length > 0;
+                    if (HasKgroup) {
+                        var parentLst = $('v[data-id=' + item.ParentId + ']').next();
+                        parentLst.append('<li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU" data-id="' + item.Id + '" data-isGeneralCostCenter="' + item.IsGeneralCostCenter + '">' + item.Code + ' - ' + item.ArabicName + '</v></li>');
+                    }
+                    else {
+                        var parentLst = $('v[data-id=' + item.ParentId + ']').parent();
+                        parentLst.append('<ul><li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU" data-id="' + item.Id + '" data-isGeneralCostCenter="' + item.IsGeneralCostCenter + '">' + item.Code + ' - ' + item.ArabicName + '</v></li></ul>');
+                    }
+                }
+            });
+            $("#treeview").kendoTreeView();
+            $('#root').find('.k-icon').eq(0).remove();
+            $("#WaitLoad").css("display", "none");
+            $("#divTree").css("display", "block");
+            $("li.k-item:not(:has(ul))").css("margin-right", "32px");
+            $("li.k-item:not(:has(ul))").css("margin-left", "25px");
+        });
+
+        $(document).on('click', 'li[aria-selected=true]', function () {
+            if ($(this).find('v').eq(0).attr('data-id') == "0") {
+                $('#IsGeneralCostCenter').prop('checked', false);
+                return;
+            }
+            $('#IsGeneralCostCenter').prop('checked', $(this).find('v').eq(0).attr('data-isGeneralCostCenter') == "true");
+            return;
+        });
+
+        function ActionsButtonclick(formType) {
+            var id = $('#treeview').data('kendoTreeView').select().find('v').eq(0).attr('data-id');
+            id = id > 0 ? id : 0;
+
+            if (formType != @((int)FormType.New) && id == 0) {
+                swal("Big Bang solutions", "الرجاء اختيار حساب اولا", "warning");
+            } else if (formType == @((int)FormType.New)) {
+                if (id == 0)
+                    window.location.href = '/BasicInfo/CostCenter/Form?FormType=' + formType;
+                else
+                    window.location.href = '/BasicInfo/CostCenter/Form?FormType=' + formType + '&ParentId=' + id;
+            } else {
+                var parentId = $('#treeview').data('kendoTreeView').select().parents('li').eq(0).find('v').eq(0).attr('data-id');
+                parentId = parentId > 0 ? parentId : 0;
+
+                if (parentId == 0)
+                    window.location.href = '/BasicInfo/CostCenter/Form?FormType=' + formType
+                        + '&id=' + id;
+                else
+                    window.location.href = '/BasicInfo/CostCenter/Form?FormType=' + formType
+                        + '&id=' + id + '&ParentId=' + $('#treeview').data('kendoTreeView').select().parents('li').eq(0).find('v').eq(0).attr('data-id');
+            }
+        }
+    </script>
+}
+

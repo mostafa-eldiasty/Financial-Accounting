@@ -171,9 +171,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\BasicInfo\BasicInfoAreaRegistration.cs" />
+    <Compile Include="Areas\BasicInfo\Controllers\CostCenterBegBalancesController.cs" />
     <Compile Include="Areas\BasicInfo\Controllers\AccountBegBalancesController.cs" />
     <Compile Include="Areas\BasicInfo\Controllers\AccountTreeController.cs" />
     <Compile Include="Areas\BasicInfo\Controllers\AnalaticalAccountsController.cs" />
+    <Compile Include="Areas\BasicInfo\Controllers\CostCenterController.cs" />
     <Compile Include="Areas\BasicInfo\Controllers\CurrenciesController.cs" />
     <Compile Include="Areas\BasicInfo\Controllers\FinancialYearsController.cs" />
     <Compile Include="Areas\BasicInfo\Controllers\JournalTypesController.cs" />
@@ -1926,6 +1928,10 @@
     <Content Include="Content\Misc\styles\images\kendoui.woff" />
     <Content Include="Areas\BasicInfo\Views\AccountTree\Form.cshtml" />
     <Content Include="Areas\BasicInfo\Views\AccountBegBalances\Index.cshtml" />
+    <Content Include="Areas\BasicInfo\Views\Shared\_CostCenters.cshtml" />
+    <Content Include="Areas\BasicInfo\Views\CostCenter\Form.cshtml" />
+    <Content Include="Areas\BasicInfo\Views\CostCenter\Index.cshtml" />
+    <Content Include="Areas\BasicInfo\Views\CostCenterBegBalances\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

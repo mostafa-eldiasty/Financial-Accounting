@@ -10,35 +10,35 @@ using System.Web.Mvc;
 
 namespace FinancialAccounting.Areas.BasicInfo.Controllers
 {
-    public class AccountBegBalancesController : BaseController
+    public class CostCenterBegBalancesController : BaseController
     {
-        private readonly Repository<AccountBranches, AccountBranchesDto> repository;
+        private readonly Repository<CostCenterBranches, CostCenterBranchesDto> repository;
         private readonly Repository<Branch, BranchDto> branchRepository;
 
-        public AccountBegBalancesController()
+        public CostCenterBegBalancesController()
         {
-            repository = new Repository<AccountBranches, AccountBranchesDto>();
+            repository = new Repository<CostCenterBranches, CostCenterBranchesDto>();
             branchRepository = new Repository<Branch, BranchDto>();
         }
-        // GET: BasicInfo/AccountBegBalances
+        
         public ActionResult Index()
         {
             ViewBag.Branches = branchRepository.Get().ToList();
-            List<AccountBranchesDto> accountBranchesDto = repository.Get().ToList();
-            return View(accountBranchesDto);
+            List<CostCenterBranchesDto> costCenterBranchesDto = repository.Get().ToList();
+            return View(costCenterBranchesDto);
         }
 
         [HttpPost]
-        public ActionResult Index(List<AccountBranchesDto> accountBranchesDtos)
+        public ActionResult Index(List<CostCenterBranchesDto> costCenterBranchesDtos)
         {
             if (!ModelState.IsValid)
             {
                 ViewBag.Branches = branchRepository.Get().ToList();
-                List<AccountBranchesDto> accountBranchesDto = repository.Get().ToList();
-                return View(accountBranchesDto);
+                //List<CostCenterBranchesDto> costCenterBranchesDto = repository.Get().ToList();
+                return View(costCenterBranchesDtos);
             }
-            foreach (var accountbranchDto in accountBranchesDtos)
-                repository.AddOrUpdate(accountbranchDto);
+            foreach (var costCenterBranchesDto in costCenterBranchesDtos)
+                repository.AddOrUpdate(costCenterBranchesDto);
             repository.SaveChanges();
 
             TempData["Success"] = "True";

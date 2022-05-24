@@ -48,6 +48,12 @@ namespace BusinessLogic.App_Start
 
             Mapper.CreateMap<AnalaticalAccounts, AnalaticalAccountsDto>();
             Mapper.CreateMap<AnalaticalAccountsDto, AnalaticalAccounts>();
+
+            Mapper.CreateMap<CostCenterTree, CostCenterTreeDto>();
+            Mapper.CreateMap<CostCenterTreeDto, CostCenterTree>();
+
+            Mapper.CreateMap<CostCenterBranches, CostCenterBranchesDto>();
+            Mapper.CreateMap<CostCenterBranchesDto, CostCenterBranches>();
         }
     }
 }

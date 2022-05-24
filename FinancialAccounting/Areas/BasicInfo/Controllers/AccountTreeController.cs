@@ -7,7 +7,6 @@ using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace FinancialAccounting.Areas.BasicInfo.Controllers
@@ -99,7 +98,7 @@ namespace FinancialAccounting.Areas.BasicInfo.Controllers
         public JsonResult GetAccountTree()
         {
             List<AccountTreeDto> accountTrees = repository.Get(ProxyCreationEnabled: false).ToList();
-            foreach(var accountTree in accountTrees)
+            foreach (var accountTree in accountTrees)
             {
                 accountTree.Currency = currencyRepository.GetSingleByExp(x => x.Id == accountTree.CurrencyId);
                 accountTree.AccountType = accountTypeRepository.GetSingleByExp(x => x.Id == accountTree.AccountTypeId);
