@@ -39,7 +39,7 @@ namespace DataAccess.Data
         public DbSet<AccountBranches> AccountBranches { get; set; }
         public DbSet<CostCenterTree> CostCenterTree { get; set; }
         public DbSet<CostCenterBranches> CostCenterBranches { get; set; }
-
+        public DbSet<AccountsCostCenters> AccountsCostCenters { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

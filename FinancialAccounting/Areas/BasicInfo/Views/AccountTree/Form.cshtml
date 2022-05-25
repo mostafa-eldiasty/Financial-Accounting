@@ -116,6 +116,7 @@
         <ul class="pws_tabs_controll">
             <li><a class="pws_tab_active tablinks" id="branches-tab" href="#branches">@Language.Branches</a></li>
             <li><a class="tablinks" id="analytical_account-tab" href="#analytical_accounts">@Language.AnalaticalAccounts</a></li>
+            <li><a class="tablinks" id="costcenter-tab" href="#costcenters">@Language.CostCenters</a></li>
         </ul>
 
         <div class="demo-tabs pws_tabs_list" style="background:#fff;">
@@ -125,18 +126,18 @@
                         @foreach (var branch in Model.BranchesLst)
                         {
                             <tr>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="hidden" class="AccountBranches-Id" value="@(Model.Id != 0?  Model.AccountBranches.Where(x=> x.BranchId == branch.Id).Select(x=>x.Id).FirstOrDefault():0)" />
-                                            <input type="hidden" class="AccountBranches-BranchId" value="@branch.Id" />
-                                            @*<input type="hidden" class="AccountBranches-AccountTreeId" value="@Model.Id" />*@
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="hidden" class="AccountBranches-Id" value="@(Model.Id != 0?  Model.AccountBranches.Where(x=> x.BranchId == branch.Id).Select(x=>x.Id).FirstOrDefault():0)" />
+                                        <input type="hidden" class="AccountBranches-BranchId" value="@branch.Id" />
+                                        @*<input type="hidden" class="AccountBranches-AccountTreeId" value="@Model.Id" />*@
 
-                                            <input type="checkbox" class="branch-checkbox" @(SetDisabled ? "disabled" : "") 
-                                                   @(Model.AccountBranches != null && Model.AccountBranches.Where(x=>x.BranchId == branch.Id).Count() > 0? "checked":"")> @branch.ArabicName
+                                        <input type="checkbox" class="branch-checkbox" @(SetDisabled ? "disabled" : "")
+                                               @(Model.AccountBranches != null && Model.AccountBranches.Where(x => x.BranchId == branch.Id).Count() > 0 ? "checked" : "")> @branch.ArabicName
                                         </label>
                                     </div>
-                            </tr>
-                        }
+                                </tr>
+                            }
                     </tbody>
                 </table>
             </div>
@@ -164,6 +165,27 @@
                     </table>
                 </div>
             </div>
+
+            <div class="pws_tab_single pws_show pws_hide" id="costcenters" style="display:none;">
+                <table class="table table-borderless table-responsive" id="tableCostCenter">
+                    <tbody>
+                        @foreach (var costCenter in Model.CostCentersLst)
+                        {
+                            <tr>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="hidden" class="AccountsCostCenters-Id" value="@(Model.Id != 0?  Model.AccountsCostCenters.Where(x=> x.CostCenterId == costCenter.Id).Select(x=>x.Id).FirstOrDefault():0)" />
+                                            <input type="hidden" class="AccountsCostCenters-CostCenterId" value="@costCenter.Id" />
+
+                                            <input type="checkbox" class="costcenter-checkbox" @(SetDisabled ? "disabled" : "")
+                                                   @(Model.AccountsCostCenters != null && Model.AccountsCostCenters.Where(x => x.CostCenterId == costCenter.Id).Count() > 0 ? "checked" : "")> @costCenter.ArabicName
+                                        </label>
+                                    </div>
+                                </tr>
+                            }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -171,6 +193,10 @@
         $(document).ready(function () {
             $('option').css('text-align', 'center');
             $('#branches-tab').on('click', function () {
+                $('#costcenter-tab').removeClass('pws_tab_active');
+                $('#costcenters').removeClass('pws_show');
+                $('#costcenters').css('display', 'none');
+
                 $('#analytical_account-tab').removeClass('pws_tab_active');
                 $('#analytical_accounts').removeClass('pws_show');
                 $('#analytical_accounts').css('display', 'none');
@@ -188,6 +214,24 @@
                 $('#analytical_account-tab').addClass('pws_tab_active');
                 $('#analytical_accounts').addClass('pws_show');
                 $('#analytical_accounts').css('display', '');
+
+                $('#costcenter-tab').removeClass('pws_tab_active');
+                $('#costcenters').removeClass('pws_show');
+                $('#costcenters').css('display', 'none');
+            });
+
+            $('#costcenter-tab').on('click', function () {
+                $('#costcenter-tab').addClass('pws_tab_active');
+                $('#costcenters').addClass('pws_show');
+                $('#costcenters').css('display', '');
+
+                $('#branches-tab').removeClass('pws_tab_active');
+                $('#branches').removeClass('pws_show');
+                $('#branches').css('display', 'none');
+
+                $('#analytical_account-tab').removeClass('pws_tab_active');
+                $('#analytical_accounts').removeClass('pws_show');
+                $('#analytical_accounts').css('display', 'none');
             });
 
             if ("@TempData["Success"]" == "True") {
@@ -243,6 +287,15 @@
                     $('<input>').attr({ type: 'hidden', value: Id, name: 'Account_AnalaticalAccounts[' + index + '].Id' }).appendTo('#AccountTreeForm');
                     $('<input>').attr({ type: 'hidden', value: AnalyticalAccountId, name: 'Account_AnalaticalAccounts[' + index + '].AnalaticalAccountId' }).appendTo('#AccountTreeForm');
                     $('<input>').attr({ type: 'hidden', value: '@Model.Id', name: 'Account_AnalaticalAccounts[' + index + '].AccountTreeId' }).appendTo('#AccountTreeForm');
+                });
+
+                $('.costcenter-checkbox:checked').each(function (index) {
+                    var Id = $(this).parent().find('.AccountsCostCenters-Id').val();
+                    var CostCenterId = $(this).parent().find('.AccountsCostCenters-CostCenterId').val();
+
+                    $('<input>').attr({ type: 'hidden', value: Id, name: 'AccountsCostCenters[' + index + '].Id' }).appendTo('#AccountTreeForm');
+                    $('<input>').attr({ type: 'hidden', value: CostCenterId, name: 'AccountsCostCenters[' + index + '].CostCenterId' }).appendTo('#AccountTreeForm');
+                    $('<input>').attr({ type: 'hidden', value: '@Model.Id', name: 'AccountsCostCenters[' + index + '].AccountId' }).appendTo('#AccountTreeForm');
                 });
             });
         });

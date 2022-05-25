@@ -48,11 +48,14 @@ namespace DataAccess.DTOs
         public string UpdatedUserId { get; set; }
 
         public List<BranchDto> BranchesLst { get; set; }
-       
+        public List<AccountTreeDto> AccountsLst { get; set; }
+
         public virtual CostCenterTreeDto Parent { get; set; }
 
         public virtual List<CostCenterBranchesDto> CostCenterBranches { get; set; }
-        //public virtual List<AccountTree> AccountTrees { get; set; }
+
+        public virtual List<AccountsCostCentersDto> AccountsCostCenters { get; set; }
+
 
     }
 }

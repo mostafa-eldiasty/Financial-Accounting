@@ -54,6 +54,9 @@ namespace BusinessLogic.App_Start
 
             Mapper.CreateMap<CostCenterBranches, CostCenterBranchesDto>();
             Mapper.CreateMap<CostCenterBranchesDto, CostCenterBranches>();
+
+            Mapper.CreateMap<AccountsCostCenters, AccountsCostCentersDto>();
+            Mapper.CreateMap<AccountsCostCentersDto, AccountsCostCenters>();
         }
     }
 }

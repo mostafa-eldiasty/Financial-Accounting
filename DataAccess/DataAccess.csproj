@@ -121,6 +121,7 @@
   <ItemGroup>
     <Compile Include="CustomValidation\Unique.cs" />
     <Compile Include="DTOs\AccountBranchesDto.cs" />
+    <Compile Include="DTOs\AccountsCostCentersDto.cs" />
     <Compile Include="DTOs\AccountTreeDto.cs" />
     <Compile Include="DTOs\AccountTypesDto.cs" />
     <Compile Include="DTOs\Account_AnalaticalAccountsDto.cs" />
@@ -238,8 +239,13 @@
     <Compile Include="Migrations\202205222303060_AddCostCenterTreeAndCostCenterBranches.Designer.cs">
       <DependentUpon>202205222303060_AddCostCenterTreeAndCostCenterBranches.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205240313032_addingAccountsCostCentersTable.cs" />
+    <Compile Include="Migrations\202205240313032_addingAccountsCostCentersTable.Designer.cs">
+      <DependentUpon>202205240313032_addingAccountsCostCentersTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBranches.cs" />
+    <Compile Include="Models\AccountsCostCenters.cs" />
     <Compile Include="Models\AccountTree.cs" />
     <Compile Include="Models\AccountTypes.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -334,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205222303060_AddCostCenterTreeAndCostCenterBranches.resx">
       <DependentUpon>202205222303060_AddCostCenterTreeAndCostCenterBranches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205240313032_addingAccountsCostCentersTable.resx">
+      <DependentUpon>202205240313032_addingAccountsCostCentersTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

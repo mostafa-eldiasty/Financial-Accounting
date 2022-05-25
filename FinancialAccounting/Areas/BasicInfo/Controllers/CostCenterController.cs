@@ -16,11 +16,13 @@ namespace FinancialAccounting.Areas.BasicInfo.Controllers
     {
         private readonly Repository<CostCenterTree, CostCenterTreeDto> repository;
         private readonly Repository<Branch, BranchDto> branchRepository;
+        private readonly Repository<AccountTree, AccountTreeDto> accountRepository;
 
         public CostCenterController()
         {
             repository = new Repository<CostCenterTree, CostCenterTreeDto>();
             branchRepository = new Repository<Branch, BranchDto>();
+            accountRepository = new Repository<AccountTree, AccountTreeDto>();
         }
 
         public ActionResult Index()
@@ -43,6 +45,7 @@ namespace FinancialAccounting.Areas.BasicInfo.Controllers
 
             costCenterTreeDto.ParentId = ParentId;
             costCenterTreeDto.BranchesLst = branchRepository.Get().ToList();
+            costCenterTreeDto.AccountsLst = accountRepository.Get().ToList();
             return View(costCenterTreeDto);
         }
 
@@ -55,6 +58,7 @@ namespace FinancialAccounting.Areas.BasicInfo.Controllers
             {
                 ViewBag.FormType = formType;
                 costCenterTreeDto.BranchesLst = branchRepository.Get().ToList();
+                costCenterTreeDto.AccountsLst = accountRepository.Get().ToList();
                 return View(costCenterTreeDto);
             }
 

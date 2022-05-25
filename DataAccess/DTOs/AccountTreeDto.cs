@@ -67,8 +67,10 @@ namespace DataAccess.DTOs
         
         public List<BranchDto> BranchesLst { get; set; }
         public List<AnalaticalAccountsDto> AnalyticalAccountsLst { get; set; }
-        
-        public  List<AccountTypesDto> accountTypesLst { get; set; }
+        public List<CostCenterTreeDto> CostCentersLst { get; set; }
+
+
+        public List<AccountTypesDto> accountTypesLst { get; set; }
         
         public virtual AccountTreeDto Parent { get; set; }
 
@@ -77,5 +79,6 @@ namespace DataAccess.DTOs
         public virtual CurrenciesDto Currency { get; set; }
         public virtual List<AccountBranchesDto> AccountBranches { get; set; }
         public virtual List<Account_AnalaticalAccounts> Account_AnalaticalAccounts { get; set; }
+        public virtual List<AccountsCostCenters> AccountsCostCenters { get; set; }
     }
 }

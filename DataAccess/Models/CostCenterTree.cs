@@ -47,6 +47,7 @@ namespace DataAccess.Models
         public virtual CostCenterTree Parent { get; set; }
 
         public virtual List<CostCenterBranches> CostCenterBranches { get; set; }
+        public virtual List<AccountsCostCenters> AccountsCostCenters { get; set; }
         //public virtual List<AccountTree> AccountTrees { get; set; }
 
     }

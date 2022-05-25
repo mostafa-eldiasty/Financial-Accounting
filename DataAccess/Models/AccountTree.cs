@@ -64,5 +64,6 @@ namespace DataAccess.Models
 
         public virtual List<AccountBranches> AccountBranches { get; set; }
         public virtual List<Account_AnalaticalAccounts> Account_AnalaticalAccounts { get; set; }
+        public virtual List<AccountsCostCenters> AccountsCostCenters { get; set; }
     }
 }

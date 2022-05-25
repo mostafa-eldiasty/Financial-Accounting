@@ -18,6 +18,7 @@ namespace FinancialAccounting.Areas.BasicInfo.Controllers
         private readonly Repository<AccountTypes, AccountTypesDto> accountTypeRepository;
         private readonly Repository<Branch, BranchDto> branchRepository;
         private readonly Repository<AnalaticalAccounts, AnalaticalAccountsDto> analaticalAccountsRepository;
+        private readonly Repository<CostCenterTree, CostCenterTreeDto> costCentersRepository;
 
         public AccountTreeController()
         {
@@ -26,6 +27,7 @@ namespace FinancialAccounting.Areas.BasicInfo.Controllers
             accountTypeRepository = new Repository<AccountTypes, AccountTypesDto>();
             branchRepository = new Repository<Branch, BranchDto>();
             analaticalAccountsRepository = new Repository<AnalaticalAccounts, AnalaticalAccountsDto>();
+            costCentersRepository = new Repository<CostCenterTree, CostCenterTreeDto>();
         }
 
         // GET: BasicInfo/AccountTree
@@ -52,6 +54,7 @@ namespace FinancialAccounting.Areas.BasicInfo.Controllers
             accountTreeDto.accountTypesLst = accountTypeRepository.Get().ToList();
             accountTreeDto.BranchesLst = branchRepository.Get().ToList();
             accountTreeDto.AnalyticalAccountsLst = analaticalAccountsRepository.Get().ToList();
+            accountTreeDto.CostCentersLst = costCentersRepository.Get().ToList();
             return View(accountTreeDto);
         }
 
@@ -67,6 +70,7 @@ namespace FinancialAccounting.Areas.BasicInfo.Controllers
                 accountTreeDto.accountTypesLst = accountTypeRepository.Get().ToList();
                 accountTreeDto.BranchesLst = branchRepository.Get().ToList();
                 accountTreeDto.AnalyticalAccountsLst = analaticalAccountsRepository.Get().ToList();
+                accountTreeDto.CostCentersLst = costCentersRepository.Get().ToList();
                 return View(accountTreeDto);
             }
 
