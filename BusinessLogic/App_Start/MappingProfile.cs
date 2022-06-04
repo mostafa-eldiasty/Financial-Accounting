@@ -57,6 +57,15 @@ namespace BusinessLogic.App_Start
 
             Mapper.CreateMap<AccountsCostCenters, AccountsCostCentersDto>();
             Mapper.CreateMap<AccountsCostCentersDto, AccountsCostCenters>();
+
+            Mapper.CreateMap<JournalHeader, JournalHeaderDto>();
+            Mapper.CreateMap<JournalHeaderDto, JournalHeader>();
+
+            Mapper.CreateMap<JournalDetails, JournalDetailsDto>();
+            Mapper.CreateMap<JournalDetailsDto, JournalDetails>();
+
+            Mapper.CreateMap<JournalDetailsCostCenters, JournalDetailsCostCentersDto>();
+            Mapper.CreateMap<JournalDetailsCostCentersDto, JournalDetailsCostCenters>();
         }
     }
 }

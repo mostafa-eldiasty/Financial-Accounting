@@ -1,0 +1,375 @@
+﻿@using Resources.Resources
+@using FinancialAccounting.Enums
+@model DataAccess.DTOs.JournalHeaderDto
+
+@{
+    ViewBag.Title = Language.DailyJournals;
+    bool SetDisabled = ViewBag.FormType == (int)FormType.Details || ViewBag.FormType == (int)FormType.Delete;
+}
+
+<style>
+    .table th,
+    .table td {
+        text-align: center;
+        padding: 5px;
+        width: 20px;
+        height: 40px;
+    }
+
+        .table td * {
+            width: 100%;
+            text-align: center;
+            height: 100%;
+            border: 1px solid deepskyblue;
+        }
+
+    table {
+        height: 100%
+    }
+</style>
+
+@using (Html.BeginForm("Form", "Journal", FormMethod.Post, new { @id = "JournalForm", style = "background-color:white;;padding:20px;" }))
+{
+<div class="row">
+    <div class="form-horizontal col-5">
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Number, Language.Number, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align: center;" })
+            <div class="col-9">
+                @Html.TextBoxFor(m => m.Number, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
+                @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.JournalTypeId,Language.JournalType, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align:center;" })
+            <div class="col-9">
+                @Html.DropDownListFor(m => m.JournalTypeId, new SelectList(Model.JournalTypeLst, "Id", "ArabicName", Model.JournalTypeId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
+                @Html.ValidationMessageFor(model => model.JournalTypeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Date, Language.Date, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align:center;" })
+            <div class="col-5">
+                @Html.TextBoxFor(m => m.Date, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", disabled = SetDisabled ? "disabled" : "false" })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+    <div class="form-horizontal col-5">
+        <div class="form-group row">
+            @Html.LabelFor(model => model.BranchId, Language.Branch, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align:center;" })
+            <div class="col-9">
+                @Html.DropDownListFor(m => m.BranchId, new SelectList(Model.BranchesLst, "Id", "ArabicName", Model.BranchId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
+                @Html.ValidationMessageFor(model => model.BranchId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.CurrencyId, Language.Currency, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align:center;" })
+            <div class="col-9">
+                @Html.DropDownListFor(m => m.CurrencyId, new SelectList(Model.CurrenciesLst, "Id", "ArabicName", Model.CurrencyId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
+                @Html.ValidationMessageFor(model => model.CurrencyId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Factor, Language.Factor, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align: center;" })
+            <div class="col-9">
+                @Html.EditorFor(model => model.Factor, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", disabled = SetDisabled ? "disabled" : "false" } })
+                @Html.ValidationMessageFor(model => model.Factor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+
+    @Html.HiddenFor(m => m.AddedDate)
+    @Html.HiddenFor(m => m.AddedUserId)
+    @Html.HiddenFor(m => m.UpdatedDate)
+    @Html.HiddenFor(m => m.UpdatedUserId)
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+
+    <div class="form-group row col-8">
+        @Html.LabelFor(model => model.Notes, Language.Notes, htmlAttributes: new { @class = "col-form-label col-2", style = "text-align: center;" })
+        <div class="col-8">
+            @Html.TextAreaFor(model => model.Notes, new { @class = "form-control",@style="height:130%", disabled = SetDisabled ? "disabled" : "false" })
+            @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</div>
+
+    <div class="form-group row col-12" style="display:flex;flex-direction:row-reverse">
+        @if (ViewBag.FormType == (int)FormType.New || ViewBag.FormType == (int)FormType.Edit)
+        {
+            <div>
+                <input type="submit" value="@Language.Save" class="btn btn-info" />
+            </div>
+        }
+        else if (ViewBag.FormType == (int)FormType.Delete)
+        {
+            <div>
+                <a href="#" class="btn btn-danger" id="Delete">@Language.Delete</a>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink(@Language.BackToList, "Index", null, new { @class = "btn btn-rounded btn-inverse-secondary",@style="margin:0 5px 0 5px;" })
+        </div>
+    </div>
+
+    <br />
+    <div class="table">
+        <table class="table-striped table-bordered table-responsive text-center" id="JournalDetailsTable" style="display:table">
+            <thead>
+                <tr>
+                    <td hidden></td>
+                    <td>@Language.Account</td>
+                    <td>@Language.Debit</td>
+                    <td>@Language.Credit</td>
+                    <td>@Language.CostCenter</td>
+                    <td>@Language.Notes</td>
+                    <td></td>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model.journalDetails)
+                {
+                    <tr>
+                        @Html.Hidden("JournalDetails-Id", item.Id, new { @class = "JournalDetails-Id" })
+                        <td>
+                            @Html.DropDownList("JournalDetails-AccountId", new SelectList(Model.AccountLst, "Id", "CodeName", item.AccountId), Language.SelectFromLst, new { @class = "JournalDetails-AccountId", onclick = "$(this).select();" })
+                        </td>
+                        <td>
+                            @Html.TextBox("JournalDetails-Debit", item.Debit, "{0:N2}", new { @class = "JournalDetails-Debit", @type = "Number", onclick = "$(this).select();" })
+                        </td>
+                        <td>
+                            @Html.TextBox("JournalDetails-Credit", item.Credit, "{0:N2}", new { @class = "JournalDetails-Credit", @type = "Number", onclick = "$(this).select();" })
+                        </td>
+                        <td style="width:15%">
+                            <button type="button" class="btn btn-info cost-center" data-toggle="modal" data-target="#CostCenterModal">@Language.CostCenters</button>
+                        </td>
+                        <td>
+                            @Html.TextBox("JournalDetails-Notes", item.Notes, new { @class = "JournalDetails-Notes", onclick = "$(this).select();" })
+                        </td>
+
+                        <td style="text-align:center;width:8%"><a href="#" class="btn btn-danger btn-xs remove-row" style="border: none; width: auto; height: auto; padding: 0.5rem; border-radius: 20px; background-color: #d9534f"><i style="border: none;" class="typcn typcn-delete"> </i> </a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="row" style="display:flex;flex-direction:row-reverse;margin:15px 0 0 0">
+            <div class="col-4">
+                <label>@Language.Difference</label>
+                <input id="Diff" type="text" readonly value="0.00" class="col-8" style="text-align:center" />
+            </div>
+
+            <div class="col-4">
+                <label>@Language.Credit</label>
+                <input id="TotalCredit" type="number" readonly placeholder="0.00" class="col-8" style="text-align:center" />
+            </div>
+
+            <div class="col-4">
+                <label>@Language.Debit</label>
+                <input id="TotalDebit" type="number" readonly placeholder="0.00" class="col-8" style="text-align:center" />
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_MultiCostCenters")
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery.cookie.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+          if ("@TempData["Success"]" == "True") {
+                swal("Big Bang solutions", "@Language.SavedSuccessfully", "success");
+            }
+
+
+            if ($('#JournalDetailsTable tbody tr:last').length == 0) {
+                AddRow();
+                AddRow();
+            }
+
+            $('#Delete').click(function Delete() {
+                swal({
+                    title: '@Language.Delete',
+                    text: "@Language.AreYouSure",
+                    icon: 'warning',
+                    buttons: { true: "@Language.Confirm", false: "@Language.Cancel"}
+                }).then(function (result) {
+                    if (result == "true") {
+                         $.ajax({
+                                type: "POST",
+                                url: "/Transactions/Journal/Delete/" + $('#Id').val(),
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                success: function (r) {
+                                    swal({
+                                        text: '@Language.DeletedSuccessfully',
+                                        icon: 'success'
+                                    }).then(function () {
+                                        window.location = "/Transactions/Journal/Index";
+                                    });
+                             },
+                             error: function () {
+                                 swal({
+                                        title: '@Language.SomethingWentWrong',
+                                        icon: 'success'
+                                    });
+                             }
+                            });
+                    }
+                });
+            });
+
+
+            $('#JournalForm').submit(function (e) {
+                var rows = $('#JournalDetailsTable tbody tr');
+
+                var breakAll = false;
+                rows.each(function (index) {
+                    var AccountId = $(this).find('.JournalDetails-AccountId').val();
+
+                    if (rows.length % 2 != 0 && rows.length == index + 1)
+                        return;
+
+                    if ($('#TotalDebit').val() != $('#TotalCredit').val()) {
+                        swal("Big Bang solutions", "يجب ان يتساوى طرفى المدين و الدائن", "error");
+                        breakAll = true;
+                    }
+
+                    if (AccountId == 0) {
+                        swal("Big Bang solutions", "يجب اختيار حساب:الصف رقم " + (index + 1), "error");
+                        breakAll = true;
+                    }
+                });
+
+                if (breakAll) {
+                    e.preventDefault();
+                    return
+                }
+
+                rows.each(function (index) {
+                    if (rows.length%2 != 0 && rows.length == index + 1)
+                        return;
+
+                    var Id = $(this).find('.JournalDetails-Id').val();
+                    var AccountId = $(this).find('.JournalDetails-AccountId').val();
+                    var Notes = $(this).find('.JournalDetails-Notes').val();
+                    var Debit = $(this).find('.JournalDetails-Debit').val();
+                    var Credit = $(this).find('.JournalDetails-Credit').val();
+
+                    $('<input>').attr({ type: 'hidden', value: Id, name: 'JournalDetails[' + index + '].Id' }).appendTo('#JournalForm');
+                    $('<input>').attr({ type: 'hidden', value: '@Model.Id', name: 'JournalDetails[' + index + '].JournalHeaderId' }).appendTo('#JournalForm');
+                    $('<input>').attr({ type: 'hidden', value: AccountId, name: 'JournalDetails[' + index + '].AccountId' }).appendTo('#JournalForm');
+                    $('<input>').attr({ type: 'hidden', value: Notes, name: 'JournalDetails[' + index + '].Notes' }).appendTo('#JournalForm');
+                    $('<input>').attr({ type: 'hidden', value: Debit, name: 'JournalDetails[' + index + '].Debit' }).appendTo('#JournalForm');
+                    $('<input>').attr({ type: 'hidden', value: Credit, name: 'JournalDetails[' + index + '].Credit' }).appendTo('#JournalForm');
+                });
+            });
+
+            $(document).on('change', '#JournalDetailsTable tbody tr:last td *', function () {
+                AddRow();
+            });
+
+            function AddRow(){
+                var table = $('#JournalDetailsTable tbody');
+                table.append(`
+                     <tr>
+                            @Html.Hidden("JournalDetails-Id", 0, new { @class = "JournalDetails-Id" })
+                            <td>
+                                @Html.DropDownList("JournalDetails-AccountId", new SelectList(Model.AccountLst, "Id", "ArabicName", 0), Language.SelectFromLst, new { @class = "JournalDetails-AccountId", onclick = "$(this).select();" })
+                            </td>
+                            <td>
+                                @Html.TextBox("JournalDetails-Debit", 0.00, "{0:N2}", new { @class = "JournalDetails-Debit", @type = "Number", onclick = "$(this).select();" })
+                            </td>
+                            <td>
+                                @Html.TextBox("JournalDetails-Credit", 0.00, "{0:N2}", new { @class = "JournalDetails-Credit", @type = "Number", onclick = "$(this).select();" })
+                            </td>
+                            <td style="width:15%">
+                                <button type="button" class="btn btn-info cost-center" data-toggle="modal">@Language.CostCenters</button>
+                            </td>
+                            <td>
+                                @Html.TextBox("JournalDetails-Notes", "", new { @class = "JournalDetails-Notes", onclick = "$(this).select();" })
+                            </td>
+                            <td style="text-align:center;width:8%">
+                                <a href="#" class="btn btn-danger btn-xs remove-row" style="border: none; width: auto; height: auto; padding: 0.5rem; border-radius: 20px; background-color: #d9534f">
+                                    <i style="border: none;" class="typcn typcn-delete"> </i>
+                                </a>
+                            </td>
+                        </tr>
+                `);
+            }
+
+            $(document).on('change', '.JournalDetails-Debit,.JournalDetails-Credit', function () {
+                var totalDebit = 0.00, totalCredit = 0.00;
+                $('#JournalDetailsTable tbody tr').each(function () {
+                    var debit = $(this).find('.JournalDetails-Debit').val() != '' ? $(this).find('.JournalDetails-Debit').val() : 0
+                    var credit = $(this).find('.JournalDetails-Credit').val() != '' ? $(this).find('.JournalDetails-Credit').val() : 0
+                    totalDebit += parseFloat(debit);
+                    totalCredit += parseFloat(credit);
+                });
+                var diff = totalDebit - totalCredit;
+                $('#TotalDebit').val(totalDebit.toFixed(2));
+                $('#TotalCredit').val(totalCredit.toFixed(2));
+                $('#Diff').val(diff.toFixed(2));
+            });
+
+            $('.JournalDetails-Debit').keydown(function (e) {
+                var credit = $(this).parents('tr').find('.JournalDetails-Credit');
+                var creditVal = credit.val() != '' ? credit.val() : 0
+                if (creditVal > 0)
+                    e.preventDefault();
+            });
+
+            $('.JournalDetails-Credit').keydown(function (e) {
+                var debit = $(this).parents('tr').find('.JournalDetails-Debit');
+                var debitVal = debit.val() != '' ? debit.val() : 0
+                if (debitVal > 0)
+                    e.preventDefault();
+            });
+
+            $('.JournalDetails-Debit,.JournalDetails-Credit').trigger('change');
+
+            $('#CurrencyId').change(function () {
+                if ($(this).val() == "") {
+                    $('#Factor').val(0.00);
+                    return;
+                }
+
+                $.post('/Transactions/Journal/GetFactor?CurrencyId=' + $(this).val(), function (data) {
+                    $('#Factor').val(data.Factor.toFixed(2));
+                });
+
+            });
+
+            $(document).on('click', '.remove-row', function () {
+                $(this).parents('tr').remove();
+                var rowCount = $('#JournalDetailsTable tbody tr').length;
+                if (rowCount < 2) {
+                    AddRow();
+                }
+                $('.JournalDetails-Debit,.JournalDetails-Credit').trigger('change');
+                $('#JournalDetailsTable tbody tr:last').remove();
+            });
+
+            ////////////////////////////////////////////////////////////////////////////////
+            //$(document).on('click', '.cost-center', function () {
+            //    $('#CostCenterModal').modal('show');
+            //});
+            ////////////////////////////////////////////////////////////////////////////////
+        });
+
+
+    </script>
+}

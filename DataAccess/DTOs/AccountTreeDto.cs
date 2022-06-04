@@ -7,26 +7,27 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DataAccess.DTOs
 {
-    public class AccountTreeDto
+    public class AccountTreeDto : BaseModelDto
     {
         public int Id { get; set; }
         
-        [Display(Name = "Code", ResourceType = typeof(Language))]
-        [Required(ErrorMessageResourceName = "CodeIsRequired", ErrorMessageResourceType = typeof(Language))]
-        [Unique("Id", "AccountTree", ErrorMessageResourceName = "ThisCodeUsedBefore", ErrorMessageResourceType = typeof(Language))]
-        public int Code { get; set; }
+        //[Display(Name = "Code", ResourceType = typeof(Language))]
+        //[Required(ErrorMessageResourceName = "CodeIsRequired", ErrorMessageResourceType = typeof(Language))]
+        //[Unique("Id", "AccountTree", ErrorMessageResourceName = "ThisCodeUsedBefore", ErrorMessageResourceType = typeof(Language))]
+        //public int Code { get; set; }
         
-        [Display(Name = "ArabicName", ResourceType = typeof(Language))]
-        [Required(ErrorMessageResourceName = "ArabicNameIsRequired", ErrorMessageResourceType = typeof(Language))]
-        public string ArabicName { get; set; }
+        //[Display(Name = "ArabicName", ResourceType = typeof(Language))]
+        //[Required(ErrorMessageResourceName = "ArabicNameIsRequired", ErrorMessageResourceType = typeof(Language))]
+        //public string ArabicName { get; set; }
         
-        [Display(Name = "EnglishName", ResourceType = typeof(Language))]
-        [Required(ErrorMessageResourceName = "EnglishNameIsRequired", ErrorMessageResourceType = typeof(Language))]
-        public string EnglishName { get; set; }
+        //[Display(Name = "EnglishName", ResourceType = typeof(Language))]
+        //[Required(ErrorMessageResourceName = "EnglishNameIsRequired", ErrorMessageResourceType = typeof(Language))]
+        //public string EnglishName { get; set; }
         
         public int? ParentId { get; set; }
         
@@ -80,5 +81,15 @@ namespace DataAccess.DTOs
         public virtual List<AccountBranchesDto> AccountBranches { get; set; }
         public virtual List<Account_AnalaticalAccounts> Account_AnalaticalAccounts { get; set; }
         public virtual List<AccountsCostCenters> AccountsCostCenters { get; set; }
+
+        //public string CodeName
+        //{
+        //    get 
+        //    {
+        //        string Name = Thread.CurrentThread.CurrentCulture.Name == "en-US" ? EnglishName : ArabicName;
+        //        return  Code + " - " + Name; 
+        //    }
+        //}
+
     }
 }

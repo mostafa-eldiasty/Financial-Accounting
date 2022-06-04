@@ -183,6 +183,8 @@
     <Compile Include="Areas\Settings\Controllers\CompanyController.cs" />
     <Compile Include="Areas\Settings\Controllers\UsersController.cs" />
     <Compile Include="Areas\Settings\SettingsAreaRegistration.cs" />
+    <Compile Include="Areas\Transactions\Controllers\JournalController.cs" />
+    <Compile Include="Areas\Transactions\TransactionsAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1932,6 +1934,11 @@
     <Content Include="Areas\BasicInfo\Views\CostCenter\Form.cshtml" />
     <Content Include="Areas\BasicInfo\Views\CostCenter\Index.cshtml" />
     <Content Include="Areas\BasicInfo\Views\CostCenterBegBalances\Index.cshtml" />
+    <Content Include="Areas\Transactions\Views\web.config" />
+    <Content Include="Areas\Transactions\Views\Journal\Index.cshtml" />
+    <Content Include="Areas\Transactions\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Transactions\Views\Journal\Form.cshtml" />
+    <Content Include="Areas\Transactions\Views\Journal\_MultiCostCenters.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -1976,6 +1983,8 @@
     <Content Include="Views\Sweet\Alert.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Transactions\Views\Shared\" />
+    <Folder Include="Views\Journals\" />
     <Folder Include="Views\JournalTypes\" />
   </ItemGroup>
   <ItemGroup>

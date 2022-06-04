@@ -40,6 +40,10 @@ namespace DataAccess.Data
         public DbSet<CostCenterTree> CostCenterTree { get; set; }
         public DbSet<CostCenterBranches> CostCenterBranches { get; set; }
         public DbSet<AccountsCostCenters> AccountsCostCenters { get; set; }
+        public DbSet<JournalHeader> JournalHeader { get; set; }
+        public DbSet<JournalDetails> JournalDetails { get; set; }
+        public DbSet<JournalDetailsCostCenters> JournalDetailsCostCenters { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

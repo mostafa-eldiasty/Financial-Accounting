@@ -1,0 +1,316 @@
+﻿@using Resources.Resources
+@model DataAccess.DTOs.JournalHeaderDto
+
+<!-- Modal Cost Centers -->
+<div class="modal fade" id="CostCenterModal" role="dialog">
+    <div class="modal-dialog modal" style="display:block;max-width:55%">
+        <div class="modal-content">
+            <div class="modal-header col-12 row">
+                <h4 class="modal-title" style="margin:0 10px 0 10px;">@Language.CostCenter</h4>
+                <button type="button" class="close" data-dismiss="modal" style="display:flex;flex-direction:row-reverse;margin-right:0;margin-left:0">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="col-12 row">
+                        <div class="col-8">
+                            <div class="form-group row">
+                                <label class="col-form-label col-1">   @Language.Account </label>
+                                <div class="col-8">
+                                    <input type="text" class="form-control" disabled="disabled" id="CostCenterModelAccount" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-1">   @Language.Currency </label>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" disabled="disabled" id="CostCenterModelCurr" />
+                                </div>
+                                <label class="col-form-label col-1">   @Language.Factor </label>
+                                <div class="col-3">
+                                    <input type="text" class="form-control" disabled="disabled" id="CostCenterModelConversionFactor" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-1">   القيمة </label>
+                                <div class="col-8">
+                                    <input type="text" class="form-control" disabled="disabled" id="CostCenterModelAmount" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4" style="display:table;padding:0">
+                            <label> @Language.CostCenter </label>
+                            <table class="table table-bordered" style="text-align:center;">
+                                <thead>
+                                    <tr>
+                                        <td>النسبة % </td>
+                                        <td>القيمة </td>
+                                        <td> المتبقى </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="CostCenterModelPercent">0</td>
+                                        <td id="CostCenterModelValue">0</td>
+                                        <td id="CostCenterModelRem">0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-12">
+                        <table class="table table-bordered table-striped" id="tableJournalDetailsCostCenters">
+                            <thead>
+                                <tr>
+                                    <td style="width:40%;">   @Language.CostCenter </td>
+                                    <td style="width:15%;">   النسبة </td>
+                                    <td style="width:15%;">   القيمة </td>
+                                    <td style="width:25%;">   @Language.Notes </td>
+                                    <td style="width:5%;">    </td>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnCloseCostCenter" class="btn btn-danger" data-dismiss="modal">اغلاق</button>
+                <button type="button" id="btnOkCostCenter" class="btn btn-info active" style="margin:0 4px 0 4px" data-dismiss="modal">موافق</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var journalDetailsId = 0;
+    var modalSelectedRowIndex = -1;
+    $(document).on('click', '.cost-center', function () {
+        modalSelectedRowIndex = $(this).parents('tr').index();
+
+        $('#tableJournalDetailsCostCenters tbody tr').remove();
+        journalDetailsId = $(this).parents('tr').find('.JournalDetails-Id').val();
+        var journalDetailsAccount = $(this).parents('tr').find('.JournalDetails-AccountId option:selected').text();
+        var journalDetailsCurrency = $('#CurrencyId option:selected').text();
+        var journalDetailsFactor = $('#Factor').val();
+        var journalDetailsValue = parseFloat($(this).parents('tr').find('.JournalDetails-Debit').val()) + parseFloat($(this).parents('tr').find('.JournalDetails-Credit').val());
+
+        $('#CostCenterModelAccount').val(journalDetailsAccount);
+        $('#CostCenterModelCurr').val(journalDetailsCurrency);
+        $('#CostCenterModelConversionFactor').val(journalDetailsFactor);
+        $('#CostCenterModelAmount').val(journalDetailsValue);
+
+        var sumValue = 0;
+        var sumRatio = 0;
+        var i = 0;
+        var returnAll = false;
+        while (true) {
+            var journalDetailsLst = $('.JournalDetailsCostCenters' + i + modalSelectedRowIndex);
+            if (journalDetailsLst.length == 0) {
+                break;
+            }
+            var Id = journalDetailsLst.eq(0).val();
+            var CostCenterId = journalDetailsLst.eq(2).val();
+            var Ratio = journalDetailsLst.eq(3).val();
+            var Value = journalDetailsLst.eq(4).val();
+            var Notes = journalDetailsLst.eq(5).val();
+
+            AddRow();
+
+            $('#tableJournalDetailsCostCenters tbody tr').eq(i).find('.JournalDetailsCostCenters-Id').val(Id);
+            $('#tableJournalDetailsCostCenters tbody tr').eq(i).find('.JournalDetailsCostCenters-JournalDetailsId').val(journalDetailsId);
+            $('#tableJournalDetailsCostCenters tbody tr').eq(i).find('.JournalDetailsCostCenters-CostCenterId').val(CostCenterId);
+            $('#tableJournalDetailsCostCenters tbody tr').eq(i).find('.JournalDetailsCostCenters-Ratio').val(Ratio);
+            $('#tableJournalDetailsCostCenters tbody tr').eq(i).find('.JournalDetailsCostCenters-Value').val(Value);
+            $('#tableJournalDetailsCostCenters tbody tr').eq(i).find('.JournalDetailsCostCenters-Notes').val(Notes);
+            sumValue += Value * 1;
+            sumRatio += Ratio * 1;
+            returnAll = true;
+            i++;
+        }
+
+        var sum = journalDetailsValue * 1 - sumValue;
+        $('#CostCenterModelRem').text(sum);
+        $('#CostCenterModelPercent').text(sumRatio);
+        $('#CostCenterModelValue').text(sumValue);
+
+        if (sum == 0)
+            $('#CostCenterModelRem').css('background-color', "limegreen");
+        else if (sum > 0)
+            $('#CostCenterModelRem').css('background-color', "yellow");
+        else
+            $('#CostCenterModelRem').css('background-color', "red");
+
+        if (returnAll)
+            return;
+
+        //get cost centers for this journal details id
+        $.post('/Transactions/Journal/GetJournalDetailsCostCenters?journalDetailsId=' + journalDetailsId, function (data) {
+            sumValue = 0;
+            sumRatio = 0;
+            if (data.journalDetailsCostCenters.length != 0) {
+                $.each(data.journalDetailsCostCenters, function (index, journalDetailsCostCenter) {
+                    AddRow();
+
+                    $('#tableJournalDetailsCostCenters tbody tr').eq(index).find('.JournalDetailsCostCenters-Id').val(journalDetailsCostCenter.Id);
+                    $('#tableJournalDetailsCostCenters tbody tr').eq(index).find('.JournalDetailsCostCenters-JournalDetailsId').val(journalDetailsCostCenter.JournalDetailsId);
+                    $('#tableJournalDetailsCostCenters tbody tr').eq(index).find('.JournalDetailsCostCenters-CostCenterId').val(journalDetailsCostCenter.CostCenterId);
+                    $('#tableJournalDetailsCostCenters tbody tr').eq(index).find('.JournalDetailsCostCenters-Ratio').val(journalDetailsCostCenter.Ratio);
+                    $('#tableJournalDetailsCostCenters tbody tr').eq(index).find('.JournalDetailsCostCenters-Value').val(journalDetailsCostCenter.Value);
+                    $('#tableJournalDetailsCostCenters tbody tr').eq(index).find('.JournalDetailsCostCenters-Notes').val(journalDetailsCostCenter.Notes);
+                    sumValue += journalDetailsCostCenter.Value * 1;
+                    sumRatio += journalDetailsCostCenter.Ratio * 1;
+                });
+            }
+
+            else {
+                //else clear tbody rows and add new row and add info data
+                AddRow();
+            }
+
+            var sum = journalDetailsValue * 1 - sumValue;
+            $('#CostCenterModelRem').text(sum);
+            $('#CostCenterModelPercent').text(sumRatio);
+            $('#CostCenterModelValue').text(sumValue);
+
+            if (sum == 0)
+                $('#CostCenterModelRem').css('background-color', "limegreen");
+            else if (sum > 0)
+                $('#CostCenterModelRem').css('background-color', "yellow");
+            else
+                $('#CostCenterModelRem').css('background-color', "red");
+        });
+    });
+
+    function AddRow() {
+        $('#tableJournalDetailsCostCenters tbody').append(`
+            <tr>
+                @Html.Hidden("JournalDetailsCostCenters-Id", 0, new { @class = "JournalDetailsCostCenters-Id" })
+                <input type = 'hidden' class="JournalDetailsCostCenters-JournalDetailsId" id="JournalDetailsCostCenters-JournalDetailsId" value =`+ journalDetailsId +  ` >
+                <td>
+                    @Html.DropDownList("JournalDetailsCostCenters-CostCenterId", new SelectList(Model.CostCentersLst, "Id", "CodeName", 0), Language.SelectFromLst, new { @class = "JournalDetailsCostCenters-CostCenterId", onclick = "$(this).select();" })
+                </td>
+                <td>
+                    @Html.TextBox("JournalDetailsCostCenters-Ratio", "0", new { @class = "JournalDetailsCostCenters-Ratio", @type = "Number", onclick = "$(this).select();" })
+                </td>
+                <td>
+                    @Html.TextBox("JournalDetailsCostCenters-Value", "0", "{0:N2}", new { @class = "JournalDetailsCostCenters-Value", @type = "Number", onclick = "$(this).select();" })
+                </td>
+                <td>
+                    @Html.TextBox("JournalDetailsCostCenters-Notes", "", new { @class = "JournalDetailsCostCenters-Notes", onclick = "$(this).select();" })
+                </td>
+                <td style="text-align:center;width:8%"><a href="#" class="btn btn-danger btn-xs delete-row" style="border: none; width: auto; height: auto; padding: 0.5rem; border-radius: 20px; background-color: #d9534f"><i style="border: none;" class="typcn typcn-delete"> </i> </a></td>
+            </tr>
+        `);
+    }
+
+
+    $(document).on('keyup', '#tableJournalDetailsCostCenters tbody tr:last td *', function () {
+        AddRow();
+    });
+
+    $(document).on('click', '.delete-row', function () {
+        $(this).parents('tr').remove();
+        var rowCount = $('#tableJournalDetailsCostCenters tbody tr').length;
+        if (rowCount == 0) {
+            AddRow();
+        }
+        //$('.JournalDetails-Debit,.JournalDetails-Credit').trigger('change');
+        //$('#tableJournalDetailsCostCenters tbody tr:last').remove();
+    });
+
+    $('#btnOkCostCenter').click(function (e) {
+        //here must be the validations
+        if ($('#CostCenterModelRem').text() != "0") {
+            swal("Big Bang solutions", "يجب توزيع القيم بشطل صحيح", "error");
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+        }
+
+        //after validate
+
+        var rows = $('#tableJournalDetailsCostCenters tbody tr');
+
+        var returnAll = false;
+        rows.each(function (index) {
+            if ($('#CostCenterModelRem').text() != "0") {
+                swal("Big Bang solutions", "يجب توزيع القيم بشطل صحيح", "error");
+                returnAll = true;
+            }
+
+            if ($(this).find('.JournalDetailsCostCenters-CostCenterId').val() == 0 && $(this).find('.JournalDetailsCostCenters-Ratio').val() != 0) {
+                swal("Big Bang solutions", "من فضلك ادخل حساب فى الصف رقم :" + index, "error");
+                returnAll = true;
+            }
+        });
+
+        if (returnAll) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+        }
+
+        rows.each(function (index) {
+            $('.JournalDetailsCostCenters' + index + modalSelectedRowIndex).remove();
+
+            if ($(this).find('.JournalDetailsCostCenters-Ratio').val() == 0)
+                return;
+
+            var Id = $(this).find('.JournalDetailsCostCenters-Id').val();
+            var JournalDetailsId = $(this).find('.JournalDetailsCostCenters-JournalDetailsId').val();
+            var CostCenterId = $(this).find('.JournalDetailsCostCenters-CostCenterId').val();
+            var Ratio = $(this).find('.JournalDetailsCostCenters-Ratio').val();
+            var Value = $(this).find('.JournalDetailsCostCenters-Value').val();
+            var Notes = $(this).find('.JournalDetailsCostCenters-Notes').val();
+
+
+            $('<input>').attr({ type: 'hidden', value: Id, name: 'JournalDetails[' + modalSelectedRowIndex + '].JournalDetailsCostCenters[' + index + '].Id', class: 'JournalDetailsCostCenters' + index + modalSelectedRowIndex  + ' Id' }).appendTo('#JournalForm');
+            $('<input>').attr({ type: 'hidden', value: JournalDetailsId, name: 'JournalDetails[' + modalSelectedRowIndex + '].JournalDetailsCostCenters[' + index + '].JournalDetailsId', class: 'JournalDetailsCostCenters' + index + modalSelectedRowIndex + ' JournalDetailsId' }).appendTo('#JournalForm');
+            $('<input>').attr({ type: 'hidden', value: CostCenterId, name: 'JournalDetails[' + modalSelectedRowIndex + '].JournalDetailsCostCenters[' + index + '].CostCenterId', class: 'JournalDetailsCostCenters' + index + modalSelectedRowIndex + ' ' + 'CostCenterId' }).appendTo('#JournalForm');
+            $('<input>').attr({ type: 'hidden', value: Ratio, name: 'JournalDetails[' + modalSelectedRowIndex + '].JournalDetailsCostCenters[' + index + '].Ratio', class: 'JournalDetailsCostCenters' + index + modalSelectedRowIndex + ' Ratio'}).appendTo('#JournalForm');
+            $('<input>').attr({ type: 'hidden', value: Value, name: 'JournalDetails[' + modalSelectedRowIndex + '].JournalDetailsCostCenters[' + index + '].Value', class: 'JournalDetailsCostCenters' + index + modalSelectedRowIndex + ' Value'}).appendTo('#JournalForm');
+            $('<input>').attr({ type: 'hidden', value: Notes, name: 'JournalDetails[' + modalSelectedRowIndex + '].JournalDetailsCostCenters[' + index + '].Notes', class: 'JournalDetailsCostCenters' + index + modalSelectedRowIndex + ' Notes'}).appendTo('#JournalForm');
+        });
+
+    });
+    //Calculation of Ratio And Value
+
+    $(document).on('keyup', '.JournalDetailsCostCenters-Ratio', function () {
+        var ratio = $(this).val() / 100;
+        $(this).parents('tr').find('.JournalDetailsCostCenters-Value').val(ratio * $('#CostCenterModelAmount').val());
+        CalculateTotals();
+    });
+
+    $(document).on('keyup', '.JournalDetailsCostCenters-Value', function () {
+        var value = $(this).val() / $('#CostCenterModelAmount').val();
+        $(this).parents('tr').find('.JournalDetailsCostCenters-Ratio').val(value * 100);
+        CalculateTotals();
+    });
+
+    function CalculateTotals() {
+        var sum = 0;
+        var sumRatio = 0;
+        $('#tableJournalDetailsCostCenters tbody tr').each(function (index, item) {
+            sum += $(this).find('.JournalDetailsCostCenters-Value').val() * 1;
+            sumRatio += $(this).find('.JournalDetailsCostCenters-Ratio').val() * 1;
+        });
+
+        $('#CostCenterModelValue').text(sum);
+        $('#CostCenterModelPercent').text(sumRatio);
+        $('#CostCenterModelRem').text($('#CostCenterModelAmount').val() - sum);
+
+        if ($('#CostCenterModelRem').text() == 0)
+            $('#CostCenterModelRem').css('background-color', "limegreen");
+        else if ($('#CostCenterModelRem').text() > 0)
+            $('#CostCenterModelRem').css('background-color', "yellow");
+        else
+            $('#CostCenterModelRem').css('background-color', "red");
+
+    }
+</script>
+
+

@@ -10,22 +10,22 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DTOs
 {
-    public class CostCenterTreeDto
+    public class CostCenterTreeDto : BaseModelDto
     {
         public int Id { get; set; }
 
         [Display(Name = "Code", ResourceType = typeof(Language))]
         [Required(ErrorMessageResourceName = "CodeIsRequired", ErrorMessageResourceType = typeof(Language))]
         [Unique("Id", "CostCenterTree", ErrorMessageResourceName = "ThisCodeUsedBefore", ErrorMessageResourceType = typeof(Language))]
-        public int Code { get; set; }
+        public new int Code { get; set; }
 
-        [Display(Name = "ArabicName", ResourceType = typeof(Language))]
-        [Required(ErrorMessageResourceName = "ArabicNameIsRequired", ErrorMessageResourceType = typeof(Language))]
-        public string ArabicName { get; set; }
+        //[Display(Name = "ArabicName", ResourceType = typeof(Language))]
+        //[Required(ErrorMessageResourceName = "ArabicNameIsRequired", ErrorMessageResourceType = typeof(Language))]
+        //public string ArabicName { get; set; }
 
-        [Display(Name = "EnglishName", ResourceType = typeof(Language))]
-        [Required(ErrorMessageResourceName = "EnglishNameIsRequired", ErrorMessageResourceType = typeof(Language))]
-        public string EnglishName { get; set; }
+        //[Display(Name = "EnglishName", ResourceType = typeof(Language))]
+        //[Required(ErrorMessageResourceName = "EnglishNameIsRequired", ErrorMessageResourceType = typeof(Language))]
+        //public string EnglishName { get; set; }
 
         [ForeignKey("Parent")]
         public int? ParentId { get; set; }

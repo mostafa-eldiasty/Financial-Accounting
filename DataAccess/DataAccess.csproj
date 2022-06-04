@@ -126,12 +126,16 @@
     <Compile Include="DTOs\AccountTypesDto.cs" />
     <Compile Include="DTOs\Account_AnalaticalAccountsDto.cs" />
     <Compile Include="DTOs\AnalaticalAccountsDto.cs" />
+    <Compile Include="DTOs\BaseModelDto.cs" />
     <Compile Include="DTOs\BranchDto.cs" />
     <Compile Include="DTOs\CompanyDto.cs" />
     <Compile Include="DTOs\CostCenterBranchesDto.cs" />
     <Compile Include="DTOs\CostCenterTreeDto.cs" />
     <Compile Include="DTOs\CurrenciesDto.cs" />
     <Compile Include="DTOs\FinancialYearsDto.cs" />
+    <Compile Include="DTOs\JournalDetailsCostCentersDto.cs" />
+    <Compile Include="DTOs\JournalDetailsDto.cs" />
+    <Compile Include="DTOs\JournalHeaderDto.cs" />
     <Compile Include="DTOs\JournalTypesDto.cs" />
     <Compile Include="DTOs\UsersBranchesDto.cs" />
     <Compile Include="DTOs\UsersDto.cs" />
@@ -243,6 +247,38 @@
     <Compile Include="Migrations\202205240313032_addingAccountsCostCentersTable.Designer.cs">
       <DependentUpon>202205240313032_addingAccountsCostCentersTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205250108073_addingJournalHeaderAndDetailsTables.cs" />
+    <Compile Include="Migrations\202205250108073_addingJournalHeaderAndDetailsTables.Designer.cs">
+      <DependentUpon>202205250108073_addingJournalHeaderAndDetailsTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205250132456_ChangeNameJournalIdToJournalTypeId.cs" />
+    <Compile Include="Migrations\202205250132456_ChangeNameJournalIdToJournalTypeId.Designer.cs">
+      <DependentUpon>202205250132456_ChangeNameJournalIdToJournalTypeId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205271327136_UpdateJournalDetailsForeignKeysToAccptNULL.cs" />
+    <Compile Include="Migrations\202205271327136_UpdateJournalDetailsForeignKeysToAccptNULL.Designer.cs">
+      <DependentUpon>202205271327136_UpdateJournalDetailsForeignKeysToAccptNULL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205271329422_UpdateJournalDetailsForeignKeysToAcceptNULL.cs" />
+    <Compile Include="Migrations\202205271329422_UpdateJournalDetailsForeignKeysToAcceptNULL.Designer.cs">
+      <DependentUpon>202205271329422_UpdateJournalDetailsForeignKeysToAcceptNULL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206010153055_RemoveCostCenterIdFromJournalDetails.cs" />
+    <Compile Include="Migrations\202206010153055_RemoveCostCenterIdFromJournalDetails.Designer.cs">
+      <DependentUpon>202206010153055_RemoveCostCenterIdFromJournalDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206010203208_AddingJournalDetailsCostCentersTable.cs" />
+    <Compile Include="Migrations\202206010203208_AddingJournalDetailsCostCentersTable.Designer.cs">
+      <DependentUpon>202206010203208_AddingJournalDetailsCostCentersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206010210470_AddNotesToJournalDetailsCostCenter.cs" />
+    <Compile Include="Migrations\202206010210470_AddNotesToJournalDetailsCostCenter.Designer.cs">
+      <DependentUpon>202206010210470_AddNotesToJournalDetailsCostCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206030922079_ModifingRelationBetweenJournalDetailsCostCenters.cs" />
+    <Compile Include="Migrations\202206030922079_ModifingRelationBetweenJournalDetailsCostCenters.Designer.cs">
+      <DependentUpon>202206030922079_ModifingRelationBetweenJournalDetailsCostCenters.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBranches.cs" />
     <Compile Include="Models\AccountsCostCenters.cs" />
@@ -258,6 +294,9 @@
     <Compile Include="Models\CostCenterTree.cs" />
     <Compile Include="Models\Currencies.cs" />
     <Compile Include="Models\FinancialYears.cs" />
+    <Compile Include="Models\JournalDetails.cs" />
+    <Compile Include="Models\JournalDetailsCostCenters.cs" />
+    <Compile Include="Models\JournalHeader.cs" />
     <Compile Include="Models\JournalTypes.cs" />
     <Compile Include="Models\UsersBranches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -343,6 +382,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205240313032_addingAccountsCostCentersTable.resx">
       <DependentUpon>202205240313032_addingAccountsCostCentersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205250108073_addingJournalHeaderAndDetailsTables.resx">
+      <DependentUpon>202205250108073_addingJournalHeaderAndDetailsTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205250132456_ChangeNameJournalIdToJournalTypeId.resx">
+      <DependentUpon>202205250132456_ChangeNameJournalIdToJournalTypeId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205271327136_UpdateJournalDetailsForeignKeysToAccptNULL.resx">
+      <DependentUpon>202205271327136_UpdateJournalDetailsForeignKeysToAccptNULL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205271329422_UpdateJournalDetailsForeignKeysToAcceptNULL.resx">
+      <DependentUpon>202205271329422_UpdateJournalDetailsForeignKeysToAcceptNULL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206010153055_RemoveCostCenterIdFromJournalDetails.resx">
+      <DependentUpon>202206010153055_RemoveCostCenterIdFromJournalDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206010203208_AddingJournalDetailsCostCentersTable.resx">
+      <DependentUpon>202206010203208_AddingJournalDetailsCostCentersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206010210470_AddNotesToJournalDetailsCostCenter.resx">
+      <DependentUpon>202206010210470_AddNotesToJournalDetailsCostCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206030922079_ModifingRelationBetweenJournalDetailsCostCenters.resx">
+      <DependentUpon>202206030922079_ModifingRelationBetweenJournalDetailsCostCenters.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,7 @@ using System.Linq.Expressions;
 
 namespace BusinessLogic.Repositories
 {
-    public class Repository<T,TDto> : IRepository<T, TDto> where T : class
+    public class Repository<T, TDto> : IRepository<T, TDto> where T : class
     {
         private readonly ApplicationDbContext _Context;
 
@@ -25,21 +25,34 @@ namespace BusinessLogic.Repositories
         //    _Context.Dispose();
         //}
 
-        public IEnumerable<TDto> Get(bool ProxyCreationEnabled = true)
+        public IEnumerable<TDto> Get(bool ProxyCreationEnabled = false)
         {
             _Context.Configuration.ProxyCreationEnabled = ProxyCreationEnabled;
             return _Context.Set<T>().ToList().Select(Mapper.Map<T, TDto>);
         }
 
-        public TDto GetSingleByExp(Expression<Func<T, bool>> exp)
+        public TDto GetSingleByExp(Expression<Func<T, bool>> exp, bool ProxyCreationEnabled = false, params Expression<Func<T, object>>[] includes)
         {
-            T entity = _Context.Set<T>().SingleOrDefault(exp);
+            _Context.Configuration.ProxyCreationEnabled = ProxyCreationEnabled;
+
+            var query = _Context.Set<T>().AsQueryable();
+            //T entity = _Context.Set<T>().SingleOrDefault(exp);
+
+            foreach (var include in includes)
+                query = query.Include(include);
+
+            T entity = query.SingleOrDefault(exp);
             return Mapper.Map<T, TDto>(entity);
         }
 
-        public IEnumerable<TDto> GetListByExp(Expression<Func<T, bool>> exp)
+        public IEnumerable<TDto> GetListByExp(Expression<Func<T, bool>> exp, bool ProxyCreationEnabled = false,bool AsNoTracking = false)
         {
-            return _Context.Set<T>().Where(exp).ToList().Select(Mapper.Map<T, TDto>);
+            _Context.Configuration.ProxyCreationEnabled = ProxyCreationEnabled;
+
+            if(AsNoTracking)
+                return _Context.Set<T>().AsNoTracking().Where(exp).ToList().Select(Mapper.Map<T, TDto>);
+            else
+                return _Context.Set<T>().Where(exp).ToList().Select(Mapper.Map<T, TDto>);
         }
 
         public void AddOrUpdate(TDto entityDto)
@@ -59,6 +72,11 @@ namespace BusinessLogic.Repositories
                 {
                     T entityInDB = _Context.Set<T>().Find(value);
                     var properties = entity.GetType().GetProperties().Where(x => typeof(IEnumerable).IsAssignableFrom(x.PropertyType) && x.PropertyType != typeof(string)).ToList();
+
+                    foreach (var property in properties)
+                    {
+                        _Context.Entry(entityInDB).Collection(property.Name).Load();
+                    }
 
                     foreach (var property in properties)
                     {
@@ -85,10 +103,12 @@ namespace BusinessLogic.Repositories
                             if (itemId == 0)
                                 _Context.Entry(item).State = EntityState.Added;
                             else if (itemId != 0)
+                            {
                                 _Context.Entry(item).State = EntityState.Modified;
+                            }
                         }
 
-                        foreach(var item in dict.Values)
+                        foreach (var item in dict.Values)
                             _Context.Entry(item).State = EntityState.Deleted;
                     }
 
@@ -102,6 +122,70 @@ namespace BusinessLogic.Repositories
             }
         }
 
+        //public void AddOrUpdate(TDto entityDto)
+        //{
+        //    try
+        //    {
+        //        if (entityDto == null) return;
+
+        //        T entity = Mapper.Map<TDto, T>(entityDto);
+        //        object value = _Context.Entry(entity).Property("Id").CurrentValue;
+
+        //        if (value.GetType() == typeof(int) && (int)value == 0)
+        //        {
+        //            _Context.Set<T>().Add(entity);
+        //        }
+        //        else
+        //        {
+        //            //T entityInDB = _Context.Set<T>().Find(value);
+        //            //Mapper.Map(entityDto, entityInDB);
+
+        //            _Context.Configuration.ProxyCreationEnabled = false;
+        //            _Context.Configuration.LazyLoadingEnabled = false;
+
+        //            _Context.Entry(entity).State = EntityState.Modified;
+
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        new Exception("Something Happend in auto mapper");
+        //    }
+        //}
+
+        public void AddOrUpdateNew(TDto entityDto)
+        {
+            try
+            {
+                if (entityDto == null) return;
+
+                T entity = Mapper.Map<TDto, T>(entityDto);
+                object value = _Context.Entry(entity).Property("Id").CurrentValue;
+
+                if (value.GetType() == typeof(int) && (int)value == 0)
+                {
+                    _Context.Set<T>().Add(entity);
+                }
+                else
+                {
+                    _Context.Entry(entity).State = EntityState.Modified;
+                }
+            }
+            catch
+            {
+                new Exception("Something Happend in auto mapper");
+            }
+        }
+
+        public void AddorUpdateLst(List<TDto> entityLstDto)
+        {
+            if (entityLstDto == null) return;
+            foreach (var enitityDto in entityLstDto)
+            {
+                AddOrUpdateNew(enitityDto);
+            }
+        }
+
         public void Delete(TDto entityDto)
         {
             T entity = Mapper.Map<TDto, T>(entityDto);
@@ -112,6 +196,15 @@ namespace BusinessLogic.Repositories
         {
             T entity = _Context.Set<T>().Single(exp);
             _Context.Set<T>().Remove(entity);
+        }
+
+        public void DeleteRange(List<TDto> entityDtoLst)
+        {
+            foreach(var entityDto in entityDtoLst)
+            {
+                T entity = Mapper.Map<TDto, T>(entityDto);
+                _Context.Entry(entity).State = EntityState.Deleted;
+            }
         }
 
         public void SaveChanges()
