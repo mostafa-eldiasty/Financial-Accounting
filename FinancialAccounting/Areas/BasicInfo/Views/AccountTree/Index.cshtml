@@ -71,7 +71,7 @@
             </div>
 
         <div>
-            <p id="WaitLoad" style="display:none;color:crimson;font-weight:bold;"> @Language.PleaseWait ..........</p>
+            <p id="WaitLoad" style="color:crimson;font-weight:bold;"> @Language.PleaseWait ..........</p>
 
             <div id="divTree" style="min-height:450px;max-height:700px;overflow:auto;display:none;">
                 <ul id="treeview">
@@ -145,7 +145,7 @@
         $('#BegBalances-link').removeClass('pws_tab_active');
 
         $.post("/BasicInfo/AccountTree/GetAccountTree", function (data) {
-            $("#WaitLoad").css("display", "block");
+            $("#WaitLoad").css("display", "content");
             $.each(data.accountTrees, function (index, item) {
                 var icon = (item.IsGeneralAccount) ? "<img src='/Content/Images/folder.png' style='padding-left:4px;padding-right:4px;'  width='15' height='15'/>" : "<img src='/Content/Images/file.png' style='padding-left:4px;padding-right:4px;'  width='15' height='15'/>";
 

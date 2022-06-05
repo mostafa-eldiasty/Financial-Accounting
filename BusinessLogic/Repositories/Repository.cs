@@ -25,13 +25,13 @@ namespace BusinessLogic.Repositories
         //    _Context.Dispose();
         //}
 
-        public IEnumerable<TDto> Get(bool ProxyCreationEnabled = false)
+        public IEnumerable<TDto> Get(bool ProxyCreationEnabled = true)
         {
             _Context.Configuration.ProxyCreationEnabled = ProxyCreationEnabled;
             return _Context.Set<T>().ToList().Select(Mapper.Map<T, TDto>);
         }
 
-        public TDto GetSingleByExp(Expression<Func<T, bool>> exp, bool ProxyCreationEnabled = false, params Expression<Func<T, object>>[] includes)
+        public TDto GetSingleByExp(Expression<Func<T, bool>> exp, bool ProxyCreationEnabled = true, params Expression<Func<T, object>>[] includes)
         {
             _Context.Configuration.ProxyCreationEnabled = ProxyCreationEnabled;
 
@@ -45,7 +45,7 @@ namespace BusinessLogic.Repositories
             return Mapper.Map<T, TDto>(entity);
         }
 
-        public IEnumerable<TDto> GetListByExp(Expression<Func<T, bool>> exp, bool ProxyCreationEnabled = false,bool AsNoTracking = false)
+        public IEnumerable<TDto> GetListByExp(Expression<Func<T, bool>> exp, bool ProxyCreationEnabled = true,bool AsNoTracking = false)
         {
             _Context.Configuration.ProxyCreationEnabled = ProxyCreationEnabled;
 
