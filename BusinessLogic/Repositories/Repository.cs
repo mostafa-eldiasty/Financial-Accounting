@@ -202,8 +202,10 @@ namespace BusinessLogic.Repositories
         {
             foreach(var entityDto in entityDtoLst)
             {
-                T entity = Mapper.Map<TDto, T>(entityDto);
-                _Context.Entry(entity).State = EntityState.Deleted;
+                //T entity = Mapper.Map<TDto, T>(entityDto);
+                object value = entityDto.GetType().GetProperty("Id").GetValue(entityDto);
+                T entity = _Context.Set<T>().Find(value);
+                _Context.Set<T>().Remove(entity);
             }
         }
 

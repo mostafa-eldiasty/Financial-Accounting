@@ -435,4 +435,7 @@
   <data name="DebitBeginningBalance" xml:space="preserve">
     <value>Debit Beginning Balance</value>
   </data>
+  <data name="AccountMustBeChosenForRowNo" xml:space="preserve">
+    <value>Account Must Be Chosen For Row No. :</value>
+  </data>
 </root>

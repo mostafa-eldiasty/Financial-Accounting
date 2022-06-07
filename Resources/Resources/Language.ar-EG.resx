@@ -435,4 +435,7 @@
   <data name="DebitBeginningBalance" xml:space="preserve">
     <value>رصيد اول المدة مدين</value>
   </data>
+  <data name="AccountMustBeChosenForRowNo" xml:space="preserve">
+    <value>:يجب اختيار حساب:الصف رقم</value>
+  </data>
 </root>

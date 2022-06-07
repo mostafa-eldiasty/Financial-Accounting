@@ -79,6 +79,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account Must Be Chosen For Row No. :.
+        /// </summary>
+        public static string AccountMustBeChosenForRowNo {
+            get {
+                return ResourceManager.GetString("AccountMustBeChosenForRowNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Account Name.
         /// </summary>
         public static string AccountName {

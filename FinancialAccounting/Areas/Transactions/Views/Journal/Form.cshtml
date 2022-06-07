@@ -244,12 +244,12 @@
                         return;
 
                     if ($('#TotalDebit').val() != $('#TotalCredit').val()) {
-                        swal("Big Bang solutions", "يجب ان يتساوى طرفى المدين و الدائن", "error");
+                        swal("Big Bang solutions", "@Language.DebitAndCreditSidesMustBeEqual", "error");
                         breakAll = true;
                     }
 
                     if (AccountId == 0) {
-                        swal("Big Bang solutions", "يجب اختيار حساب:الصف رقم " + (index + 1), "error");
+                        swal("Big Bang solutions", "@Language.AccountMustBeChosenForRowNo" + (index + 1), "error");
                         breakAll = true;
                     }
                 });
