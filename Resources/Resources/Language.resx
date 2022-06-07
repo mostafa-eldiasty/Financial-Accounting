@@ -408,4 +408,31 @@
   <data name="Difference" xml:space="preserve">
     <value>Difference</value>
   </data>
+  <data name="CollapseTree" xml:space="preserve">
+    <value>Collapse Tree</value>
+  </data>
+  <data name="ExpandTree" xml:space="preserve">
+    <value>Expand Tree</value>
+  </data>
+  <data name="AccountCode" xml:space="preserve">
+    <value>Account Code</value>
+  </data>
+  <data name="AccountName" xml:space="preserve">
+    <value>Account Name</value>
+  </data>
+  <data name="CostCenterCode" xml:space="preserve">
+    <value>Cost Center Code</value>
+  </data>
+  <data name="CostCenterName" xml:space="preserve">
+    <value>Cost Center Name</value>
+  </data>
+  <data name="CreditBeginningBalance" xml:space="preserve">
+    <value>Credit Beginning Balance</value>
+  </data>
+  <data name="DebitAndCreditSidesMustBeEqual" xml:space="preserve">
+    <value>Debit And Credit Sides Must Be Equal</value>
+  </data>
+  <data name="DebitBeginningBalance" xml:space="preserve">
+    <value>Debit Beginning Balance</value>
+  </data>
 </root>

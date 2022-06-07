@@ -97,7 +97,7 @@ namespace FinancialAccounting.Areas.Transactions.Controllers
                 if (journalDetail.JournalDetailsCostCenters != null)
                 {
                     List<int> L = journalDetail.JournalDetailsCostCenters.Select(y => y.Id).ToList();
-                    journalDetailsCostCentersRepository.DeleteRange(journalDetailsCostCentersRepository.GetListByExp(x => x.JournalDetailsId == journalDetail.Id && !L.Contains(x.Id), AsNoTracking: true).ToList());
+                    journalDetailsCostCentersRepository.DeleteRange(journalDetailsCostCentersRepository.GetListByExp(x => x.JournalDetailsId == journalDetail.Id && !L.Contains(x.Id)).ToList());
                     journalDetailsCostCentersRepository.AddorUpdateLst(journalDetail.JournalDetailsCostCenters);
                 }
             }

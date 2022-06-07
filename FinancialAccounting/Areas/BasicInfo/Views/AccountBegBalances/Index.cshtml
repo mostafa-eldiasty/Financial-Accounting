@@ -17,7 +17,7 @@
 {
     <div class="row">
         <div class="form-group col-6 row">
-            <label for="BranchesLst" class="col-form-label col-1" style="text-align: center;">الفرع</label>
+            <label for="BranchesLst" class="col-form-label col-2" style="text-align: center;">@Language.Branch</label>
             <div class="col-9">
                 @Html.DropDownList("BranchesLst", new SelectList(ViewBag.Branches, "Id", "ArabicName"), Language.SelectFromLst, new { @class = "form-control" })
             </div>
@@ -32,10 +32,10 @@
         <table id="AccountBegBalancesTable" class="table table-striped table-bordered text-center">
             <thead>
                 <tr>
-                    <th> كود الحساب </th>
-                    <th> اسم الحساب </th>
-                    <th> رصيد اول المدة مدين </th>
-                    <th> رصيد اول المدة دائن </th>
+                    <th> @Language.AccountCode </th>
+                    <th> @Language.AccountName </th>
+                    <th> @Language.DebitBeginningBalance </th>
+                    <th> @Language.CreditBeginningBalance</th>
                 </tr>
             </thead>
 
@@ -70,17 +70,17 @@
 
         <div class="row" style="display:flex;flex-direction:row-reverse;margin:15px 0 0 0">
             <div class="col-2">
-                <label>الفرق</label>
+                <label>@Language.Difference</label>
                 <input id="Diff" type="text" readonly value="0.00" class="col-9" style="text-align:center"/>
             </div>
 
             <div class="col-2">
-                <label>الدائن</label>
+                <label>@Language.Credit</label>
                 <input id="TotalCredit" type="number" readonly placeholder="0.00" class="col-9" style="text-align:center"/>
             </div>
 
             <div class="col-2">
-                <label>المدين</label>
+                <label>@Language.Debit</label>
                 <input id="TotalDebit" type="number" readonly placeholder="0.00" class="col-9" style="text-align:center"/>
             </div>
         </div>
@@ -138,7 +138,7 @@
 
             $('form').submit(function (e) {
                 if ($('#TotalDebit').val() != $('#TotalCredit').val()) {
-                    swal("Big Bang solutions", "يجب ان يتساوى طرفى المدين و الدائن", "error");
+                    swal("Big Bang solutions", "@Language.DebitAndCreditSidesMustBeEqual", "error");
                     e.preventDefault();
                 }
             });

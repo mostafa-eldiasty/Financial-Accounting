@@ -70,6 +70,24 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account Code.
+        /// </summary>
+        public static string AccountCode {
+            get {
+                return ResourceManager.GetString("AccountCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account Name.
+        /// </summary>
+        public static string AccountName {
+            get {
+                return ResourceManager.GetString("AccountName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Account Natural.
         /// </summary>
         public static string AccountNatural {
@@ -250,6 +268,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Collapse Tree.
+        /// </summary>
+        public static string CollapseTree {
+            get {
+                return ResourceManager.GetString("CollapseTree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Company Data.
         /// </summary>
         public static string CompanyData {
@@ -295,6 +322,24 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cost Center Code.
+        /// </summary>
+        public static string CostCenterCode {
+            get {
+                return ResourceManager.GetString("CostCenterCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cost Center Name.
+        /// </summary>
+        public static string CostCenterName {
+            get {
+                return ResourceManager.GetString("CostCenterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cost Centers.
         /// </summary>
         public static string CostCenters {
@@ -318,6 +363,15 @@ namespace Resources.Resources {
         public static string Credit {
             get {
                 return ResourceManager.GetString("Credit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credit Beginning Balance.
+        /// </summary>
+        public static string CreditBeginningBalance {
+            get {
+                return ResourceManager.GetString("CreditBeginningBalance", resourceCulture);
             }
         }
         
@@ -399,6 +453,24 @@ namespace Resources.Resources {
         public static string Debit {
             get {
                 return ResourceManager.GetString("Debit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debit And Credit Sides Must Be Equal.
+        /// </summary>
+        public static string DebitAndCreditSidesMustBeEqual {
+            get {
+                return ResourceManager.GetString("DebitAndCreditSidesMustBeEqual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debit Beginning Balance.
+        /// </summary>
+        public static string DebitBeginningBalance {
+            get {
+                return ResourceManager.GetString("DebitBeginningBalance", resourceCulture);
             }
         }
         
@@ -498,6 +570,15 @@ namespace Resources.Resources {
         public static string ExchangePrices {
             get {
                 return ResourceManager.GetString("ExchangePrices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expand Tree.
+        /// </summary>
+        public static string ExpandTree {
+            get {
+                return ResourceManager.GetString("ExpandTree", resourceCulture);
             }
         }
         

@@ -46,6 +46,14 @@
         font-weight: bold;
     }
 
+    .collapses-expansion-container.ar-EG {
+        margin-right: auto;
+    }
+
+    .collapses-expansion-container.en-US {
+        margin-left: auto;
+    }
+
     .table th,
     .table td {
         text-align: center;
@@ -54,24 +62,30 @@
 
 <div class="col-sm-12 row horizontal">
     <div class="col-sm-5 bgTree " style="border:ridge;">
-            <div class="row col-12" style="margin: 5px 0 0 0;padding: 0 0 0 0; ">
-                <input class="btn btn-info col-2" type="button" value="@Language.CreateNew" style="border-radius: 5px;" onclick="ActionsButtonclick(@((int)FormType.New))" />
-           
-                <div class="col-10" style="display: flex; flex-direction: row-reverse; padding: 0 0 0 0; ">
-                    <button id="expand" style="background-color: #666; border:hidden; color: #fff; border-radius: 5px; margin: 0 2px 0 2px; font-size: 12px "
-                            onclick="$('#treeview').data('kendoTreeView').expand('.k-item')">
-                        <i class="fa fa-expand"> </i> توسيع الشجرة
-                    </button>
+        <div class="" style="display:flex;margin: 5px 0 0 0;padding: 0 0 0 0;">
+            <div>
+                <input class="btn btn-info text-center" type="button" value="@Language.CreateNew" style="border-radius: 5px;" onclick="ActionsButtonclick(@((int)FormType.New))" />
+            </div>
 
-                    <button id="collapse" style="background-color: #666; border:hidden; color: #fff; border-radius: 5px; margin: 0 2px 0 2px; font-size: 12px "
+            <div style="justify-self:flex-end" class="collapses-expansion-container row">
+                <div style="margin:0 2px 0 2px">
+                    <button type="button" id="expand" class="btn" style="background-color: #666; border:hidden; color: #fff; border-radius: 5px;  font-size: 12px "
+                            onclick="$('#treeview').data('kendoTreeView').expand('.k-item')">
+                        <i class="fa fa-expand"> </i> @Language.ExpandTree
+                    </button>
+                </div>
+
+                <div style="margin:0 2px 0 2px">
+                    <button type="button" id="collapse" class="btn" style="background-color: #666; border:hidden;width:100%; color: #fff; border-radius: 5px;  font-size: 12px "
                             onclick="$('#treeview').data('kendoTreeView').collapse('.k-item')">
-                        <i class="fa fa-compress"> </i> تضييق الشجرة
+                        <i class="fa fa-compress"> </i> @Language.CollapseTree
                     </button>
                 </div>
             </div>
+        </div>
 
         <div>
-            <p id="WaitLoad" style="display:none;color:crimson;font-weight:bold;"> @Language.PleaseWait ..........</p>
+            <p id="WaitLoad" style="color:crimson;font-weight:bold;"> @Language.PleaseWait ..........</p>
 
             <div id="divTree" style="min-height:450px;max-height:700px;overflow:auto;display:none;">
                 <ul id="treeview">
@@ -85,6 +99,19 @@
         </div>
     </div>
 
+    <div>
+            <p id="WaitLoad" style="display:none;color:crimson;font-weight:bold;"> @Language.PleaseWait ..........</p>
+
+            <div id="divTree" style="min-height:450px;max-height:700px;overflow:auto;display:none;">
+                <ul id="treeview">
+                    <li data-expanded='true' id="root">
+                        <i class='fa fa-tree' style='padding-left: 4px; padding-right: 4px;margin-left:0px'></i> <v id='UU' data-id="0">@Language.CostCenters </v>
+                        <ul id="root-children">
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     <div class="col-sm-7">
 
         <input type="number" id="Id" class="the_ID" hidden />

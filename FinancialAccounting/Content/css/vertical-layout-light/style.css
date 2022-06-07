@@ -23219,11 +23219,12 @@ body.avgrund-active {
 .content-wrapper.ar-EG {
     /*background: #e8eff9;*/
     background-image: url('/Content/accounting-flipped.jpg');
-    /*background-size: 100%;*/
-    width: 100%;
-    background-repeat: round;
-    /*-webkit-flex-grow: 1;*/
-    flex-grow: 1;
+    background-size: cover;
+    background-position: left;
+    /*width: 100%;*/
+    background-repeat: no-repeat;
+    -webkit-flex-grow: 1;
+    flex-grow: 10;
     padding: 2rem 2rem;
 }
 
@@ -23231,7 +23232,7 @@ body.avgrund-active {
     /*background: #e8eff9;*/
     background-image: url('/Content/accounting.jpg');
     background-size: cover;
-    background-position:center;
+    background-position:right;
     /*width: 100%;*/
     background-repeat: no-repeat;
     -webkit-flex-grow: 1;
@@ -25478,12 +25479,12 @@ body.avgrund-active {
   color: #9a9ea2;
 }
 
-input.btn.ar-EG{
+/*input.btn.ar-EG{
     float:left
 }
 input.btn.en-US{
     float:right
-}
+}*/
 
 .ar-EG {
     direction: rtl;
@@ -25544,4 +25545,10 @@ input[type=number] {
 
 .btn-danger:hover {
     box-shadow: 0 0 0 0.2rem rgba(255, 38, 38, 0.5);
+}
+
+.table td,
+.table th {
+    white-space: nowrap;
+    width: 1%;
 }

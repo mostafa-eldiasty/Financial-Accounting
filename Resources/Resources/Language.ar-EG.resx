@@ -408,4 +408,31 @@
   <data name="Difference" xml:space="preserve">
     <value>الفرق</value>
   </data>
+  <data name="CollapseTree" xml:space="preserve">
+    <value>توسيع الشجرة</value>
+  </data>
+  <data name="ExpandTree" xml:space="preserve">
+    <value>تضييق الشجرة</value>
+  </data>
+  <data name="AccountCode" xml:space="preserve">
+    <value>كود الحساب</value>
+  </data>
+  <data name="AccountName" xml:space="preserve">
+    <value>اسم الحساب</value>
+  </data>
+  <data name="CostCenterCode" xml:space="preserve">
+    <value>كود مركز التكلفة</value>
+  </data>
+  <data name="CostCenterName" xml:space="preserve">
+    <value>اسم مركز التكلفة</value>
+  </data>
+  <data name="CreditBeginningBalance" xml:space="preserve">
+    <value>رصيد اول المدة دائن</value>
+  </data>
+  <data name="DebitAndCreditSidesMustBeEqual" xml:space="preserve">
+    <value>يجب ان يتساوى طرفى المدين و الدائن</value>
+  </data>
+  <data name="DebitBeginningBalance" xml:space="preserve">
+    <value>رصيد اول المدة مدين</value>
+  </data>
 </root>

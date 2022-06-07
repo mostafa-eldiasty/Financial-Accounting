@@ -1984,8 +1984,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Transactions\Views\Shared\" />
-    <Folder Include="Views\Journals\" />
-    <Folder Include="Views\JournalTypes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
