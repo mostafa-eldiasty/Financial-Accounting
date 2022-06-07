@@ -438,4 +438,25 @@
   <data name="AccountMustBeChosenForRowNo" xml:space="preserve">
     <value>Account Must Be Chosen For Row No. :</value>
   </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CostCenterDistributionRatio" xml:space="preserve">
+    <value>Cost Center Distribution Ratio</value>
+  </data>
+  <data name="HunderedPercentOfRatiosMustBeDistributed" xml:space="preserve">
+    <value>Values Must be distributed by 100%</value>
+  </data>
+  <data name="Okay" xml:space="preserve">
+    <value>Okay</value>
+  </data>
+  <data name="Percent" xml:space="preserve">
+    <value>Percent</value>
+  </data>
+  <data name="Remains" xml:space="preserve">
+    <value>Remains</value>
+  </data>
 </root>

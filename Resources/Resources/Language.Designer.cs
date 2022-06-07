@@ -160,6 +160,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Amount.
+        /// </summary>
+        public static string Amount {
+            get {
+                return ResourceManager.GetString("Amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Analatical Accounts.
         /// </summary>
         public static string AnalaticalAccounts {
@@ -259,6 +268,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code.
         /// </summary>
         public static string Code {
@@ -336,6 +354,15 @@ namespace Resources.Resources {
         public static string CostCenterCode {
             get {
                 return ResourceManager.GetString("CostCenterCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cost Center Distribution Ratio.
+        /// </summary>
+        public static string CostCenterDistributionRatio {
+            get {
+                return ResourceManager.GetString("CostCenterDistributionRatio", resourceCulture);
             }
         }
         
@@ -664,6 +691,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Values Must be distributed by 100%.
+        /// </summary>
+        public static string HunderedPercentOfRatiosMustBeDistributed {
+            get {
+                return ResourceManager.GetString("HunderedPercentOfRatiosMustBeDistributed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Email Address.
         /// </summary>
         public static string InvalidEmailAddress {
@@ -808,6 +844,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Okay.
+        /// </summary>
+        public static string Okay {
+            get {
+                return ResourceManager.GetString("Okay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -822,6 +867,15 @@ namespace Resources.Resources {
         public static string PasswordAndConfirmationNotMatch {
             get {
                 return ResourceManager.GetString("PasswordAndConfirmationNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Percent.
+        /// </summary>
+        public static string Percent {
+            get {
+                return ResourceManager.GetString("Percent", resourceCulture);
             }
         }
         
@@ -867,6 +921,15 @@ namespace Resources.Resources {
         public static string Previous {
             get {
                 return ResourceManager.GetString("Previous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remains.
+        /// </summary>
+        public static string Remains {
+            get {
+                return ResourceManager.GetString("Remains", resourceCulture);
             }
         }
         

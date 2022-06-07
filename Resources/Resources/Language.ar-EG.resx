@@ -438,4 +438,25 @@
   <data name="AccountMustBeChosenForRowNo" xml:space="preserve">
     <value>:يجب اختيار حساب:الصف رقم</value>
   </data>
+  <data name="Amount" xml:space="preserve">
+    <value>القيمة</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>اغلاق</value>
+  </data>
+  <data name="CostCenterDistributionRatio" xml:space="preserve">
+    <value>توزيع نسب مراكز التكلفة</value>
+  </data>
+  <data name="HunderedPercentOfRatiosMustBeDistributed" xml:space="preserve">
+    <value>%يجب توزيع القيم بنسبة 100</value>
+  </data>
+  <data name="Okay" xml:space="preserve">
+    <value>موافق</value>
+  </data>
+  <data name="Percent" xml:space="preserve">
+    <value>النسبة</value>
+  </data>
+  <data name="Remains" xml:space="preserve">
+    <value>المتبقى</value>
+  </data>
 </root>
