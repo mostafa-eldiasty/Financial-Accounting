@@ -459,4 +459,19 @@
   <data name="Remains" xml:space="preserve">
     <value>المتبقى</value>
   </data>
+  <data name="AllRightsReserved" xml:space="preserve">
+    <value>جميع الحقوق محفوظة</value>
+  </data>
+  <data name="BackToDashboard" xml:space="preserve">
+    <value>عودة الى الصفحة الرئيسية</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="PleaseContactUsToResolve" xml:space="preserve">
+    <value>من فضلك تواصل معنا لحل المشكلة</value>
+  </data>
+  <data name="Sorry" xml:space="preserve">
+    <value>عذرا</value>
+  </data>
 </root>

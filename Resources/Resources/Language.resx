@@ -459,4 +459,19 @@
   <data name="Remains" xml:space="preserve">
     <value>Remains</value>
   </data>
+  <data name="AllRightsReserved" xml:space="preserve">
+    <value>All rights reserved.</value>
+  </data>
+  <data name="BackToDashboard" xml:space="preserve">
+    <value>Back To Dashboard</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="PleaseContactUsToResolve" xml:space="preserve">
+    <value>Please Contact Us To Resolve</value>
+  </data>
+  <data name="Sorry" xml:space="preserve">
+    <value>Sorry</value>
+  </data>
 </root>

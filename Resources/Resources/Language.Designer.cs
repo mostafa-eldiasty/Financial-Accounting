@@ -160,6 +160,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All rights reserved..
+        /// </summary>
+        public static string AllRightsReserved {
+            get {
+                return ResourceManager.GetString("AllRightsReserved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Amount.
         /// </summary>
         public static string Amount {
@@ -201,6 +210,15 @@ namespace Resources.Resources {
         public static string AreYouSure {
             get {
                 return ResourceManager.GetString("AreYouSure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back To Dashboard.
+        /// </summary>
+        public static string BackToDashboard {
+            get {
+                return ResourceManager.GetString("BackToDashboard", resourceCulture);
             }
         }
         
@@ -592,6 +610,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Estimated Budgets.
         /// </summary>
         public static string EstimatedBudgets {
@@ -907,6 +934,15 @@ namespace Resources.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please Contact Us To Resolve.
+        /// </summary>
+        public static string PleaseContactUsToResolve {
+            get {
+                return ResourceManager.GetString("PleaseContactUsToResolve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please Wait.
         /// </summary>
         public static string PleaseWait {
@@ -1020,6 +1056,15 @@ namespace Resources.Resources {
         public static string SomethingWentWrong {
             get {
                 return ResourceManager.GetString("SomethingWentWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorry.
+        /// </summary>
+        public static string Sorry {
+            get {
+                return ResourceManager.GetString("Sorry", resourceCulture);
             }
         }
         
