@@ -54,7 +54,7 @@
             <div class="form-group row">
                 @Html.LabelFor(model => model.CurrencyId, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align:center;" })
                 <div class="col-9">
-                    @Html.DropDownListFor(m => m.CurrencyId, new SelectList(Model.currenciesLst, "Id", "ArabicName", Model.CurrencyId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
+                    @Html.DropDownListFor(m => m.CurrencyId, new SelectList(Model.currenciesLst, "Id", "CodeName", Model.CurrencyId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
                     @Html.ValidationMessageFor(model => model.CurrencyId, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -62,7 +62,7 @@
             <div class="form-group row">
                 @Html.LabelFor(model => model.AccountTypeId, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align:center;" })
                 <div class="col-9">
-                    @Html.DropDownListFor(m => m.AccountTypeId, new SelectList(Model.accountTypesLst, "Id", "ArabicName", Model.AccountTypeId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
+                    @Html.DropDownListFor(m => m.AccountTypeId, new SelectList(Model.accountTypesLst, "Id", "CodeName", Model.AccountTypeId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
                     @Html.ValidationMessageFor(model => model.AccountTypeId, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -133,7 +133,7 @@
                                         @*<input type="hidden" class="AccountBranches-AccountTreeId" value="@Model.Id" />*@
 
                                         <input type="checkbox" class="branch-checkbox" @(SetDisabled ? "disabled" : "")
-                                               @(Model.AccountBranches != null && Model.AccountBranches.Where(x => x.BranchId == branch.Id).Count() > 0 ? "checked" : "")> @branch.ArabicName
+                                               @(Model.AccountBranches != null && Model.AccountBranches.Where(x => x.BranchId == branch.Id).Count() > 0 ? "checked" : "")> @branch.Name
                                         </label>
                                     </div>
                                 </tr>
@@ -156,7 +156,7 @@
                                             @*<input type="hidden" class="AccountBranches-AccountTreeId" value="@Model.Id" />*@
 
                                             <input type="checkbox" class="analyticalAccount-checkbox" @(SetDisabled ? "disabled" : "")
-                                                   @(Model.Account_AnalaticalAccounts != null && Model.Account_AnalaticalAccounts.Where(x => x.AnalaticalAccountId == analyticalAccounts.Id).Count() > 0 ? "checked" : "")> @analyticalAccounts.ArabicName
+                                                   @(Model.Account_AnalaticalAccounts != null && Model.Account_AnalaticalAccounts.Where(x => x.AnalaticalAccountId == analyticalAccounts.Id).Count() > 0 ? "checked" : "")> @analyticalAccounts.Name
                                             </label>
                                         </div>
                                     </tr>
@@ -178,7 +178,7 @@
                                             <input type="hidden" class="AccountsCostCenters-CostCenterId" value="@costCenter.Id" />
 
                                             <input type="checkbox" class="costcenter-checkbox" @(SetDisabled ? "disabled" : "")
-                                                   @(Model.AccountsCostCenters != null && Model.AccountsCostCenters.Where(x => x.CostCenterId == costCenter.Id).Count() > 0 ? "checked" : "")> @costCenter.ArabicName
+                                                   @(Model.AccountsCostCenters != null && Model.AccountsCostCenters.Where(x => x.CostCenterId == costCenter.Id).Count() > 0 ? "checked" : "")> @costCenter.Name
                                         </label>
                                     </div>
                                 </tr>

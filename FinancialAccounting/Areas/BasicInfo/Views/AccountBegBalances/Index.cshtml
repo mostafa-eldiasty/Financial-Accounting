@@ -19,7 +19,7 @@
         <div class="form-group col-6 row">
             <label for="BranchesLst" class="col-form-label col-2" style="text-align: center;">@Language.Branch</label>
             <div class="col-9">
-                @Html.DropDownList("BranchesLst", new SelectList(ViewBag.Branches, "Id", "ArabicName"), Language.SelectFromLst, new { @class = "form-control" })
+                @Html.DropDownList("BranchesLst", new SelectList(ViewBag.Branches, "Id", "CodeName"), Language.SelectFromLst, new { @class = "form-control" })
             </div>
         </div>
 
@@ -51,7 +51,7 @@
                             @Html.DisplayFor(m => m[i].AccountTree.Code)
                         </td>
                         <td>
-                            @Html.DisplayFor(m => m[i].AccountTree.ArabicName)
+                            @Html.DisplayFor(m => m[i].AccountTree.Name)
                         </td>
                         <td>
                             @Html.TextBoxFor(m => m[i].DebitBegBalance, new { @style = "width:100%;text-align:center;background-color:inherit;border:none;",@Type = "number",@class="debit",

@@ -17,7 +17,7 @@ namespace DataAccess.DTOs
         [Display(Name = "Code", ResourceType = typeof(Language))]
         [Required(ErrorMessageResourceName = "CodeIsRequired", ErrorMessageResourceType = typeof(Language))]
         [Unique("Id", "CostCenterTree", ErrorMessageResourceName = "ThisCodeUsedBefore", ErrorMessageResourceType = typeof(Language))]
-        public new int Code { get; set; }
+        public override int Code { get; set; }
 
         //[Display(Name = "ArabicName", ResourceType = typeof(Language))]
         //[Required(ErrorMessageResourceName = "ArabicNameIsRequired", ErrorMessageResourceType = typeof(Language))]

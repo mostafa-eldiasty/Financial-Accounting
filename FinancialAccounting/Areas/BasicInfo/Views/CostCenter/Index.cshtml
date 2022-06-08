@@ -160,17 +160,17 @@
                 var icon = (item.IsGeneralCostCenter) ? "<img src='/Content/Images/folder.png' style='padding-left:4px;padding-right:4px;'  width='15' height='15'/>" : "<img src='/Content/Images/file.png' style='padding-left:4px;padding-right:4px;'  width='15' height='15'/>";
 
                 if (item.ParentId == null)
-                    $('#root-children').append('<li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU11" data-id="' + item.Id + '" data-isGeneralCostCenter="' + item.IsGeneralCostCenter + '">' + item.Code + ' - ' + item.ArabicName + '</v></li>');
+                    $('#root-children').append('<li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU11" data-id="' + item.Id + '" data-isGeneralCostCenter="' + item.IsGeneralCostCenter + '">' + item.Code + ' - ' + item.Name + '</v></li>');
                 else {
 
                     var HasKgroup = $('v[data-id=' + item.ParentId + ']').next().length > 0;
                     if (HasKgroup) {
                         var parentLst = $('v[data-id=' + item.ParentId + ']').next();
-                        parentLst.append('<li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU" data-id="' + item.Id + '" data-isGeneralCostCenter="' + item.IsGeneralCostCenter + '">' + item.Code + ' - ' + item.ArabicName + '</v></li>');
+                        parentLst.append('<li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU" data-id="' + item.Id + '" data-isGeneralCostCenter="' + item.IsGeneralCostCenter + '">' + item.Code + ' - ' + item.Name + '</v></li>');
                     }
                     else {
                         var parentLst = $('v[data-id=' + item.ParentId + ']').parent();
-                        parentLst.append('<ul><li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU" data-id="' + item.Id + '" data-isGeneralCostCenter="' + item.IsGeneralCostCenter + '">' + item.Code + ' - ' + item.ArabicName + '</v></li></ul>');
+                        parentLst.append('<ul><li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU" data-id="' + item.Id + '" data-isGeneralCostCenter="' + item.IsGeneralCostCenter + '">' + item.Code + ' - ' + item.Name + '</v></li></ul>');
                     }
                 }
             });

@@ -164,17 +164,17 @@
                 var icon = (item.IsGeneralAccount) ? "<img src='/Content/Images/folder.png' style='padding-left:4px;padding-right:4px;'  width='15' height='15'/>" : "<img src='/Content/Images/file.png' style='padding-left:4px;padding-right:4px;'  width='15' height='15'/>";
 
                 if (item.ParentId == null)
-                    $('#root-children').append('<li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU11" data-id="' + item.Id + '" data-accountType="' + item.AccountType.ArabicName + '" data-currency="' + item.Currency.ArabicName + '" data-isDebit="' + item.IsDebit + '" data-isGeneralAccount="' + item.IsGeneralAccount + '">' + item.Code + ' - ' + item.ArabicName + '</v></li>');
+                    $('#root-children').append('<li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU11" data-id="' + item.Id + '" data-accountType="' + item.AccountType.Name + '" data-currency="' + item.Currency.Name + '" data-isDebit="' + item.IsDebit + '" data-isGeneralAccount="' + item.IsGeneralAccount + '">' + item.Code + ' - ' + item.Name + '</v></li>');
                 else {
 
                     var HasKgroup = $('v[data-id=' + item.ParentId + ']').next().length > 0;
                     if (HasKgroup) {
                         var parentLst = $('v[data-id=' + item.ParentId + ']').next();
-                        parentLst.append('<li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU" data-id="' + item.Id + '" data-accountType="' + item.AccountType.ArabicName + '" data-currency="' + item.Currency.ArabicName + '" data-isDebit="' + item.IsDebit + '" data-isGeneralAccount="' + item.IsGeneralAccount + '">' + item.Code + ' - ' + item.ArabicName + '</v></li>');
+                        parentLst.append('<li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU" data-id="' + item.Id + '" data-accountType="' + item.AccountType.Name + '" data-currency="' + item.Currency.Name + '" data-isDebit="' + item.IsDebit + '" data-isGeneralAccount="' + item.IsGeneralAccount + '">' + item.Code + ' - ' + item.Name + '</v></li>');
                     }
                     else {
                         var parentLst = $('v[data-id=' + item.ParentId + ']').parent();
-                        parentLst.append('<ul><li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU" data-id="' + item.Id + '" data-accountType="' + item.AccountType.ArabicName + '" data-currency="' + item.Currency.ArabicName + '" data-isDebit="' + item.IsDebit + '" data-isGeneralAccount="' + item.IsGeneralAccount + '">' + item.Code + ' - ' + item.ArabicName + '</v></li></ul>');
+                        parentLst.append('<ul><li data-expanded="false" style="margin-left:8px;margin-right:16px;">' + icon + '<v class="PPU" data-id="' + item.Id + '" data-accountType="' + item.AccountType.Name + '" data-currency="' + item.Currency.Name + '" data-isDebit="' + item.IsDebit + '" data-isGeneralAccount="' + item.IsGeneralAccount + '">' + item.Code + ' - ' + item.Name + '</v></li></ul>');
                     }
                 }
             });
@@ -196,7 +196,12 @@
             }
 
             $('#AccountType').text($(this).find('v').eq(0).attr('data-accountType'));
-            $('#IsDebit').text($(this).find('v').eq(0).attr('data-isDebit') == "true" ? "مدين" : "دائن");
+
+            if("@System.Threading.Thread.CurrentThread.CurrentCulture.Name" == "en-US")
+                $('#IsDebit').text($(this).find('v').eq(0).attr('data-isDebit') == "true" ? "Debit" : "Credit");
+            else
+                $('#IsDebit').text($(this).find('v').eq(0).attr('data-isDebit') == "true" ? "مدين" : "دائن");
+
             $('#Currency').text($(this).find('v').eq(0).attr('data-currency'));
             $('#IsGeneralAccount').prop('checked', $(this).find('v').eq(0).attr('data-isGeneralAccount') == "true");
             return;

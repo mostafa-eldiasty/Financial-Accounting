@@ -99,7 +99,7 @@
                                         <input type="hidden" class="CostCenterBranches-BranchId" value="@branch.Id" />
 
                                         <input type="checkbox" class="branch-checkbox" @(SetDisabled ? "disabled" : "")
-                                               @(Model.CostCenterBranches != null && Model.CostCenterBranches.Where(x => x.BranchId == branch.Id).Count() > 0 ? "checked" : "")> @branch.ArabicName
+                                               @(Model.CostCenterBranches != null && Model.CostCenterBranches.Where(x => x.BranchId == branch.Id).Count() > 0 ? "checked" : "")> @branch.Name
                                         </label>
                                     </div>
                                 </tr>
@@ -121,7 +121,7 @@
                                             <input type="hidden" class="AccountsCostCenters-AccountId" value="@accounts.Id" />
 
                                             <input type="checkbox" class="accounts-checkbox" @(SetDisabled ? "disabled" : "")
-                                                   @(Model.AccountsCostCenters != null && Model.AccountsCostCenters.Where(x => x.AccountId == accounts.Id).Count() > 0 ? "checked" : "")> @accounts.ArabicName
+                                                   @(Model.AccountsCostCenters != null && Model.AccountsCostCenters.Where(x => x.AccountId == accounts.Id).Count() > 0 ? "checked" : "")> @accounts.Name
                                             </label>
                                         </div>
                                     </tr>

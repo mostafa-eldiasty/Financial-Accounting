@@ -43,7 +43,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.JournalTypeId,Language.JournalType, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align:center;" })
             <div class="col-9">
-                @Html.DropDownListFor(m => m.JournalTypeId, new SelectList(Model.JournalTypeLst, "Id", "ArabicName", Model.JournalTypeId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
+                @Html.DropDownListFor(m => m.JournalTypeId, new SelectList(Model.JournalTypeLst, "Id", "CodeName", Model.JournalTypeId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
                 @Html.ValidationMessageFor(model => model.JournalTypeId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -61,7 +61,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.BranchId, Language.Branch, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align:center;" })
             <div class="col-9">
-                @Html.DropDownListFor(m => m.BranchId, new SelectList(Model.BranchesLst, "Id", "ArabicName", Model.BranchId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
+                @Html.DropDownListFor(m => m.BranchId, new SelectList(Model.BranchesLst, "Id", "CodeName", Model.BranchId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
                 @Html.ValidationMessageFor(model => model.BranchId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -69,7 +69,7 @@
         <div class="form-group row">
             @Html.LabelFor(model => model.CurrencyId, Language.Currency, htmlAttributes: new { @class = "col-form-label col-3", style = "text-align:center;" })
             <div class="col-9">
-                @Html.DropDownListFor(m => m.CurrencyId, new SelectList(Model.CurrenciesLst, "Id", "ArabicName", Model.CurrencyId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
+                @Html.DropDownListFor(m => m.CurrencyId, new SelectList(Model.CurrenciesLst, "Id", "CodeName", Model.CurrencyId), Language.SelectFromLst, new { @class = "form-control", disabled = SetDisabled ? "disabled" : "false" })
                 @Html.ValidationMessageFor(model => model.CurrencyId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -288,7 +288,7 @@
                      <tr>
                             @Html.Hidden("JournalDetails-Id", 0, new { @class = "JournalDetails-Id" })
                             <td>
-                                @Html.DropDownList("JournalDetails-AccountId", new SelectList(Model.AccountLst, "Id", "ArabicName", 0), Language.SelectFromLst, new { @class = "JournalDetails-AccountId", onclick = "$(this).select();" })
+                                @Html.DropDownList("JournalDetails-AccountId", new SelectList(Model.AccountLst, "Id", "CodeName", 0), Language.SelectFromLst, new { @class = "JournalDetails-AccountId", onclick = "$(this).select();" })
                             </td>
                             <td>
                                 @Html.TextBox("JournalDetails-Debit", 0.00, "{0:N2}", new { @class = "JournalDetails-Debit", @type = "Number", onclick = "$(this).select();" })

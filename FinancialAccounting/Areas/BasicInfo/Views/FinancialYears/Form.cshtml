@@ -73,7 +73,7 @@
 
             @if (ViewBag.FormType == (int)FormType.New || ViewBag.FormType == (int)FormType.Edit)
             {
-                <div class="col-md-offset-2 col-sm-6">
+                <div class="col-md-offset-2 col-sm-6" style="flex-direction:row-reverse;display:flex">
                     <input type="submit" value="@Language.Save" class="btn btn-info" />
                 </div>
             }

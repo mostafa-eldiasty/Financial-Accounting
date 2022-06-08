@@ -6,20 +6,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccess.DTOs
 {
-    public class BranchDto
+    public class BranchDto : BaseModelDto
     {
         public int Id { get; set; }
         [Display(Name = "Code", ResourceType = typeof(Language))]
         [Required(ErrorMessageResourceName = "CodeIsRequired", ErrorMessageResourceType = typeof(Language))]
-        [Index(nameof(Code), IsUnique = true)]
         [Unique(IdName: "Id", TableName: "Branches", ErrorMessageResourceName = "ThisCodeUsedBefore", ErrorMessageResourceType = typeof(Language))]
-        public int Code { get; set; }
-        [Display(Name = "ArabicName", ResourceType = typeof(Language))]
-        [Required(ErrorMessageResourceName = "ArabicNameIsRequired", ErrorMessageResourceType = typeof(Language))]
-        public string ArabicName { get; set; }
-        [Display(Name = "EnglishName", ResourceType = typeof(Language))]
-        [Required(ErrorMessageResourceName = "EnglishNameIsRequired", ErrorMessageResourceType = typeof(Language))]
-        public string EnglishName { get; set; }
+        public override int Code { get; set; }
+        //[Display(Name = "ArabicName", ResourceType = typeof(Language))]
+        //[Required(ErrorMessageResourceName = "ArabicNameIsRequired", ErrorMessageResourceType = typeof(Language))]
+        //public string ArabicName { get; set; }
+        //[Display(Name = "EnglishName", ResourceType = typeof(Language))]
+        //[Required(ErrorMessageResourceName = "EnglishNameIsRequired", ErrorMessageResourceType = typeof(Language))]
+        //public string EnglishName { get; set; }
         [Display(Name = "IsDefaultBranch", ResourceType = typeof(Language))]
         public bool IsDefault { get; set; }
         [Display(Name = "PhoneNumber1", ResourceType = typeof(Language))]

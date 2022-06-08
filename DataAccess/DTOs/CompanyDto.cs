@@ -7,18 +7,18 @@ using System.Web;
 
 namespace DataAccess.DTOs
 {
-    public class CompanyDto
+    public class CompanyDto : BaseModelDto
     {
         public int Id { get; set; }
-        [Required(ErrorMessageResourceName = "CodeIsRequired", ErrorMessageResourceType = typeof(Language))]
-        [Display(Name = "Code", ResourceType = typeof(Language))]
-        public int Code { get; set; }
-        [Required(ErrorMessageResourceName = "ArabicNameIsRequired", ErrorMessageResourceType = typeof(Language))]
-        [Display(Name = "ArabicName", ResourceType = typeof(Language))]
-        public string ArabicName { get; set; }
-        [Required(ErrorMessageResourceName = "EnglishNameIsRequired", ErrorMessageResourceType = typeof(Language))]
-        [Display(Name = "EnglishName", ResourceType = typeof(Language))]
-        public string EnglishName { get; set; }
+        //[Required(ErrorMessageResourceName = "CodeIsRequired", ErrorMessageResourceType = typeof(Language))]
+        //[Display(Name = "Code", ResourceType = typeof(Language))]
+        //public int Code { get; set; }
+        //[Required(ErrorMessageResourceName = "ArabicNameIsRequired", ErrorMessageResourceType = typeof(Language))]
+        //[Display(Name = "ArabicName", ResourceType = typeof(Language))]
+        //public string ArabicName { get; set; }
+        //[Required(ErrorMessageResourceName = "EnglishNameIsRequired", ErrorMessageResourceType = typeof(Language))]
+        //[Display(Name = "EnglishName", ResourceType = typeof(Language))]
+        //public string EnglishName { get; set; }
         [Display(Name = "PhoneNumber1", ResourceType = typeof(Language))]
         [Phone(ErrorMessageResourceName = "InvalidPhoneNum", ErrorMessageResourceType = typeof(Language))]
         public string PhoneNumber1 { get; set; }
